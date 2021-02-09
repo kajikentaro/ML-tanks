@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
+using System.Threading.Tasks;
+
 
 public class StageMaker : MonoBehaviour
 {
@@ -54,10 +57,28 @@ public class StageMaker : MonoBehaviour
             }
         }
     }
+    public Text startGameCounter;
+    public GameObject Panel;
+    async void countDown(int n)
+    {
+        string[] showText = { "Start!", "1", "2", "3" };
+        startGameCounter.text = showText[n];
+        if (n != 0)
+        {
+            await Task.Delay(1000);
+            countDown(n - 1);
+        }
+        else
+        {
+            await Task.Delay(1000);
+            Panel.SetActive(false);
+        }
+    }
     void newGame(int stage_number)
     {
         int[,] blocks = roadStage(stage_number);
         drawBlock(blocks);
+        countDown(3);
         //ステージが完成する。
         //
         //なんかの処理
