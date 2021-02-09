@@ -15,12 +15,14 @@ public class rotate : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   
+        /* 
         _center = bottom.position;
         transform.RotateAround(
             _center,
             _axis,
             360 / _period * Time.deltaTime
         );
+        */
     }
 }
