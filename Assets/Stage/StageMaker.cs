@@ -4,6 +4,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Threading.Tasks;
+using UnityEngine.SceneManagement;
 
 
 public class StageMaker : MonoBehaviour
@@ -72,18 +73,23 @@ public class StageMaker : MonoBehaviour
         {
             await Task.Delay(1000);
             Panel.SetActive(false);
+            SceneManager.LoadScene("MainStage");
         }
     }
+    void finish()
+    {
+        
+    }
+    int stage_number;
     void newGame(int stage_number)
     {
+        this.stage_number = stage_number;
         int[,] blocks = roadStage(stage_number);
         drawBlock(blocks);
         countDown(3);
-        //ステージが完成する。
-        //
         //なんかの処理
     }
-    void Start()//  ？「全てはここからはじまる」
+    void Start()
     {
         newGame(1);//第一ステージを始めるよ。
     }
