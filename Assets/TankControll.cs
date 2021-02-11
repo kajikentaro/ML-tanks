@@ -9,25 +9,28 @@ public class TankControll : MonoBehaviour
     public float speed = 3.0f;
 	//別のオブジェクトから参照する
 	GameObject refObj;
+	public int aliving = 1;
+
+	void Start(){
+		aliving = 1;
+	}
 	//public float rotate_speed = 3.0f;
 	// Update is called once per frame
 	void Update () {
-		//平行移動
-		if (Input.GetKey ("w")) {
-			transform.position += transform.forward * speed * Time.deltaTime;
-		}
-		if (Input.GetKey ("s")) {
-			transform.position -= transform.forward * speed * Time.deltaTime;
-		}
-		if (Input.GetKey("d")) {
-			transform.position += transform.right * speed * Time.deltaTime;
-		}
-		if (Input.GetKey ("a")) {
-			transform.position -= transform.right * speed * Time.deltaTime;
-			//Exposionオブジェクトを参照
-			//startEffect()はeffectStartスクリプトのメソッド
-			//この場合は戦車が左に進んだら爆発する
-			
+		if(aliving == 1){
+			//平行移動
+			if (Input.GetKey ("w")) {
+				transform.position += transform.forward * speed * Time.deltaTime;
+			}
+			if (Input.GetKey ("s")) {
+				transform.position -= transform.forward * speed * Time.deltaTime;
+			}
+			if (Input.GetKey("d")) {
+				transform.position += transform.right * speed * Time.deltaTime;
+			}
+			if (Input.GetKey ("a")) {
+				transform.position -= transform.right * speed * Time.deltaTime;
+			}
 		}
 	}
 	
@@ -44,8 +47,7 @@ public class TankControll : MonoBehaviour
             // このスクリプトがついているオブジェクトを破壊する（thisは省略が可能）
             Destroy(gameObject.transform.Find("top").gameObject);
 			Destroy(gameObject.transform.Find("bottom").gameObject);
-			
-
+			aliving = 0;
             // ぶつかってきたオブジェクトを破壊する
             Destroy(other.gameObject);		
         }
