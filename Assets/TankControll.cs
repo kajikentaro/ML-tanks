@@ -7,6 +7,8 @@ public class TankControll : MonoBehaviour
 	public Vector3 latestPos;
     
     public float speed = 3.0f;
+	//別のオブジェクトから参照する
+	GameObject refObj;
 	//public float rotate_speed = 3.0f;
 	// Update is called once per frame
 	void Update () {
@@ -22,6 +24,12 @@ public class TankControll : MonoBehaviour
 		}
 		if (Input.GetKey ("a")) {
 			transform.position -= transform.right * speed * Time.deltaTime;
+			//Exposionオブジェクトを参照
+			//startEffect()はeffectStartスクリプトのメソッド
+			//この場合は戦車が左に進んだら爆発する
+			refObj=GameObject.Find("Exposion");
+			effectStart es=refObj.GetComponent<effectStart>();
+			es.startEffect();
 		}
 	}
 }
