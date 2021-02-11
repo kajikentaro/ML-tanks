@@ -532,7 +532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shellPrefab: {fileID: 529684915016566862, guid: b45e08b6f03c44f84aef7d77317b0402,
     type: 3}
-  shotSpeed: 700
+  shotSpeed: 3
 --- !u!54 &1456577657
 Rigidbody:
   m_ObjectHideFlags: 0
