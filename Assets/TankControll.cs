@@ -27,21 +27,27 @@ public class TankControll : MonoBehaviour
 			//Exposionオブジェクトを参照
 			//startEffect()はeffectStartスクリプトのメソッド
 			//この場合は戦車が左に進んだら爆発する
+			
+		}
+	}
+	
+	private void OnCollisionEnter(Collision other)
+    {	
+		//public GameObject top = transform.Find("top").gameObject;
+		//public GameObject bottom = transform.Find("bottom").gameObject;
+        // もしもぶつかった相手のTagにShellという名前が書いてあったならば（条件）
+        if (other.gameObject.tag == "Shell")
+        {	
 			refObj=GameObject.Find("Exposion");
 			effectStart es=refObj.GetComponent<effectStart>();
 			es.startEffect();
-		}
-	}
-	private void OnCollisionEnter(Collision other)
-    {
-        // もしもぶつかった相手のTagにShellという名前が書いてあったならば（条件）
-        if (other.gameObject.tag == "Shell")
-        {
             // このスクリプトがついているオブジェクトを破壊する（thisは省略が可能）
-            Destroy(this.gameObject);
+            Destroy(gameObject.transform.Find("top").gameObject);
+			Destroy(gameObject.transform.Find("bottom").gameObject);
+			
 
             // ぶつかってきたオブジェクトを破壊する
-            Destroy(other.gameObject);
+            Destroy(other.gameObject);		
         }
     }
 }
