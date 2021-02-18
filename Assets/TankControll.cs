@@ -45,11 +45,11 @@ public class TankControll : MonoBehaviour
 			effectStart es=refObj.GetComponent<effectStart>();
 			es.startEffect();
             // このスクリプトがついているオブジェクトを破壊する（thisは省略が可能）
+            Destroy(other.gameObject);	
             Destroy(gameObject.transform.Find("top").gameObject);
 			Destroy(gameObject.transform.Find("bottom").gameObject);
 			aliving = 0;
             // ぶつかってきたオブジェクトを破壊する
-            Destroy(other.gameObject);		
         }
     }
 }
