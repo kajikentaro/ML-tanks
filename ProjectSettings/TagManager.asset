@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Shell
+  - Mine
   layers:
   - Default
   - TransparentFX

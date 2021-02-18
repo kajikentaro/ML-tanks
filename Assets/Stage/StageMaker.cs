@@ -73,7 +73,6 @@ public class StageMaker : MonoBehaviour
         {
             await Task.Delay(1000);
             Panel.SetActive(false);
-            SceneManager.LoadScene("MainStage");
         }
     }
     void finish()
