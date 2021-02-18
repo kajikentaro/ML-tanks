@@ -33,7 +33,7 @@ public class StageMaker : MonoBehaviour
             blocks = new char[h,w];
             //while (fs.Peek() != -1)
             for (int i = 0; i < h; i++)
-            {
+            { 
                 string line = fs.ReadLine();
                 for (int j = 0; j < w; j++)
                 {
