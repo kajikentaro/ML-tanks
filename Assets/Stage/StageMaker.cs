@@ -33,7 +33,7 @@ public class StageMaker : MonoBehaviour
             blocks = new int[h, w];
             //while (fs.Peek() != -1)
             for (int i = 0; i < h; i++)
-            {
+            { 
                 string line = fs.ReadLine();
                 for (int j = 0; j < w; j++)
                 {
@@ -73,7 +73,7 @@ public class StageMaker : MonoBehaviour
         {
             await Task.Delay(1000);
             Panel.SetActive(false);
-            SceneManager.LoadScene("MainStage");
+            //SceneManager.LoadScene("MainStage");
         }
     }
     void finish()
