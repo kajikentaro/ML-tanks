@@ -7,8 +7,6 @@ public class TankControll : MonoBehaviour
 	public Vector3 latestPos;
     
     public float speed = 3.0f;
-	//別のオブジェクトから参照する
-	GameObject refObj;
 	public int aliving = 1;
 
 	void Start(){
@@ -33,23 +31,4 @@ public class TankControll : MonoBehaviour
 			}
 		}
 	}
-	
-	private void OnCollisionEnter(Collision other)
-    {	
-		//public GameObject top = transform.Find("top").gameObject;
-		//public GameObject bottom = transform.Find("bottom").gameObject;
-        // もしもぶつかった相手のTagにShellという名前が書いてあったならば（条件）
-        if (other.gameObject.tag == "Shell")
-        {	
-			refObj=GameObject.Find("Exposion");
-			effectStart es=refObj.GetComponent<effectStart>();
-			es.startEffect();
-            // このスクリプトがついているオブジェクトを破壊する（thisは省略が可能）
-            Destroy(gameObject.transform.Find("top").gameObject);
-			Destroy(gameObject.transform.Find("bottom").gameObject);
-			aliving = 0;
-            // ぶつかってきたオブジェクトを破壊する
-            Destroy(other.gameObject);		
-        }
-    }
 }

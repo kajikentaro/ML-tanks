@@ -16,7 +16,6 @@ public class ShotShell : MonoBehaviour
         {
             // 砲弾のプレハブを実体化（インスタンス化）する。
             GameObject shell = Instantiate(shellPrefab, transform.position, Quaternion.identity);
-
             // 砲弾に付いているRigidbodyコンポーネントにアクセスする。
             Rigidbody shellRb = shell.GetComponent<Rigidbody>();
             // 前に飛ばす
