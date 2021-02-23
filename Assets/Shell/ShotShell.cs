@@ -12,7 +12,7 @@ public class ShotShell : MonoBehaviour
     {
         // もしもSpaceキーを押したならば（条件）
         // 「Space」の部分を変更することで他のキーにすることができる（ポイント）
-        if (Input.GetKeyDown(KeyCode.Space) && StageMaker.canMove )
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && StageMaker.canMove )
         {
             // 砲弾のプレハブを実体化（インスタンス化）する。
             GameObject shell = Instantiate(shellPrefab, transform.position, Quaternion.identity);

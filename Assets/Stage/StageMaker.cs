@@ -137,6 +137,7 @@ public class StageMaker : MonoBehaviour
     }
     void Start()
     {
+        canMove = false;
         char[,] blocks = LoadStage(stage_number);
         drawBlock(blocks);
         countDown(3);
