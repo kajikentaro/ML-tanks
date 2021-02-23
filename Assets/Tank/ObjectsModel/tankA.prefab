@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2092805988796675316}
   - component: {fileID: 2637167135240845227}
+  - component: {fileID: 8283137511705036604}
   m_Layer: 0
   m_Name: tankA
   m_TagString: Untagged
@@ -46,6 +47,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aliving: 1
+--- !u!54 &8283137511705036604
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405897957522867300}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 116
+  m_CollisionDetection: 0
 --- !u!82 &560681495949756458
 AudioSource:
   m_ObjectHideFlags: 0
@@ -154,7 +171,8 @@ GameObject:
   - component: {fileID: 6926960794793764374}
   - component: {fileID: 5665292812317323525}
   - component: {fileID: 3739214872376913815}
-  - component: {fileID: 2457149201842486695}
+  - component: {fileID: 6196317643914752884}
+  - component: {fileID: 8236581842066206836}
   m_Layer: 0
   m_Name: top
   m_TagString: Untagged
@@ -236,7 +254,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 311898a49d8664337a18edc32f1f9cf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &2457149201842486695
+--- !u!65 &6196317643914752884
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2335595501771705335}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &8236581842066206836
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -248,9 +279,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 46
   m_CollisionDetection: 0
 --- !u!1 &7060799361397808285
 GameObject:
@@ -264,6 +295,7 @@ GameObject:
   - component: {fileID: 1388227310759729651}
   - component: {fileID: 93848538665457118}
   - component: {fileID: 8413188048789281293}
+  - component: {fileID: 9121414017182078825}
   m_Layer: 0
   m_Name: bottom
   m_TagString: Untagged
@@ -347,6 +379,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   latestPos: {x: 0, y: 0, z: 0}
+--- !u!65 &9121414017182078825
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7060799361397808285}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.5714285, y: 1.9999999, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8202926784524765729
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,10 +402,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9080791044053530917}
   - component: {fileID: 2325614537740932068}
-  - component: {fileID: 6678159498800382759}
-  - component: {fileID: 3836242011952374131}
   m_Layer: 0
-  m_Name: tankA
+  m_Name: tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -397,35 +440,6 @@ MonoBehaviour:
   latestPos: {x: 0, y: 0, z: 0}
   speed: 3
   aliving: 1
---- !u!54 &6678159498800382759
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8202926784524765729}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!65 &3836242011952374131
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8202926784524765729}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1431875137446685872
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -511,6 +525,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8644129863335902869}
     m_Modifications:
+    - target: {fileID: 7295618439617545955, guid: ac1a266c937b0489cac592c7bb96f305,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 126
+      objectReference: {fileID: 0}
     - target: {fileID: 7295618439617545964, guid: ac1a266c937b0489cac592c7bb96f305,
         type: 3}
       propertyPath: m_Name
@@ -571,7 +590,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7295618439617545955, guid: ac1a266c937b0489cac592c7bb96f305, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ac1a266c937b0489cac592c7bb96f305, type: 3}
 --- !u!4 &6520900224311596045 stripped
 Transform:

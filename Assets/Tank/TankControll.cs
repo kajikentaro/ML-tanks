@@ -26,13 +26,13 @@ public class TankControll : MonoBehaviour
 	public Vector3 latestPos;
     
     public float speed = 3.0f;
-	public int aliving = 1;
+	public int aliving;
 
 	void Start(){
 		aliving = 1;
 	}
 	//public float rotate_speed = 3.0f;
-	// Update is called once per frame
+	//Update is called once per frame
 	void Update () {
 		if(aliving == 1){
 			//平行移動

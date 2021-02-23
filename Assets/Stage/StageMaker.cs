@@ -55,7 +55,7 @@ public class StageMaker : MonoBehaviour
             {
                 if (blocks[i,j] == '0') continue;
                 if(blocks[i,j] == '1'){
-                    Vector3 block_position = new Vector3(block_width * (j + 0.5f), block_depth / 2.0f, block_height * (h - i - 1 + 0.5f));
+                    Vector3 block_position = new Vector3(block_width * (j + 0.5f), -block_depth * 4.0f, block_height * (h - i - 1 + 0.5f));
                     Instantiate(block_objs[blocks[i,j] - '1'], block_position, Quaternion.identity);
                     
                 }
