@@ -32,11 +32,11 @@ public class BottomRotate : MonoBehaviour
 		//回転移動
 		Vector3 diff = transform.position - latestPos;   //前回からどこに進んだかをベクトルで取得
     	latestPos = transform.position;  //前回のPositionの更新
+		float rotate_speed = 5f;
 
-    	//ベクトルの大きさが0.01以上の時に向きを変える処理をする
-    	if (diff.magnitude > 0.01f)
-    	{
-        	transform.rotation = Quaternion.LookRotation(diff); //向きを変更する
-    	}
+		float step = rotate_speed*Time.deltaTime;
+
+		Vector3 newDir = Vector3.RotateTowards(transform.forward,diff,step,10.0F);
+		transform.rotation = Quaternion.LookRotation(newDir);
     }
 }
