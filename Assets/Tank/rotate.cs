@@ -14,9 +14,11 @@ public class rotate : MonoBehaviour
         if(plane.Raycast(ray,out distance)){
             var lookPoint = ray.GetPoint(distance);
             transform.LookAt(new Vector3(lookPoint.x,0.5f,lookPoint.z));
+            Vector3 angl = transform.eulerAngles;
+            transform.eulerAngles = new Vector3(0, angl.y, 0);
         }
     }
-    /* 
+    /*
     private void Update()
     {
         var screenPos = Camera.main.WorldToScreenPoint( transform.position );
