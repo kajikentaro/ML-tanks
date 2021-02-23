@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class StageMaker : MonoBehaviour
 {
+    static public bool canMove = false;
     GameObject[] block_objs;
     float block_height = 1.0f;
     float block_width = 1.6f;
@@ -93,7 +94,7 @@ public class StageMaker : MonoBehaviour
     void nextStage()
     {
         SceneManager.sceneLoaded += pass_value_toDetailScene;
-        SceneManager.LoadScene("result");
+        SceneManager.LoadScene("DetailScene");
     }
     async void countDown(int n)
     {
@@ -108,7 +109,31 @@ public class StageMaker : MonoBehaviour
         {
             await Task.Delay(1000);
             Panel.SetActive(false);
+            canMove = true;
         }
+    }
+    bool pausing= false;
+    void pause_game()
+    {
+        if(pausing == true)
+        {
+            //start
+            Time.timeScale = 1;
+            Panel.SetActive(false);
+            pausing = false;
+        }
+        else
+        {
+            //pause
+            Time.timeScale = 0;
+            startGameCounter.text = "pause";
+            Panel.SetActive(true);
+            pausing = true;
+        }
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown("p")) pause_game();
     }
     void Start()
     {
