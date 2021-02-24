@@ -13,7 +13,7 @@ public class rotate : MonoBehaviour
         plane.SetNormalAndPosition(Vector3.up,transform.localPosition);
         if(plane.Raycast(ray,out distance)){
             var lookPoint = ray.GetPoint(distance);
-            transform.LookAt(new Vector3(lookPoint.x,0.5f,lookPoint.z));
+            transform.LookAt(lookPoint);
         }
     }
     /* 
