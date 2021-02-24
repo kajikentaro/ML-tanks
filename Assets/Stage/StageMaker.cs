@@ -13,6 +13,9 @@ public class StageMaker : MonoBehaviour
     float block_height = 1.0f;
     float block_width = 1.6f;
     float block_depth = 1.0f;
+    public int stage_number = 1;
+
+    int remain_tanks = 0;
     void LoadResourse(int n)//プレハブ化してあるn個のブロックリソースをとってくるだけ。
     {
         block_objs = new GameObject[n];
@@ -23,7 +26,7 @@ public class StageMaker : MonoBehaviour
     }
     char[,] LoadStage(int stage_number)//csvからテキスト情報を読み込み、int2次元配列を返す
     {
-        string map_file_path = Application.dataPath + "/Stage/StageData/stage1.csv";
+        string map_file_path = Application.dataPath + "/Stage/StageData/stage" + stage_number + ".csv";
         char[,] blocks;
         using (var fs = new StreamReader(map_file_path, System.Text.Encoding.GetEncoding("UTF-8")))
         {
@@ -63,12 +66,35 @@ public class StageMaker : MonoBehaviour
                     // タンクのプレハブを実体化（インスタンス化）する。
                     Vector3 tank_position = new Vector3(block_width * (j + 0.5f), block_depth / 2.0f, block_height * (h - i - 1 + 0.5f));
                     Instantiate(tankPrefab, tank_position , Quaternion.identity);
+                    remain_tanks++;
                 }
             }
         }
     }
     public Text startGameCounter;
     public GameObject Panel;
+    public void dropout_tank()
+    {
+        remain_tanks--;
+        if(remain_tanks == 1)
+        {
+            startGameCounter.text = "Finish";
+            Panel.SetActive(true);
+            Invoke("nextStage", 3);
+        }
+    }
+    private void pass_value_toDetailScene(Scene next, LoadSceneMode mode)
+    {
+        // シーン切り替え後のスクリプトを取得
+        var stageMaker = GameObject.Find("ScriptHolder").GetComponent<DetailSceneScript>();
+        stageMaker.pre_stage_number = stage_number;
+        SceneManager.sceneLoaded -= pass_value_toDetailScene;
+    }
+    void nextStage()
+    {
+        SceneManager.sceneLoaded += pass_value_toDetailScene;
+        SceneManager.LoadScene("result");
+    }
     async void countDown(int n)
     {
         string[] showText = { "Start!", "1", "2", "3" };
@@ -84,26 +110,10 @@ public class StageMaker : MonoBehaviour
             Panel.SetActive(false);
         }
     }
-    void finish()
+    void Start()
     {
-        
-    }
-    int stage_number;
-    void newGame(int stage_number)
-    {
-        this.stage_number = stage_number;
         char[,] blocks = LoadStage(stage_number);
         drawBlock(blocks);
         countDown(3);
-
-        
-    }
-    void Start()
-    {
-        newGame(1);//第一ステージを始めるよ。
-    }
-    void Update()
-    {
-        
     }
 }
