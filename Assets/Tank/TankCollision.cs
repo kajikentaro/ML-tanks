@@ -22,6 +22,13 @@ public class TankCollision : MonoBehaviour
             Destroy(gameObject.transform.Find("tank").gameObject);
 			//Destroy(gameObject.transform.Find("bottom").gameObject);
 			aliving = 0;
+
+            GameObject scriptholder = GameObject.Find("ScriptHolder");
+            if(scriptholder != null)
+            {
+                StageMaker stagemaker = scriptholder.GetComponent<StageMaker>();
+                stagemaker.dropout_tank();
+            }
         }
     }
 }
