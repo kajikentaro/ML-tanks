@@ -8,12 +8,15 @@ using Unity.MLAgents.Sensors;
 public class MLTankBrain: Agent
 {
     public GameObject tankTop;
+    public GameObject shotShell;
     MLrotate tankTop_script;
+    ShotShell shotShell_script;
     float speed = 3.0f;
 	bool aliving;
 	void Start(){
 		aliving = true;
         tankTop_script = tankTop.GetComponent<MLrotate>();
+        shotShell_script = shotShell.GetComponent<ShotShell>();
 	}
 	//public float rotate_speed = 3.0f;
 	//Update is called once per frame
@@ -72,6 +75,10 @@ public class MLTankBrain: Agent
         {
             transform.position -= transform.right * speed * Time.deltaTime;
         }
+        if(actionBuffers.DiscreteActions[2] == 1)
+        {
+            shotShell_script.shotShell();
+        }
         tankTop_script.rotateByFloat(actionBuffers.ContinuousActions[0]);
         //EndEpisode();
         //SetReward(1.0f);
@@ -101,6 +108,13 @@ public class MLTankBrain: Agent
         else
         {
             discreteActionsOut[1] = 0;
+        }
+        if (Input.GetKey(KeyCode.Space)){
+            discreteActionsOut[2] = 1;
+        }
+        else
+        {
+            discreteActionsOut[2] = 2;
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {

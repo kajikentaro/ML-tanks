@@ -69,14 +69,14 @@ MonoBehaviour:
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 1
-      BranchSizes: 0300000003000000
+      BranchSizes: 030000000300000002000000
     VectorActionSize: 
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
   m_Model: {fileID: 0}
   m_InferenceDevice: 0
-  m_BehaviorType: 1
+  m_BehaviorType: 0
   m_BehaviorName: Tank
   TeamId: 0
   m_UseChildSensors: 1
@@ -99,6 +99,7 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
   tankTop: {fileID: 2335595501771705335}
+  shotShell: {fileID: 6520900224311596044}
 --- !u!114 &8237024381198338392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -609,6 +610,12 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7295618439617545955, guid: ac1a266c937b0489cac592c7bb96f305, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ac1a266c937b0489cac592c7bb96f305, type: 3}
+--- !u!1 &6520900224311596044 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7295618439617545964, guid: ac1a266c937b0489cac592c7bb96f305,
+    type: 3}
+  m_PrefabInstance: {fileID: 4558164426475836128}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6520900224311596045 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7295618439617545965, guid: ac1a266c937b0489cac592c7bb96f305,
