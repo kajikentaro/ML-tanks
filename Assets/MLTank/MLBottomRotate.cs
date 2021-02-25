@@ -15,11 +15,14 @@ public class MLBottomRotate : MonoBehaviour
     {
 		Vector3 diff = transform.position - latestPos;   //前回からどこに進んだかをベクトルで取得
     	latestPos = transform.position;  //前回のPositionの更新
-		float rotate_speed = 5f;
+		if(diff.magnitude >= 0.0000001f)
+        {
+		float rotate_speed = 25f;
 
 		float step = rotate_speed*Time.deltaTime;
 
 		Vector3 newDir = Vector3.RotateTowards(transform.forward,diff,step,10.0F);
 		transform.rotation = Quaternion.LookRotation(newDir);
+        }
     }
 }
