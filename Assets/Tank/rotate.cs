@@ -18,6 +18,13 @@ public class rotate : MonoBehaviour
             transform.eulerAngles = new Vector3(0, angl.y, 0);
         }
     }
+    float forceAdjustNum = 10.0f;
+    public void rotateByFloat(float input = 1)
+    {
+        float nowAngle = transform.eulerAngles.y;
+        nowAngle += input * forceAdjustNum;
+        transform.eulerAngles = Vector3.up * nowAngle;
+    }
     /*
     private void Update()
     {
