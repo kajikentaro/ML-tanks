@@ -7,17 +7,29 @@ using Unity.MLAgents.Sensors;
 
 public class MLTankBrain: Agent
 {
+    Rigidbody rBody;
+    public Transform target;
     public GameObject tankTop;
     public GameObject shotShell;
     MLrotate tankTop_script;
     ShotShell shotShell_script;
+    public bool EnableMove=false;
     float speed = 3.0f;
 	bool aliving;
+    public float launch_frequency_persec=0.2f;
+    float last_launch_time=0;
+    bool launch_flag=true;
 	void Start(){
 		aliving = true;
         tankTop_script = tankTop.GetComponent<MLrotate>();
         shotShell_script = shotShell.GetComponent<ShotShell>();
+        rBody=GetComponent<Rigidbody>();
 	}
+    void Update(){
+        if((Time.time-last_launch_time)>1/launch_frequency_persec){
+            launch_flag=true;
+        }
+    }
 	//public float rotate_speed = 3.0f;
 	//Update is called once per frame
     private void OnCollisionEnter(Collision other)
@@ -27,6 +39,8 @@ public class MLTankBrain: Agent
         // もしもぶつかった相手のTagにShellという名前が書いてあったならば（条件）
         if (other.gameObject.tag == "Shell")
         {
+            gameset(-1.0f);
+            /*
             GameObject refObj;
             refObj = GameObject.Find("Exposion");
             effectStart es = refObj.GetComponent<effectStart>();
@@ -44,6 +58,7 @@ public class MLTankBrain: Agent
                 stagemaker.dropout_tank();
                 aliving = false;
             }
+            */
         }
     }
     public override void Initialize()
@@ -51,37 +66,48 @@ public class MLTankBrain: Agent
     }
     public override void OnEpisodeBegin()
     {
+        int w=20;
+        rBody.velocity=Vector3.zero;
+        transform.localPosition=new Vector3(w*(Random.value-0.5f),0.3f,w*(Random.value-0.5f));
+        target.localPosition=new Vector3(w*(Random.value-0.5f),0.5f,w*(Random.value-0.5f));
     }
     public override void CollectObservations(VectorSensor sensor)
     {
         sensor.AddObservation(gameObject.transform.localPosition);
         sensor.AddObservation(tankTop.transform.rotation);
+        sensor.AddObservation(target.transform.localPosition);
     }
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
-        if (actionBuffers.DiscreteActions[0] == 1)
-        {
-            transform.position += transform.forward * speed * Time.deltaTime;
+        if(EnableMove){
+            if (actionBuffers.DiscreteActions[0] == 1)
+            {
+                transform.position += transform.forward * speed * Time.deltaTime;
+            }
+            if (actionBuffers.DiscreteActions[0] == 2)
+            {
+                transform.position -= transform.forward * speed * Time.deltaTime;
+            }
+            if(actionBuffers.DiscreteActions[1] == 1)
+            {
+                transform.position += transform.right * speed * Time.deltaTime;
+            }
+            if(actionBuffers.DiscreteActions[1] == 2)
+            {
+                transform.position -= transform.right * speed * Time.deltaTime;
+            }
         }
-        if (actionBuffers.DiscreteActions[0] == 2)
-        {
-            transform.position -= transform.forward * speed * Time.deltaTime;
-        }
-        if(actionBuffers.DiscreteActions[1] == 1)
-        {
-            transform.position += transform.right * speed * Time.deltaTime;
-        }
-        if(actionBuffers.DiscreteActions[1] == 2)
-        {
-            transform.position -= transform.right * speed * Time.deltaTime;
-        }
-        if(actionBuffers.DiscreteActions[2] == 1)
+        if(actionBuffers.DiscreteActions[2] == 1&&launch_flag)
         {
             shotShell_script.shotShell();
+            last_launch_time=Time.time;
+            launch_flag=false;
         }
         tankTop_script.rotateByFloat(actionBuffers.ContinuousActions[0]);
-        //EndEpisode();
-        //SetReward(1.0f);
+    }
+    public void gameset(float reward){
+        SetReward(reward);
+        EndEpisode();
     }
     public override void Heuristic(in ActionBuffers actionsOut)
     {
