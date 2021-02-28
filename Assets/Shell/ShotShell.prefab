@@ -44,8 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 670c34a2005764b6c86e54463231ff7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shellPrefab: {fileID: 529684915016566862, guid: b45e08b6f03c44f84aef7d77317b0402,
+  shellPrefab: {fileID: 4915038115320194317, guid: 988574e4595729e42be7b4237e5df385,
     type: 3}
+  top: {fileID: 405897957522867300, guid: c138938fc5e554e46ac1a7e5794e2fdb, type: 3}
   shotSpeed: 700
 --- !u!54 &7295618439617545955
 Rigidbody:

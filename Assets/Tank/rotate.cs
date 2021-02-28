@@ -8,15 +8,17 @@ public class rotate : MonoBehaviour
     float distance = 0;
     // Update is called once per frame
     void Update()
-    {   
+    {
         var ray = Camera.main.ScreenPointToRay (Input.mousePosition);
         plane.SetNormalAndPosition(Vector3.up,transform.localPosition);
         if(plane.Raycast(ray,out distance)){
             var lookPoint = ray.GetPoint(distance);
             transform.LookAt(new Vector3(lookPoint.x,0.5f,lookPoint.z));
+            Vector3 angl = transform.eulerAngles;
+            transform.eulerAngles = new Vector3(0, angl.y, 0);
         }
     }
-    /* 
+    /*
     private void Update()
     {
         var screenPos = Camera.main.WorldToScreenPoint( transform.position );

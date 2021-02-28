@@ -34,7 +34,7 @@ public class TankControll : MonoBehaviour
 	//public float rotate_speed = 3.0f;
 	//Update is called once per frame
 	void Update () {
-		if(aliving == 1){
+		if(aliving == 1 && StageMaker.canMove){
 			//平行移動
 			if (Input.GetKey ("w")) {
 				transform.position += transform.forward * speed * Time.deltaTime;
