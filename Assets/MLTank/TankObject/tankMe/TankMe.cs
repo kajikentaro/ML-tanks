@@ -39,7 +39,7 @@ public class TankMe : RootTank
                 leftTank(Time.deltaTime);
             }
             if (Input.GetKey(KeyCode.Space)){
-                shotShell_script.shotShell();
+                shotShell_script.shotShell(shotShell.transform);
             }
         }
         rotate_script.rotateByMouse();

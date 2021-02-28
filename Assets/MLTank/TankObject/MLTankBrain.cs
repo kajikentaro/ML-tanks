@@ -99,7 +99,7 @@ public class MLTankBrain: Agent
         }
         if(actionBuffers.DiscreteActions[2] == 1&&launch_flag)
         {
-            shotShell_script.shotShell();
+            //shotShell_script.shotShell();
             last_launch_time=Time.time;
             launch_flag=false;
         }

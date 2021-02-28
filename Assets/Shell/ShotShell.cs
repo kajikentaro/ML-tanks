@@ -12,13 +12,14 @@ public class ShotShell : MonoBehaviour
     public void shotShell()
     {
         // 砲弾のプレハブを実体化（インスタンス化）する。
-        Debug.Log(this.transform.rotation);
-        GameObject shell = Instantiate(shellPrefab, transform.position,this.transform.rotation );
+        Debug.Log(top.rotation);
+        Debug.Log(top.position);
+        GameObject shell = Instantiate(shellPrefab, top.position,top.rotation );
         // 砲弾に付いているRigidbodyコンポーネントにアクセスする。
         Rigidbody shellRb = shell.GetComponent<Rigidbody>();
         // 前に飛ばす
         // Vector3 backward = new Vector3(0,0,-1);
-        shellRb.AddForce(transform.forward * shotSpeed);
+        shellRb.AddForce(top.forward * shotSpeed);
         // 発射した砲弾を３秒後に破壊する。
         // （重要な考え方）不要になった砲弾はメモリー上から削除すること。
         //Destroy(shell, 3.0f);
