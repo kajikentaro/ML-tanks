@@ -9837,11 +9837,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5153138219730306595}
   - component: {fileID: 2916962239312229867}
-  - component: {fileID: 3047570529596791454}
   - component: {fileID: 601282616343517658}
   - component: {fileID: 3862421628812500087}
+  - component: {fileID: 5433581659677615102}
   m_Layer: 0
-  m_Name: TankA
+  m_Name: tankA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9879,29 +9879,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &3047570529596791454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6857493593980909235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1265f85597eae77429148de22fa1d68d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agentParameters:
-    maxStep: 0
-  hasUpgradedFromAgentParameters: 1
-  MaxStep: 0
-  EnableMove: 0
-  speedTank: 3
-  aliving: 1
-  target: {fileID: 0}
-  tankTop: {fileID: 8854375548522133792}
-  shotShell: {fileID: 2706121496120348811}
-  launch_frequency_persec: 0.2
 --- !u!114 &601282616343517658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9915,7 +9892,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 9
+    VectorObservationSize: 10
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 1
@@ -9946,6 +9923,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 5
   TakeActionsBetweenDecisions: 1
+--- !u!114 &5433581659677615102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6857493593980909235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 737927f496aff23429329ba9af794f01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  EnableMove: 0
+  speedTank: 3
+  aliving: 1
+  tankTop: {fileID: 8854375548522133792}
+  shotShell: {fileID: 2706121496120348811}
+  target: {fileID: 0}
 --- !u!1 &8854375548522133792
 GameObject:
   m_ObjectHideFlags: 0
