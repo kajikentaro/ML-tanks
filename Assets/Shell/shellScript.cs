@@ -6,8 +6,8 @@ public class shellScript : MonoBehaviour
 {
     // Start is called before the first frame update
     Rigidbody rb;
-    public int maxColCount=10;
     private int col_count=0;
+    public int maxColCount;
     void Start()
     {
         rb=GetComponent<Rigidbody>();
@@ -20,7 +20,6 @@ public class shellScript : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision){
         col_count+=1;
-        Debug.Log(col_count);
         if(col_count==maxColCount||collision.gameObject.tag!="block"){
             Destroy(this.gameObject);
         }

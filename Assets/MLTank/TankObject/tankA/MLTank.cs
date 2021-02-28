@@ -7,14 +7,13 @@ using Unity.MLAgents.Sensors;
 
 public class MLTank: RootTank
 {
-    Rigidbody rBody;
-    public Transform target;
+    public static Rigidbody rBody;
     public GameObject tankTop;
-    public GameObject shotShell;
+    public  GameObject shotShell;
     rotate tankTop_script;
     ShotShell shotShell_script;
     public float launch_frequency_persec=0.2f;
-    float last_launch_time=0;
+    public float last_launch_time=0;
     bool launch_flag=true;
 	void Start(){
 		aliving = true;
@@ -27,62 +26,34 @@ public class MLTank: RootTank
             launch_flag=true;
         }
     }
-	//public float rotate_speed = 3.0f;
-	//Update is called once per frame
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.tag == "Shell")
-        {
-            gameset(-1.0f);
-        }
-    }
-    public override void Initialize()
-    {
-    }
-    public override void OnEpisodeBegin()
-    {
-        int w=20;
-        rBody.velocity=Vector3.zero;
-        transform.localPosition=new Vector3(w*(Random.value-0.5f),0.3f,w*(Random.value-0.5f));
-        target.localPosition=new Vector3(w*(Random.value-0.5f),0.5f,w*(Random.value-0.5f));
-    }
-    public override void CollectObservations(VectorSensor sensor)
-    {
-        sensor.AddObservation(gameObject.transform.localPosition);
-        sensor.AddObservation(tankTop.transform.rotation);
-        sensor.AddObservation(target.transform.localPosition);
-    }
-    public override void OnActionReceived(ActionBuffers actionBuffers)
-    {
+    public void action_control(ActionBuffers actionBuffers){
         if(EnableMove){
             if (actionBuffers.DiscreteActions[0] == 1)
             {
-                transform.position += transform.forward * speedTank * Time.deltaTime;
+                forwardTank(Time.deltaTime);
             }
             if (actionBuffers.DiscreteActions[0] == 2)
             {
-                transform.position -= transform.forward * speedTank * Time.deltaTime;
+                backwardTank(Time.deltaTime);
             }
             if(actionBuffers.DiscreteActions[1] == 1)
             {
-                transform.position += transform.right * speedTank * Time.deltaTime;
+                rightTank(Time.deltaTime);
             }
             if(actionBuffers.DiscreteActions[1] == 2)
             {
-                transform.position -= transform.right * speedTank * Time.deltaTime;
+                leftTank(Time.deltaTime);
             }
         }
-        if(actionBuffers.DiscreteActions[2] == 1&&launch_flag)
+        if(actionBuffers.DiscreteActions[2] == 1)
         {
-            shotShell_script.shotShell();
-            last_launch_time=Time.time;
-            launch_flag=false;
+            if(launch_flag){
+                shotShell_script.shotShell();
+                last_launch_time=Time.time;
+                launch_flag=false;
+            }
         }
         tankTop_script.rotateByFloat(actionBuffers.ContinuousActions[0]);
-    }
-    public void gameset(float reward){
-        SetReward(reward);
-        EndEpisode();
     }
     public override void Heuristic(in ActionBuffers actionsOut)
     {

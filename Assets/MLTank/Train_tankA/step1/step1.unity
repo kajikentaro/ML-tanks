@@ -128,11 +128,52 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3047570529596791454, guid: a91b6ed6521009d47af766aad518233c,
+    - target: {fileID: 601282616343517658, guid: a91b6ed6521009d47af766aad518233c,
         type: 3}
-      propertyPath: target
+      propertyPath: m_BehaviorName
+      value: Tank
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706121496120348805, guid: a91b6ed6521009d47af766aad518233c,
+        type: 3}
+      propertyPath: maxColCnt
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706121496120348805, guid: a91b6ed6521009d47af766aad518233c,
+        type: 3}
+      propertyPath: maxColCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706121496120348805, guid: a91b6ed6521009d47af766aad518233c,
+        type: 3}
+      propertyPath: shellPrefab
       value: 
-      objectReference: {fileID: 1746826282}
+      objectReference: {fileID: 4915038115320194317, guid: 988574e4595729e42be7b4237e5df385,
+        type: 3}
+    - target: {fileID: 2818573667805828551, guid: a91b6ed6521009d47af766aad518233c,
+        type: 3}
+      propertyPath: m_MaxRayDegrees
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818573667805828551, guid: a91b6ed6521009d47af766aad518233c,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818573667805828551, guid: a91b6ed6521009d47af766aad518233c,
+        type: 3}
+      propertyPath: m_DetectableTags.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818573667805828551, guid: a91b6ed6521009d47af766aad518233c,
+        type: 3}
+      propertyPath: m_DetectableTags.Array.data[0]
+      value: target
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818573667805828551, guid: a91b6ed6521009d47af766aad518233c,
+        type: 3}
+      propertyPath: m_DetectableTags.Array.data[1]
+      value: block
+      objectReference: {fileID: 0}
     - target: {fileID: 5153138219730306595, guid: a91b6ed6521009d47af766aad518233c,
         type: 3}
       propertyPath: m_RootOrder
@@ -188,10 +229,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5433581659677615102, guid: a91b6ed6521009d47af766aad518233c,
+        type: 3}
+      propertyPath: rBody
+      value: 
+      objectReference: {fileID: 683872061}
+    - target: {fileID: 5433581659677615102, guid: a91b6ed6521009d47af766aad518233c,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1746826282}
+    - target: {fileID: 5433581659677615102, guid: a91b6ed6521009d47af766aad518233c,
+        type: 3}
+      propertyPath: EnableMove
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5433581659677615102, guid: a91b6ed6521009d47af766aad518233c,
+        type: 3}
+      propertyPath: launch_frequency_persec
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6857493593980909235, guid: a91b6ed6521009d47af766aad518233c,
         type: 3}
       propertyPath: m_Name
       value: TankA
+      objectReference: {fileID: 0}
+    - target: {fileID: 8854375548522133792, guid: a91b6ed6521009d47af766aad518233c,
+        type: 3}
+      propertyPath: m_TagString
+      value: target
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a91b6ed6521009d47af766aad518233c, type: 3}
@@ -301,7 +367,7 @@ GameObject:
   - component: {fileID: 522472807}
   m_Layer: 0
   m_Name: Wall (2)
-  m_TagString: Untagged
+  m_TagString: block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -380,6 +446,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &683872056 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6857493593980909235, guid: a91b6ed6521009d47af766aad518233c,
+    type: 3}
+  m_PrefabInstance: {fileID: 224149052}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &683872061 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 2916962239312229867, guid: a91b6ed6521009d47af766aad518233c,
+    type: 3}
+  m_PrefabInstance: {fileID: 224149052}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1150515838
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,7 +566,7 @@ GameObject:
   - component: {fileID: 1183121556}
   m_Layer: 0
   m_Name: Wall (3)
-  m_TagString: Untagged
+  m_TagString: block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -662,7 +740,7 @@ GameObject:
   - component: {fileID: 1746826281}
   - component: {fileID: 1746826280}
   - component: {fileID: 1746826279}
-  - component: {fileID: 1746826278}
+  - component: {fileID: 1746826283}
   m_Layer: 0
   m_Name: target
   m_TagString: Untagged
@@ -670,20 +748,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1746826278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1746826277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c62fd9a9b960f6f4886375ff261f7e6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  brain: {fileID: 0}
-  brain_script: {fileID: 0}
 --- !u!65 &1746826279
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -758,6 +822,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1746826283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746826277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50fb53fd153bb67458732af7ffc1d91e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ml: {fileID: 683872056}
 --- !u!1 &2126048180
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,7 +849,7 @@ GameObject:
   - component: {fileID: 2126048181}
   m_Layer: 0
   m_Name: Wall (1)
-  m_TagString: Untagged
+  m_TagString: block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -865,7 +942,7 @@ GameObject:
   - component: {fileID: 2126497097}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
