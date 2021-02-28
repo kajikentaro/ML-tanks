@@ -5,23 +5,20 @@ using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 
-public class MLTankBrain: RootTank
+public class MLTank: RootTank
 {
     Rigidbody rBody;
     public Transform target;
     public GameObject tankTop;
     public GameObject shotShell;
-    MLrotate tankTop_script;
+    rotate tankTop_script;
     ShotShell shotShell_script;
-    public bool EnableMove=false;
-    float speed = 3.0f;
-	bool aliving;
     public float launch_frequency_persec=0.2f;
     float last_launch_time=0;
     bool launch_flag=true;
 	void Start(){
 		aliving = true;
-        tankTop_script = tankTop.GetComponent<MLrotate>();
+        tankTop_script = tankTop.GetComponent<rotate>();
         shotShell_script = shotShell.GetComponent<ShotShell>();
         rBody=GetComponent<Rigidbody>();
 	}
@@ -34,31 +31,9 @@ public class MLTankBrain: RootTank
 	//Update is called once per frame
     private void OnCollisionEnter(Collision other)
     {
-        //public GameObject top = transform.Find("top").gameObject;
-        //public GameObject bottom = transform.Find("bottom").gameObject;
-        // もしもぶつかった相手のTagにShellという名前が書いてあったならば（条件）
         if (other.gameObject.tag == "Shell")
         {
             gameset(-1.0f);
-            /*
-            GameObject refObj;
-            refObj = GameObject.Find("Exposion");
-            effectStart es = refObj.GetComponent<effectStart>();
-            es.startEffect();
-            // このスクリプトがついているオブジェクトを破壊する（thisは省略が可能）
-            Destroy(other.gameObject);
-            Destroy(gameObject.transform.Find("tank").gameObject);
-            aliving = false;
-            //Destroy(gameObject.transform.Find("bottom").gameObject);
-
-            GameObject scriptholder = GameObject.Find("ScriptHolder");
-            if (scriptholder != null)
-            {
-                StageMaker stagemaker = scriptholder.GetComponent<StageMaker>();
-                stagemaker.dropout_tank();
-                aliving = false;
-            }
-            */
         }
     }
     public override void Initialize()
@@ -82,24 +57,24 @@ public class MLTankBrain: RootTank
         if(EnableMove){
             if (actionBuffers.DiscreteActions[0] == 1)
             {
-                transform.position += transform.forward * speed * Time.deltaTime;
+                transform.position += transform.forward * speedTank * Time.deltaTime;
             }
             if (actionBuffers.DiscreteActions[0] == 2)
             {
-                transform.position -= transform.forward * speed * Time.deltaTime;
+                transform.position -= transform.forward * speedTank * Time.deltaTime;
             }
             if(actionBuffers.DiscreteActions[1] == 1)
             {
-                transform.position += transform.right * speed * Time.deltaTime;
+                transform.position += transform.right * speedTank * Time.deltaTime;
             }
             if(actionBuffers.DiscreteActions[1] == 2)
             {
-                transform.position -= transform.right * speed * Time.deltaTime;
+                transform.position -= transform.right * speedTank * Time.deltaTime;
             }
         }
         if(actionBuffers.DiscreteActions[2] == 1&&launch_flag)
         {
-            //shotShell_script.shotShell();
+            shotShell_script.shotShell();
             last_launch_time=Time.time;
             launch_flag=false;
         }
@@ -155,3 +130,4 @@ public class MLTankBrain: RootTank
         }
     }
 }
+

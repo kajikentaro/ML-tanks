@@ -1,24 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.MLAgents;
+using Unity.MLAgents.Actuators;
+using Unity.MLAgents.Sensors;
 
-public class RootTank : MonoBehaviour
+public class RootTank : Agent
 {
     public bool EnableMove=false;
     public float speedTank = 3.0f;
 	public bool aliving=true;
-    public float launch_frequency_persec=0.2f;
     public void forwardTank(float delta){
-        transform.position += transform.forward * speedTank * delta;
+        if(EnableMove){
+            transform.position += transform.forward * speedTank * delta;
+        }
     }
     public void backwardTank(float delta){
-        transform.position -= transform.forward * speedTank * delta;
+        if(EnableMove){
+            transform.position -= transform.forward * speedTank * delta;
+        }
     }
     public void rightTank(float delta){
-        transform.position += transform.right * speedTank * delta;
+        if(EnableMove){
+            transform.position += transform.right * speedTank * delta;
+        }
     }
     public void leftTank(float delta){
-        transform.position -= transform.right * speedTank * delta;
+        if(EnableMove){
+            transform.position -= transform.right * speedTank * delta;
+        }
     }
     public void DestroyTank(){
         GameObject refObj;

@@ -38,8 +38,8 @@ public class TankMe : RootTank
             {
                 leftTank(Time.deltaTime);
             }
-            if (Input.GetKey(KeyCode.Space)){
-                shotShell_script.shotShell(shotShell.transform);
+            if (Input.GetMouseButtonDown(0)){
+                shotShell_script.shotShell();
             }
         }
         rotate_script.rotateByMouse();

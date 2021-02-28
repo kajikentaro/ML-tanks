@@ -7,7 +7,6 @@ public class MLBottomRotate : MonoBehaviour
     
 
 	public Vector3 latestPos;
-	public bool EnableMove=false;
     void Start () {
 		transform.rotation = Quaternion.identity;
 	}
@@ -16,7 +15,7 @@ public class MLBottomRotate : MonoBehaviour
     {
 		Vector3 diff = transform.position - latestPos;   //前回からどこに進んだかをベクトルで取得
     	latestPos = transform.position;  //前回のPositionの更新
-		if(EnableMove&&diff.magnitude >= 0.0000001f)
+		if(diff.magnitude >= 0.0000001f)
         {
 		float rotate_speed = 25f;
 
