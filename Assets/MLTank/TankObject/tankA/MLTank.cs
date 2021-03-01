@@ -13,7 +13,7 @@ public class MLTank: RootTank
     rotate tankTop_script;
     ShotShell shotShell_script;
     public float launch_frequency_persec=0.2f;
-    public float last_launch_time=0;
+    float last_launch_time=0;
     bool launch_flag=true;
 	void Start(){
 		aliving = true;
