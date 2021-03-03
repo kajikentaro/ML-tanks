@@ -8,16 +8,19 @@ using Unity.MLAgents.Sensors;
 public class targetML : Agent
 {
     Rigidbody rBody;
+    public GameObject tankTop;
     public GameObject tankObj;
     MLtankA_1 script;
     public float targetSpeed=4.0f;
+    public float t=0;
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "Shell")
         {
-            SetReward(-1.0f);
+            //SetReward(-1.0f);
             script.gameset(1.0f);
             EndEpisode();
+            Debug.Log("tank win");
         }
     }
 
@@ -28,10 +31,14 @@ public class targetML : Agent
     }
     public override void OnEpisodeBegin()
     {
+        int w=20;
         rBody.velocity=Vector3.zero;
+        transform.localPosition=new Vector3(w*(Random.value-0.5f),0.5f,w*(Random.value-0.5f));
+        t=0;
     }
     public override void CollectObservations(VectorSensor sensor)
     {
+        sensor.AddObservation(tankTop.transform.rotation);
         sensor.AddObservation(this.transform.localPosition);
         sensor.AddObservation(tankObj.transform.localPosition);
     }
@@ -53,11 +60,11 @@ public class targetML : Agent
         {
             transform.localPosition -=targetSpeed* transform.right * Time.deltaTime;
         }
-        if(script.t>2000){
+        if(t>1000){
             SetReward(1.0f);
-            script.gameset(-1.0f);
             EndEpisode();
         }
+        else t+=1;
     }
     public override void Heuristic(in ActionBuffers actionsOut)
     {

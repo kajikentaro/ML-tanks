@@ -7,9 +7,11 @@ using Unity.MLAgents.Sensors;
 
 public class MLTank: RootTank
 {
-    public static Rigidbody rBody;
+    public Rigidbody rBody;
     public GameObject tankTop;
     public  GameObject shotShell;
+    public GameObject Shells;
+    public float launch_cnt=0;
     rotate tankTop_script;
     ShotShell shotShell_script;
     //public float launch_frequency_persec=0.2f;
@@ -22,9 +24,16 @@ public class MLTank: RootTank
         rBody=GetComponent<Rigidbody>();
 	}
     void Update(){
+        if(!EnableMove){
+            rBody.velocity=Vector3.zero;
+        }
     }
     public override void OnEpisodeBegin(){
+        launch_cnt=0;
         shotShell_script.shellNum=0;
+        foreach(Transform child in Shells.transform){
+            GameObject.Destroy(child.gameObject);
+        }
     }
     public void action_control(ActionBuffers actionBuffers){
         if(EnableMove){
@@ -48,13 +57,12 @@ public class MLTank: RootTank
         if(actionBuffers.DiscreteActions[2] == 1)
         {
             if((Time.time-last_launch_time)>0.2f){
-                if(shotShell_script.shellNum<shotShell_script.maxShellNum){
-                    shotShell_script.shotShell();
-                    last_launch_time=Time.time;
-                }
+                shotShell_script.shotShell();
+                last_launch_time=Time.time;
+                launch_cnt+=1;
             }
         }
-        tankTop_script.rotateByFloat(actionBuffers.ContinuousActions[0]);
+        tankTop_script.rotateByFloat(Mathf.Clamp(actionBuffers.ContinuousActions[0],-0.6f,0.6f));
     }
     public override void Heuristic(in ActionBuffers actionsOut)
     {
