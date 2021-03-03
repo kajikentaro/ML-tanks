@@ -20,7 +20,7 @@ public class shellScript : MonoBehaviour
     void Update()
     {
         Vector3 v=rb.velocity;
-        transform.LookAt(v + transform.localPosition);
+        transform.LookAt(v + transform.position);
     }
     void OnCollisionEnter(Collision collision){
         col_count+=1;

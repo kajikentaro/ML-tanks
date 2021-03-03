@@ -1,18 +1,58 @@
 {
-    "Tank": {
+    "target": {
         "checkpoints": [
             {
-                "steps": 68710,
-                "file_path": "results\\test\\Tank\\Tank-68710.onnx",
-                "reward": 1.0,
-                "creation_time": 1614616387.1322634
+                "steps": 499954,
+                "file_path": "results\\test\\target\\target-499954.onnx",
+                "reward": 0.0,
+                "creation_time": 1614742953.4825237
+            },
+            {
+                "steps": 999938,
+                "file_path": "results\\test\\target\\target-999938.onnx",
+                "reward": 0.1,
+                "creation_time": 1614746727.4762962
+            },
+            {
+                "steps": 1000223,
+                "file_path": "results\\test\\target\\target-1000223.onnx",
+                "reward": 0.05555555555555555,
+                "creation_time": 1614746729.274417
             }
         ],
         "final_checkpoint": {
-            "steps": 68710,
+            "steps": 1000223,
+            "file_path": "results\\test\\target.onnx",
+            "reward": 0.05555555555555555,
+            "creation_time": 1614746729.274417
+        }
+    },
+    "Tank": {
+        "checkpoints": [
+            {
+                "steps": 499994,
+                "file_path": "results\\test\\Tank\\Tank-499994.onnx",
+                "reward": 0.4666666666666667,
+                "creation_time": 1614742953.7778213
+            },
+            {
+                "steps": 999942,
+                "file_path": "results\\test\\Tank\\Tank-999942.onnx",
+                "reward": 1.0,
+                "creation_time": 1614746729.0952082
+            },
+            {
+                "steps": 1000240,
+                "file_path": "results\\test\\Tank\\Tank-1000240.onnx",
+                "reward": 0.6,
+                "creation_time": 1614746729.3893166
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 1000240,
             "file_path": "results\\test\\Tank.onnx",
-            "reward": 1.0,
-            "creation_time": 1614616387.1322634
+            "reward": 0.6,
+            "creation_time": 1614746729.3893166
         }
     },
     "metadata": {

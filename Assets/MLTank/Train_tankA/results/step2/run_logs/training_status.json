@@ -1,18 +1,58 @@
 {
-    "Tank": {
+    "target": {
         "checkpoints": [
             {
-                "steps": 0,
-                "file_path": "results\\step2\\Tank\\Tank-0.onnx",
-                "reward": null,
-                "creation_time": 1614637944.0004008
+                "steps": 499995,
+                "file_path": "results\\step2\\target\\target-499995.onnx",
+                "reward": 0.0,
+                "creation_time": 1614751012.749461
+            },
+            {
+                "steps": 999969,
+                "file_path": "results\\step2\\target\\target-999969.onnx",
+                "reward": 0.0,
+                "creation_time": 1614754685.7021034
+            },
+            {
+                "steps": 1000060,
+                "file_path": "results\\step2\\target\\target-1000060.onnx",
+                "reward": 0.0,
+                "creation_time": 1614754685.8987617
             }
         ],
         "final_checkpoint": {
-            "steps": 0,
+            "steps": 1000060,
+            "file_path": "results\\step2\\target.onnx",
+            "reward": 0.0,
+            "creation_time": 1614754685.8987617
+        }
+    },
+    "Tank": {
+        "checkpoints": [
+            {
+                "steps": 499995,
+                "file_path": "results\\step2\\Tank\\Tank-499995.onnx",
+                "reward": null,
+                "creation_time": 1614751014.274581
+            },
+            {
+                "steps": 999981,
+                "file_path": "results\\step2\\Tank\\Tank-999981.onnx",
+                "reward": 0.7333333333333333,
+                "creation_time": 1614754685.4919758
+            },
+            {
+                "steps": 1000116,
+                "file_path": "results\\step2\\Tank\\Tank-1000116.onnx",
+                "reward": 0.5238095238095238,
+                "creation_time": 1614754685.8208418
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 1000116,
             "file_path": "results\\step2\\Tank.onnx",
-            "reward": null,
-            "creation_time": 1614637944.0004008
+            "reward": 0.5238095238095238,
+            "creation_time": 1614754685.8208418
         }
     },
     "metadata": {
