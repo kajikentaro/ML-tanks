@@ -14,7 +14,7 @@ public class shellScript : MonoBehaviour
     void Start()
     {
         rb=GetComponent<Rigidbody>();
-        rb.velocity= transform.forward * shotSpeed*10;
+        rb.velocity= transform.forward * shotSpeed;
     }
     // Update is called once per frame
     void Update()
