@@ -57,9 +57,11 @@ public class MLTank: RootTank
         if(actionBuffers.DiscreteActions[2] == 1)
         {
             if((Time.time-last_launch_time)>0.2f){
-                shotShell_script.shotShell();
-                last_launch_time=Time.time;
-                launch_cnt+=1;
+                if(shotShell_script.shellNum<shotShell_script.maxShellNum){
+                    shotShell_script.shotShell();
+                    last_launch_time=Time.time;
+                    launch_cnt+=1;
+                }
             }
         }
         tankTop_script.rotateByFloat(Mathf.Clamp(actionBuffers.ContinuousActions[0],-0.6f,0.6f));

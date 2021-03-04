@@ -17,7 +17,7 @@ public class targetML : Agent
     {
         if (other.gameObject.tag == "Shell")
         {
-            //SetReward(-1.0f);
+            SetReward(-1.0f);
             script.gameset(1.0f);
             EndEpisode();
             Debug.Log("tank win");
@@ -60,7 +60,7 @@ public class targetML : Agent
         {
             transform.localPosition -=targetSpeed* transform.right * Time.deltaTime;
         }
-        if(t>1000){
+        if(t>200){
             SetReward(1.0f);
             EndEpisode();
         }

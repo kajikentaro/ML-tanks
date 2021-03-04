@@ -235,8 +235,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DecisionPeriod: 5
-  TakeActionsBetweenDecisions: 1
+  DecisionPeriod: 20
+  TakeActionsBetweenDecisions: 0
 --- !u!1 &8166475957621779189
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,6 +802,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RaysPerDirection
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3862421628812500087, guid: a91b6ed6521009d47af766aad518233c,
+        type: 3}
+      propertyPath: DecisionPeriod
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3862421628812500087, guid: a91b6ed6521009d47af766aad518233c,
+        type: 3}
+      propertyPath: TakeActionsBetweenDecisions
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5153138219730306595, guid: a91b6ed6521009d47af766aad518233c,
         type: 3}

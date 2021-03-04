@@ -15,15 +15,13 @@ public class ShotShell : MonoBehaviour
     // Update is called once per frame
     public void shotShell()
     {
-        if(shellNum<maxShellNum){
-            shellNum+=1;
-            GameObject shell = Instantiate(shellPrefab, transform.position,transform.rotation ,parentObj.transform);
-            // 砲弾に付いているRigidbodyコンポーネントにアクセスする。
-            shell.GetComponent<shellScript>().maxCol=maxColCount;
-            shell.GetComponent<shellScript>().shotshell_gameobject=this.gameObject;
-            //Rigidbody shellRb = shell.GetComponent<Rigidbody>();
-            //shellRb.velocity= transform.forward * shotSpeed*10;
-            //AudioSource.PlayClipAtPoint(shotSound, transform.position);
-        }
+        shellNum+=1;
+        GameObject shell = Instantiate(shellPrefab, transform.position,transform.rotation ,parentObj.transform);
+        // 砲弾に付いているRigidbodyコンポーネントにアクセスする。
+        shell.GetComponent<shellScript>().maxCol=maxColCount;
+        shell.GetComponent<shellScript>().shotshell_gameobject=this.gameObject;
+        //Rigidbody shellRb = shell.GetComponent<Rigidbody>();
+        //shellRb.velocity= transform.forward * shotSpeed*10;
+        //AudioSource.PlayClipAtPoint(shotSound, transform.position);
     }
 }

@@ -42,7 +42,7 @@ public class MLtankA_1 : MLTank
     {
         action_control(actionBuffers);
         sum_rotation+=Mathf.Abs(actionBuffers.ContinuousActions[0]);
-        if(t>1000||launch_cnt>5||sum_rotation>limit_rotation){
+        if(t>200||launch_cnt>5||sum_rotation>limit_rotation){
             gameset(-1.0f);
             Debug.Log("target win");
         }
