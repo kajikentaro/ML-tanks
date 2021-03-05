@@ -767,52 +767,6 @@ PrefabInstance:
       propertyPath: parentObj
       value: 
       objectReference: {fileID: 137787378671629755}
-    - target: {fileID: 298460707195141779, guid: a91b6ed6521009d47af766aad518233c,
-        type: 3}
-      propertyPath: maxColCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 298460707195141779, guid: a91b6ed6521009d47af766aad518233c,
-        type: 3}
-      propertyPath: maxShellNum
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 601282616343517658, guid: a91b6ed6521009d47af766aad518233c,
-        type: 3}
-      propertyPath: m_Model
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 601282616343517658, guid: a91b6ed6521009d47af766aad518233c,
-        type: 3}
-      propertyPath: m_BehaviorType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 601282616343517658, guid: a91b6ed6521009d47af766aad518233c,
-        type: 3}
-      propertyPath: m_InferenceDevice
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2602369910422283710, guid: a91b6ed6521009d47af766aad518233c,
-        type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 13400000, guid: 8517d48675de241b0b658793bb910eb8,
-        type: 2}
-    - target: {fileID: 2818573667805828551, guid: a91b6ed6521009d47af766aad518233c,
-        type: 3}
-      propertyPath: m_RaysPerDirection
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3862421628812500087, guid: a91b6ed6521009d47af766aad518233c,
-        type: 3}
-      propertyPath: DecisionPeriod
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3862421628812500087, guid: a91b6ed6521009d47af766aad518233c,
-        type: 3}
-      propertyPath: TakeActionsBetweenDecisions
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5153138219730306595, guid: a91b6ed6521009d47af766aad518233c,
         type: 3}
       propertyPath: m_RootOrder
@@ -870,11 +824,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5433581659677615102, guid: a91b6ed6521009d47af766aad518233c,
         type: 3}
-      propertyPath: rBody
-      value: 
-      objectReference: {fileID: 6426081613970236522}
-    - target: {fileID: 5433581659677615102, guid: a91b6ed6521009d47af766aad518233c,
-        type: 3}
       propertyPath: Shells
       value: 
       objectReference: {fileID: 137787378671629755}
@@ -883,11 +832,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 8166475957447809943}
-    - target: {fileID: 5433581659677615102, guid: a91b6ed6521009d47af766aad518233c,
-        type: 3}
-      propertyPath: EnableMove
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6857493593980909235, guid: a91b6ed6521009d47af766aad518233c,
         type: 3}
       propertyPath: m_Name
@@ -895,15 +839,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a91b6ed6521009d47af766aad518233c, type: 3}
---- !u!1 &3350555573346903858 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6857493593980909235, guid: a91b6ed6521009d47af766aad518233c,
-    type: 3}
-  m_PrefabInstance: {fileID: 8166475959004008833}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &6426081613970236522 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 2916962239312229867, guid: a91b6ed6521009d47af766aad518233c,
+--- !u!4 &3951549636882208674 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5153138219730306595, guid: a91b6ed6521009d47af766aad518233c,
     type: 3}
   m_PrefabInstance: {fileID: 8166475959004008833}
   m_PrefabAsset: {fileID: 0}
@@ -913,9 +851,9 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8166475959004008833}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &3951549636882208674 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5153138219730306595, guid: a91b6ed6521009d47af766aad518233c,
+--- !u!1 &3350555573346903858 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6857493593980909235, guid: a91b6ed6521009d47af766aad518233c,
     type: 3}
   m_PrefabInstance: {fileID: 8166475959004008833}
   m_PrefabAsset: {fileID: 0}

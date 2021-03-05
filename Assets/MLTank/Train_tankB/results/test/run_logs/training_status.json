@@ -1,0 +1,24 @@
+{
+    "Tank": {
+        "checkpoints": [
+            {
+                "steps": 2059,
+                "file_path": "results\\test\\Tank\\Tank-2059.onnx",
+                "reward": null,
+                "creation_time": 1614923089.7344701
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 2059,
+            "file_path": "results\\test\\Tank.onnx",
+            "reward": null,
+            "creation_time": 1614923089.7344701
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.23.0",
+        "torch_version": "1.7.1",
+        "tensorflow_version": "2.4.0"
+    }
+}

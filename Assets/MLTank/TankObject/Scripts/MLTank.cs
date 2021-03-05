@@ -35,7 +35,13 @@ public class MLTank: RootTank
             GameObject.Destroy(child.gameObject);
         }
     }
+    public override void CollectObservations(VectorSensor sensor)
+    {
+        sensor.AddObservation(this.transform.localPosition);
+        sensor.AddObservation(tankTop.transform.rotation);
+    }
     public void action_control(ActionBuffers actionBuffers){
+        rBody.velocity=Vector3.zero;
         if(EnableMove){
             if (actionBuffers.DiscreteActions[0] == 1)
             {
@@ -56,15 +62,20 @@ public class MLTank: RootTank
         }
         if(actionBuffers.DiscreteActions[2] == 1)
         {
-            if((Time.time-last_launch_time)>0.2f){
+            if((Time.time-last_launch_time)>10.0f){
                 if(shotShell_script.shellNum<shotShell_script.maxShellNum){
                     shotShell_script.shotShell();
                     last_launch_time=Time.time;
                     launch_cnt+=1;
+                    Debug.Log(Time.time);
                 }
             }
         }
         tankTop_script.rotateByFloat(Mathf.Clamp(actionBuffers.ContinuousActions[0],-0.6f,0.6f));
+    }
+    public void gameset(float reward){
+        SetReward(reward);
+        EndEpisode();
     }
     public override void Heuristic(in ActionBuffers actionsOut)
     {
