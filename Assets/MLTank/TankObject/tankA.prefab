@@ -46,10 +46,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shellPrefab: {fileID: 4915038115320194317, guid: 988574e4595729e42be7b4237e5df385,
     type: 3}
-  parentObj: {fileID: 2465798074334002711}
+  parentObj: {fileID: 2851688215764801038}
+  tankObj: {fileID: 6857493593980909235}
   maxColCount: 1
   maxShellNum: 1
   shellNum: 0
+  shot_speed: 1
 --- !u!54 &298460707195141778
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -66,7 +68,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 14
   m_CollisionDetection: 0
---- !u!1 &2465798074334002711
+--- !u!1 &2851688215764801038
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,7 +76,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3527678041092702772}
+  - component: {fileID: 2226403447660481511}
   m_Layer: 0
   m_Name: Shells
   m_TagString: Untagged
@@ -82,15 +84,15 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3527678041092702772
+--- !u!4 &2226403447660481511
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2465798074334002711}
+  m_GameObject: {fileID: 2851688215764801038}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.57080305, y: 0.8384503, z: 0.15224242}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5153138219730306595}
@@ -141,9 +143,10 @@ GameObject:
   - component: {fileID: 6612927620383418121}
   - component: {fileID: 2602369910422283710}
   - component: {fileID: 8358296807940985383}
+  - component: {fileID: 7517340579433836638}
   m_Layer: 0
   m_Name: bottom
-  m_TagString: Untagged
+  m_TagString: tank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -221,8 +224,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.5714285, y: 1.9999999, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.5714285, y: 4, z: 2}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &8358296807940985383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,6 +239,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   latestPos: {x: 0, y: 0, z: 0}
+--- !u!114 &7517340579433836638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4284123370722782794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb6b867a41448888c1cd4f99643ad71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SensorName: RayPerceptionSensor2
+  m_DetectableTags:
+  - tank
+  - block
+  - Shell
+  m_RaysPerDirection: 30
+  m_MaxRayDegrees: 180
+  m_SphereCastRadius: 0
+  m_RayLength: 100
+  m_RayLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967291
+  m_ObservationStacks: 1
+  rayHitColor: {r: 1, g: 0, b: 0, a: 1}
+  rayMissColor: {r: 1, g: 1, b: 1, a: 1}
+  m_StartVerticalOffset: 1.8
+  m_EndVerticalOffset: 0
 --- !u!1 &5284893640700860609
 GameObject:
   m_ObjectHideFlags: 0
@@ -9872,7 +9904,7 @@ GameObject:
   - component: {fileID: 2916962239312229867}
   - component: {fileID: 601282616343517658}
   - component: {fileID: 3862421628812500087}
-  - component: {fileID: 5433581659677615102}
+  - component: {fileID: 8182621009662740423}
   m_Layer: 0
   m_Name: tankA
   m_TagString: tank
@@ -9893,7 +9925,7 @@ Transform:
   m_Children:
   - {fileID: 2633989275155254258}
   - {fileID: 5284893640701084899}
-  - {fileID: 3527678041092702772}
+  - {fileID: 2226403447660481511}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9926,8 +9958,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 10
-    NumStackedVectorObservations: 1
+    VectorObservationSize: 3
+    NumStackedVectorObservations: 30
     m_ActionSpec:
       m_NumContinuousActions: 1
       BranchSizes: 030000000300000002000000
@@ -9957,7 +9989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 20
   TakeActionsBetweenDecisions: 0
---- !u!114 &5433581659677615102
+--- !u!114 &8182621009662740423
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9966,7 +9998,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6857493593980909235}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 737927f496aff23429329ba9af794f01, type: 3}
+  m_Script: {fileID: 11500000, guid: afb03a3035d7b7749b40414200c15c80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   agentParameters:
@@ -9974,17 +10006,17 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
   EnableMove: 0
-  speedTank: 1
+  speedTank: 3
   aliving: 1
   rBody: {fileID: 2916962239312229867}
   tankTop: {fileID: 8854375548522133792}
   shotShell: {fileID: 298460707195141789}
-  Shells: {fileID: 2465798074334002711}
+  Shells: {fileID: 2851688215764801038}
   launch_cnt: 0
-  target: {fileID: 0}
   t: 0
-  limit_rotation: 100
+  limit_rotation: 150
   sum_rotation: 0
+  targetMode: 0
 --- !u!1 &8854375548522133792
 GameObject:
   m_ObjectHideFlags: 0
@@ -9996,7 +10028,6 @@ GameObject:
   - component: {fileID: 3278236052043713602}
   - component: {fileID: 4226978142100116673}
   - component: {fileID: 1447790552001397714}
-  - component: {fileID: 1113798736402481571}
   - component: {fileID: 3833523162391469303}
   - component: {fileID: 2818573667805828551}
   m_Layer: 0
@@ -10068,19 +10099,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1113798736402481571
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8854375548522133792}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3833523162391469303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10107,11 +10125,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SensorName: RayPerceptionSensor
   m_DetectableTags:
-  - target
+  - tank
   - block
-  m_RaysPerDirection: 20
-  m_MaxRayDegrees: 180
-  m_SphereCastRadius: 0.5
+  - Shell
+  m_RaysPerDirection: 30
+  m_MaxRayDegrees: 60
+  m_SphereCastRadius: 0
   m_RayLength: 100
   m_RayLayerMask:
     serializedVersion: 2

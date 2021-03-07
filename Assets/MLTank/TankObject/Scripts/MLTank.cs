@@ -19,6 +19,7 @@ public class MLTank: RootTank
     //bool launch_flag=true;
 	void Start(){
 		aliving = true;
+        Time.timeScale=1.0f;
         tankTop_script = tankTop.GetComponent<rotate>();
         shotShell_script = shotShell.GetComponent<ShotShell>();
         rBody=GetComponent<Rigidbody>();
@@ -37,8 +38,9 @@ public class MLTank: RootTank
     }
     public override void CollectObservations(VectorSensor sensor)
     {
-        sensor.AddObservation(this.transform.localPosition);
-        sensor.AddObservation(tankTop.transform.rotation);
+        sensor.AddObservation(this.transform.localPosition.x);
+        sensor.AddObservation(this.transform.localPosition.z);
+        sensor.AddObservation(tankTop.transform.rotation.y);
     }
     public void action_control(ActionBuffers actionBuffers){
         rBody.velocity=Vector3.zero;
@@ -67,7 +69,6 @@ public class MLTank: RootTank
                     shotShell_script.shotShell();
                     last_launch_time=Time.time;
                     launch_cnt+=1;
-                    Debug.Log(Time.time);
                 }
             }
         }

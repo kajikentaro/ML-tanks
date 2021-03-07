@@ -16,6 +16,7 @@ public class TankMe : RootTank
     void Start(){
         shotShell_script = shotShell.GetComponent<ShotShell>();
         rotate_script = tankTop.GetComponent<rotate>();
+        Time.timeScale=1.0f;
     }
     void Update()
     {

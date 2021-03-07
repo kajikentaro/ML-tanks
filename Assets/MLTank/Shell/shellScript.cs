@@ -17,14 +17,15 @@ public class shellScript : MonoBehaviour
         print(Time.timeScale);
         Time.timeScale=1.0f;
         rb=GetComponent<Rigidbody>();
-        rb.velocity= 3.0f*transform.forward * shotSpeed;
+        rb.velocity= 50.0f*transform.forward * shotSpeed;
     }
     // Update is called once per frame
     void Update()
     {
     }
     void OnCollisionEnter(Collision collision){
-        Debug.Log(collision.gameObject.tag);
+        //Debug.Log(collision.gameObject.tag);
+        rb=GetComponent<Rigidbody>();
         Vector3 v=rb.velocity;
         transform.LookAt(v+transform.position);
         if(collision.gameObject.tag=="tank"){
