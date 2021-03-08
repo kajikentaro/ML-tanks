@@ -12,6 +12,7 @@ public class MLTank: RootTank
     public  GameObject shotShell;
     public GameObject Shells;
     public float launch_cnt=0;
+    public int shotInterval=10;
     rotate tankTop_script;
     ShotShell shotShell_script;
     //public float launch_frequency_persec=0.2f;
@@ -64,7 +65,7 @@ public class MLTank: RootTank
         }
         if(actionBuffers.DiscreteActions[2] == 1)
         {
-            if((Time.time-last_launch_time)>10.0f){
+            if((Time.time-last_launch_time)>shotInterval*Time.deltaTime){
                 if(shotShell_script.shellNum<shotShell_script.maxShellNum){
                     shotShell_script.shotShell();
                     last_launch_time=Time.time;
@@ -77,6 +78,12 @@ public class MLTank: RootTank
     public void gameset(float reward){
         SetReward(reward);
         EndEpisode();
+    }
+    public void gamesetAll(){
+        GameObject [] objs=GameObject.FindGameObjectsWithTag("tank");
+        foreach(GameObject obj in objs){
+            obj.GetComponent<MLTank>().gameset(0.0f);
+        }
     }
     public override void Heuristic(in ActionBuffers actionsOut)
     {

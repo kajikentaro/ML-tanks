@@ -9,6 +9,7 @@ TagManager:
   - block
   - target
   - tank
+  - ignore
   layers:
   - Default
   - TransparentFX

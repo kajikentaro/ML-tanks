@@ -17,7 +17,7 @@ public class shellScript : MonoBehaviour
         print(Time.timeScale);
         Time.timeScale=1.0f;
         rb=GetComponent<Rigidbody>();
-        rb.velocity= 50.0f*transform.forward * shotSpeed;
+        rb.velocity= 200.0f*transform.forward * shotSpeed;
     }
     // Update is called once per frame
     void Update()
@@ -28,13 +28,13 @@ public class shellScript : MonoBehaviour
         rb=GetComponent<Rigidbody>();
         Vector3 v=rb.velocity;
         transform.LookAt(v+transform.position);
+        Debug.Log(collision.gameObject.tag);
+        col_count+=1;
         if(collision.gameObject.tag=="tank"){
-            shotshell_gameobject.GetComponent<ShotShell>().shellNum-=1;
             tank_gameobject.GetComponent<MLTank>().gameset(1.0f);
             collision.gameObject.GetComponent<MLTank>().gameset(-1.0f);
         }
-        col_count+=1;
-        if(col_count==maxCol||collision.gameObject.tag!="block"){
+        else if(col_count==maxCol||collision.gameObject.tag=="Shell"){
             shotshell_gameobject.GetComponent<ShotShell>().shellNum-=1;
             Destroy(this.gameObject);
         }
