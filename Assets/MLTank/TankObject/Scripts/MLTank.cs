@@ -20,8 +20,6 @@ public class MLTank: RootTank
     //bool launch_flag=true;
 	void Start(){
 		aliving = true;
-        Time.timeScale=1.0f;
-        Debug.Log(Time.timeScale);
         tankTop_script = tankTop.GetComponent<rotate>();
         shotShell_script = shotShell.GetComponent<ShotShell>();
         rBody=GetComponent<Rigidbody>();

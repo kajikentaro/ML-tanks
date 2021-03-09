@@ -8,7 +8,6 @@ public class NewBehaviourScript : MonoBehaviour
     Rigidbody rb;
     void Start()
     {
-        Time.timeScale=1.0f;
         rb=GetComponent<Rigidbody>();
         Vector3 v=new Vector3(-2.0f,0.0f,0.5f);
         rb.velocity=1.0f*v;
