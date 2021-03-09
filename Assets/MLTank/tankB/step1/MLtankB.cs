@@ -5,7 +5,7 @@ using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 
-public class MLtankA : MLTank
+public class MLtankB : MLTank
 {
     public float endT=0;
     public float now;

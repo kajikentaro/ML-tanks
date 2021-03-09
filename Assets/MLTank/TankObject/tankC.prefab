@@ -51,7 +51,7 @@ MonoBehaviour:
   maxColCount: 1
   maxShellNum: 1
   shellNum: 0
-  shot_speed: 1
+  shot_speed: 1.5
 --- !u!54 &298460707195141778
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -162,7 +162,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2465644840381229403, guid: 6a62fa5a10825b749ae1c77583c32c3f, type: 3}
+  - {fileID: 2100000, guid: 7b96f6b2715539d40b5f904b5b4d02b6, type: 2}
   - {fileID: 842886392398773992, guid: 6a62fa5a10825b749ae1c77583c32c3f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SensorName: RayPerceptionSensor2
   m_DetectableTags:
-  - tank
+  - target
   - block
   - Shell
   m_RaysPerDirection: 10
@@ -9894,7 +9894,7 @@ GameObject:
   - component: {fileID: 8182621009662740423}
   - component: {fileID: 6628997646467493935}
   m_Layer: 0
-  m_Name: tankA
+  m_Name: tankC
   m_TagString: tank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9974,7 +9974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DecisionPeriod: 5
+  DecisionPeriod: 1
   TakeActionsBetweenDecisions: 1
 --- !u!114 &8182621009662740423
 MonoBehaviour:
@@ -10081,7 +10081,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2465644840381229403, guid: 6a62fa5a10825b749ae1c77583c32c3f, type: 3}
+  - {fileID: 2100000, guid: 7b96f6b2715539d40b5f904b5b4d02b6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10128,7 +10128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SensorName: RayPerceptionSensor
   m_DetectableTags:
-  - tank
+  - target
   - block
   - Shell
   m_RaysPerDirection: 5

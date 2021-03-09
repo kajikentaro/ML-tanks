@@ -20,7 +20,8 @@ public class MLTank: RootTank
     //bool launch_flag=true;
 	void Start(){
 		aliving = true;
-        Time.timeScale=1.0f;
+        //Time.timeScale=1.0f;
+        Debug.Log(Time.timeScale);
         tankTop_script = tankTop.GetComponent<rotate>();
         shotShell_script = shotShell.GetComponent<ShotShell>();
         rBody=GetComponent<Rigidbody>();
@@ -42,6 +43,7 @@ public class MLTank: RootTank
         sensor.AddObservation(this.transform.localPosition.x);
         sensor.AddObservation(this.transform.localPosition.z);
         sensor.AddObservation(tankTop.transform.rotation.y);
+        sensor.AddObservation(shotShell_script.maxShellNum-shotShell_script.shellNum);
     }
     public void action_control(ActionBuffers actionBuffers){
         rBody.velocity=Vector3.zero;
@@ -73,7 +75,7 @@ public class MLTank: RootTank
                 }
             }
         }
-        tankTop_script.rotateByFloat(Mathf.Clamp(actionBuffers.ContinuousActions[0],-0.6f,0.6f));
+        tankTop_script.rotateByFloat(actionBuffers.DiscreteActions[3]-1);
     }
     public void gameset(float reward){
         SetReward(reward);
@@ -87,7 +89,6 @@ public class MLTank: RootTank
     }
     public override void Heuristic(in ActionBuffers actionsOut)
     {
-        var continuousActionsOut = actionsOut.ContinuousActions;
         var discreteActionsOut = actionsOut.DiscreteActions;
         if (Input.GetKey("w"))
         {
@@ -120,14 +121,14 @@ public class MLTank: RootTank
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            continuousActionsOut[0] = -1;
+            discreteActionsOut[3] = -1;
         }else if (Input.GetKey(KeyCode.LeftArrow))
         {
-            continuousActionsOut[0] = 1;
+            discreteActionsOut[3] = 1;
         }
         else
         {
-            continuousActionsOut[0] = 0;
+            discreteActionsOut[3] = 0;
         }
     }
 }

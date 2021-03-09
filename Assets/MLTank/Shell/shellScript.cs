@@ -14,8 +14,7 @@ public class shellScript : MonoBehaviour
     public int maxCol;
     void Start()
     {
-        print(Time.timeScale);
-        Time.timeScale=1.0f;
+        //Time.timeScale=1.0f;
         rb=GetComponent<Rigidbody>();
         rb.velocity= 200.0f*transform.forward * shotSpeed;
     }
@@ -31,8 +30,11 @@ public class shellScript : MonoBehaviour
         Debug.Log(collision.gameObject.tag);
         col_count+=1;
         if(collision.gameObject.tag=="tank"){
+            collision.gameObject.GetComponent<MLTank>().gameset(-0.1f);
+            if(tank_gameobject!=collision.gameObject)tank_gameobject.GetComponent<MLTank>().gameset(1.0f);
+        }
+        else if(collision.gameObject.tag=="target"){
             tank_gameobject.GetComponent<MLTank>().gameset(1.0f);
-            collision.gameObject.GetComponent<MLTank>().gameset(-1.0f);
         }
         else if(col_count==maxCol||collision.gameObject.tag=="Shell"){
             shotshell_gameobject.GetComponent<ShotShell>().shellNum-=1;
