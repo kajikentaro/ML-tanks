@@ -28,7 +28,7 @@ public class MLtankE : MLTank
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
         action_control(actionBuffers);
-        sum_rotation+=Mathf.Abs(actionBuffers.DiscreteActions[3]);
+        sum_rotation+=Mathf.Abs(actionBuffers.DiscreteActions[3]-1);
         now=(Time.time-T)/Time.deltaTime;
         if(now>endT||launch_cnt>20||sum_rotation>limit_rotation){
             gameset(-1.0f);

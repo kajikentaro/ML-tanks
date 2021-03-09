@@ -20,7 +20,7 @@ public class MLTank: RootTank
     //bool launch_flag=true;
 	void Start(){
 		aliving = true;
-        //Time.timeScale=1.0f;
+        Time.timeScale=1.0f;
         Debug.Log(Time.timeScale);
         tankTop_script = tankTop.GetComponent<rotate>();
         shotShell_script = shotShell.GetComponent<ShotShell>();
@@ -121,14 +121,14 @@ public class MLTank: RootTank
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            discreteActionsOut[3] = -1;
+            discreteActionsOut[3] = 0;
         }else if (Input.GetKey(KeyCode.LeftArrow))
         {
-            discreteActionsOut[3] = 1;
+            discreteActionsOut[3] = 2;
         }
         else
         {
-            discreteActionsOut[3] = 0;
+            discreteActionsOut[3] = 1;
         }
     }
 }
