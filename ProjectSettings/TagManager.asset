@@ -4,12 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Shell
-  - Mine
-  - block
   - target
+  - block
   - tank
-  - ignore
   layers:
   - Default
   - TransparentFX
@@ -19,8 +16,8 @@ TagManager:
   - UI
   - 
   - 
-  - holl
-  - shell
+  - 
+  - 
   - 
   - 
   - 

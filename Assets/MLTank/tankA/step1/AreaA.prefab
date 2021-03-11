@@ -740,11 +740,22 @@ PrefabInstance:
     - target: {fileID: 298460707195141779, guid: ba262f1b862063241b7e0127297a6e0b,
         type: 3}
       propertyPath: maxColCount
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 298460707195141779, guid: ba262f1b862063241b7e0127297a6e0b,
         type: 3}
       propertyPath: maxShellNum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 601282616343517658, guid: ba262f1b862063241b7e0127297a6e0b,
+        type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 635bec56354d63649968053dd29b78cb,
+        type: 3}
+    - target: {fileID: 601282616343517658, guid: ba262f1b862063241b7e0127297a6e0b,
+        type: 3}
+      propertyPath: m_InferenceDevice
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2818573667805828551, guid: ba262f1b862063241b7e0127297a6e0b,
@@ -755,7 +766,7 @@ PrefabInstance:
     - target: {fileID: 3862421628812500087, guid: ba262f1b862063241b7e0127297a6e0b,
         type: 3}
       propertyPath: DecisionPeriod
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3862421628812500087, guid: ba262f1b862063241b7e0127297a6e0b,
         type: 3}

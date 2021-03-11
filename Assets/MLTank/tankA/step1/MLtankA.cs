@@ -20,15 +20,17 @@ public class MLtankA : MLTank
         base.OnEpisodeBegin();
         sum_rotation=0;
         int w=25;
-        transform.localPosition=new Vector3(w*(Random.value-0.5f),0.3f,w*(Random.value-0.5f));
-        Vector3 newPosition = new Vector3(w*(Random.value-0.5f),0.3f,w*(Random.value-0.5f));
+        Vector3 newPosition1 = new Vector3(w*(Random.value-0.5f),0.3f,w*(Random.value-0.5f));
+        Vector3 newPosition2 = new Vector3(w*(Random.value-0.5f),0.3f,w*(Random.value-0.5f));
         float limit = target.transform.localScale.x / 2 * 1.414f + 1.5f;
         while (true)
         {
-            if (Vector3.Distance(newPosition, transform.localPosition) >= limit)break;
-            newPosition = new Vector3(w*(Random.value-0.5f),0.3f,w*(Random.value-0.5f));
+            if (Vector3.Distance(newPosition1,newPosition2) >= limit)break;
+            newPosition1 = new Vector3(w*(Random.value-0.5f),0.3f,w*(Random.value-0.5f));
+            newPosition2 = new Vector3(w*(Random.value-0.5f),0.3f,w*(Random.value-0.5f));
         }
-        target.transform.localPosition = newPosition;
+        transform.localPosition = newPosition1;
+        target.transform.localPosition = newPosition2;
     }
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
@@ -37,16 +39,18 @@ public class MLtankA : MLTank
         if (raycastHit.collider != null && raycastHit.collider.name == "target")
         {
             target.GetComponent<Renderer>().material.color = Color.red;
+            AddReward(0.01f);
         }
         else
         {
             target.GetComponent<Renderer>().material.color = Color.blue;
-            AddReward(-0.005f);
+            AddReward(-0.02f);
         }
 
         action_control(actionBuffers);
-        if(Time.time - start_time >= 20||launch_cnt>20){
-            gameset(-1.0f);
+        if(Time.time - start_time >= 10){
+            EndEpisode();
+            //gameset(-1.0f);
             //gamesetAll();
         }
     }
