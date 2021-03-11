@@ -11,8 +11,12 @@ public class MLTank: RootTank
     public GameObject tankTop;
     public  GameObject shotShell;
     public GameObject Shells;
+    public  GameObject minePrefab;
     public float launch_cnt=0;
     public int shotInterval=10;
+    public int maxMineNum=1;
+    public int currentMineNum=0;
+    public int ExplodeTime;
     rotate tankTop_script;
     ShotShell shotShell_script;
     //public float launch_frequency_persec=0.2f;
@@ -32,6 +36,7 @@ public class MLTank: RootTank
     public override void OnEpisodeBegin(){
         launch_cnt=0;
         shotShell_script.shellNum=0;
+        currentMineNum=0;
         foreach(Transform child in Shells.transform){
             GameObject.Destroy(child.gameObject);
         }
@@ -74,6 +79,14 @@ public class MLTank: RootTank
             }
         }
         tankTop_script.rotateByFloat(actionBuffers.DiscreteActions[3]-1);
+    }
+    public void SetMine(){
+        if(EnableSetMine&&currentMineNum<maxMineNum){
+            GameObject mine = Instantiate(minePrefab, transform.position,transform.rotation,Shells.transform);
+            mine.GetComponent<mineScript>().ExplodeTime=ExplodeTime;
+            mine.GetComponent<mineScript>().tank_gameobject=this.gameObject;
+            currentMineNum+=1;
+        }
     }
     public void gameset(float reward){
         SetReward(reward);
@@ -127,6 +140,12 @@ public class MLTank: RootTank
         else
         {
             discreteActionsOut[3] = 1;
+        }
+        if(Input.GetKey("m")){
+            discreteActionsOut[4]=1;
+        }
+        else{
+            discreteActionsOut[4]=0;
         }
     }
 }

@@ -8,6 +8,7 @@ using Unity.MLAgents.Sensors;
 public class RootTank : Agent
 {
     public bool EnableMove=false;
+    public bool EnableSetMine=false;
     public float speedTank = 1.0f;
 	public bool aliving=true;
     private float a=100.0f;
