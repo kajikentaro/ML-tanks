@@ -23,14 +23,21 @@ public class MLtankA : MLTank
         int w=25;
         T=Time.time;
         transform.localPosition=new Vector3(w*(Random.value-0.5f),0.3f,w*(Random.value-0.5f));
-        target.transform.localPosition=new Vector3(w*(Random.value-0.5f),0.3f,w*(Random.value-0.5f));
+        Vector3 newPosition = new Vector3(w*(Random.value-0.5f),0.3f,w*(Random.value-0.5f));
+        float limit = target.transform.localScale.x / 2 * 1.414f + 1.5f;
+        while (true)
+        {
+            if (Vector3.Distance(newPosition, transform.localPosition) >= limit)break;
+            newPosition = new Vector3(w*(Random.value-0.5f),0.3f,w*(Random.value-0.5f));
+        }
+        target.transform.localPosition = newPosition;
     }
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
         action_control(actionBuffers);
         sum_rotation+=Mathf.Abs(actionBuffers.DiscreteActions[3]-1);
         now=(Time.time-T)/Time.deltaTime;
-        if(now>endT||launch_cnt>20||sum_rotation>limit_rotation){
+        if(now>endT||launch_cnt>20){
             gameset(-1.0f);
             //gamesetAll();
         }
