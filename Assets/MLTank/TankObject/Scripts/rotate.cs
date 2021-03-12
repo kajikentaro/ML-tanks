@@ -18,7 +18,7 @@ public class rotate : MonoBehaviour
             transform.eulerAngles = new Vector3(0, angl.y, 0);
         }
     }
-    float forceAdjustNum = 10.0f;
+    float forceAdjustNum = 4.0f;
     public void rotateByFloat(float input = 1)
     {
         float nowAngle = transform.eulerAngles.y;

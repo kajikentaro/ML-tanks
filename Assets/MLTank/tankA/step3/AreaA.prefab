@@ -44,7 +44,7 @@ Transform:
   m_GameObject: {fileID: 3304792283092599971}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 8, y: -0.00000050862633, z: 6}
-  m_LocalScale: {x: 25, y: 5, z: 25}
+  m_LocalScale: {x: 3, y: 5, z: 3}
   m_Children: []
   m_Father: {fileID: 8166475958512024626}
   m_RootOrder: 7
@@ -751,11 +751,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 635bec56354d63649968053dd29b78cb,
+      objectReference: {fileID: 5022602860645237092, guid: 9de1d5e4871e45b40b3b82798ad09b63,
         type: 3}
     - target: {fileID: 601282616343517658, guid: ba262f1b862063241b7e0127297a6e0b,
         type: 3}
+      propertyPath: m_BehaviorType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 601282616343517658, guid: ba262f1b862063241b7e0127297a6e0b,
+        type: 3}
       propertyPath: m_InferenceDevice
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 601282616343517658, guid: ba262f1b862063241b7e0127297a6e0b,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 601282616343517658, guid: ba262f1b862063241b7e0127297a6e0b,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.BranchSizes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 601282616343517658, guid: ba262f1b862063241b7e0127297a6e0b,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2818573667805828551, guid: ba262f1b862063241b7e0127297a6e0b,

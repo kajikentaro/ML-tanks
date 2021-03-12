@@ -16,7 +16,7 @@ public class MLTank: RootTank
     rotate tankTop_script;
     ShotShell shotShell_script;
     //public float launch_frequency_persec=0.2f;
-    float last_launch_time=0;
+    float last_launch_time=-100;
     //bool launch_flag=true;
 	void Start(){
 		aliving = true;
@@ -35,6 +35,7 @@ public class MLTank: RootTank
         foreach(Transform child in Shells.transform){
             GameObject.Destroy(child.gameObject);
         }
+        last_launch_time = -100f;
     }
     public override void CollectObservations(VectorSensor sensor)
     {
@@ -65,7 +66,7 @@ public class MLTank: RootTank
         }
         if(actionBuffers.DiscreteActions[2] == 1)
         {
-            if((Time.time-last_launch_time)>shotInterval*Time.deltaTime){
+            if((Time.time-last_launch_time)>shotInterval){
                 if(shotShell_script.shellNum<shotShell_script.maxShellNum){
                     shotShell_script.shotShell();
                     last_launch_time=Time.time;
@@ -73,7 +74,8 @@ public class MLTank: RootTank
                 }
             }
         }
-        tankTop_script.rotateByFloat(actionBuffers.DiscreteActions[3]-1);
+        //tankTop_script.rotateByFloat(actionBuffers.DiscreteActions[3]-1);
+        tankTop_script.rotateByFloat(actionBuffers.ContinuousActions[0]);
     }
     public void gameset(float reward){
         SetReward(reward);
@@ -88,6 +90,7 @@ public class MLTank: RootTank
     public override void Heuristic(in ActionBuffers actionsOut)
     {
         var discreteActionsOut = actionsOut.DiscreteActions;
+        var continuousActionOut = actionsOut.ContinuousActions;
         if (Input.GetKey("w"))
         {
             discreteActionsOut[0] = 1;
@@ -115,18 +118,18 @@ public class MLTank: RootTank
         }
         else
         {
-            discreteActionsOut[2] = 2;
+            discreteActionsOut[2] = 0;
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            discreteActionsOut[3] = 0;
+            continuousActionOut[0] = 1;
         }else if (Input.GetKey(KeyCode.LeftArrow))
         {
-            discreteActionsOut[3] = 2;
+            continuousActionOut[0] = -1;
         }
         else
         {
-            discreteActionsOut[3] = 1;
+            continuousActionOut[0] = 0;
         }
     }
 }

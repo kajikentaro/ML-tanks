@@ -34,8 +34,7 @@ public class shellScript : MonoBehaviour
             if(tank_gameobject!=collision.gameObject)tank_gameobject.GetComponent<MLTank>().gameset(1.0f);
         }
         else if(collision.gameObject.tag=="target"){
-            //tank_gameobject.GetComponent<MLTank>().gameset(1.0f);
-            Destroy(this.gameObject);
+            tank_gameobject.GetComponent<MLTank>().gameset(1.0f);
         }
         else if(col_count==maxCol||collision.gameObject.tag=="Shell"){
             shotshell_gameobject.GetComponent<ShotShell>().shellNum-=1;

@@ -38,19 +38,20 @@ public class MLtankA : MLTank
         Physics.Raycast(tankTop.transform.position, tankTop.transform.forward, out raycastHit, 30);
         if (raycastHit.collider != null && raycastHit.collider.name == "target")
         {
-            target.GetComponent<Renderer>().material.color = Color.red;
-            AddReward(0.01f);
+            //target.GetComponent<Renderer>().material.color = Color.red;
+            //AddReward(0.01f);
         }
         else
         {
             target.GetComponent<Renderer>().material.color = Color.blue;
-            AddReward(-0.02f);
+            AddReward(-0.001f);
         }
+        //AddReward(-0.001f);
 
         action_control(actionBuffers);
-        if(Time.time - start_time >= 10){
-            EndEpisode();
+        if(Time.time - start_time >= 20){
             //gameset(-1.0f);
+            EndEpisode();
             //gamesetAll();
         }
     }
