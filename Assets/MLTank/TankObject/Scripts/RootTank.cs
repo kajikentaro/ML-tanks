@@ -10,7 +10,7 @@ public class RootTank : Agent
     public bool EnableMove=false;
     public float speedTank = 1.0f;
 	public bool aliving=true;
-    private float a=100.0f;
+    private float a=10f;
     public void forwardTank(float delta){
         if(EnableMove){
             transform.position +=a*transform.forward * speedTank * delta;

@@ -27,9 +27,9 @@ public class shellScript : MonoBehaviour
         rb=GetComponent<Rigidbody>();
         Vector3 v=rb.velocity;
         transform.LookAt(v+transform.position);
-        Debug.Log(collision.gameObject.tag);
         col_count+=1;
         if(collision.gameObject.tag=="tank"){
+        Debug.Log(collision.gameObject.tag);
             collision.gameObject.GetComponent<MLTank>().gameset(-0.1f);
             if(tank_gameobject!=collision.gameObject)tank_gameobject.GetComponent<MLTank>().gameset(1.0f);
         }

@@ -44,9 +44,9 @@ public class MLtankA : MLTank
         else
         {
             target.GetComponent<Renderer>().material.color = Color.blue;
-            AddReward(-0.001f);
+            //AddReward(-0.001f);
         }
-        //AddReward(-0.001f);
+        AddReward(-0.005f);
 
         action_control(actionBuffers);
         if(Time.time - start_time >= 20){

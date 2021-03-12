@@ -9890,9 +9890,9 @@ GameObject:
   - component: {fileID: 5153138219730306595}
   - component: {fileID: 2916962239312229867}
   - component: {fileID: 601282616343517658}
-  - component: {fileID: 3862421628812500087}
-  - component: {fileID: 8182621009662740423}
   - component: {fileID: 6628997646467493935}
+  - component: {fileID: 592327385053508373}
+  - component: {fileID: 178447579636135514}
   m_Layer: 0
   m_Name: tankB
   m_TagString: tank
@@ -9948,9 +9948,9 @@ MonoBehaviour:
     VectorObservationSize: 4
     NumStackedVectorObservations: 5
     m_ActionSpec:
-      m_NumContinuousActions: 0
-      BranchSizes: 03000000030000000200000003000000
-    VectorActionSize: 03000000030000000200000003000000
+      m_NumContinuousActions: 1
+      BranchSizes: 030000000300000002000000
+    VectorActionSize: 
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
@@ -9962,7 +9962,20 @@ MonoBehaviour:
   m_UseChildSensors: 1
   m_UseChildActuators: 1
   m_ObservableAttributeHandling: 0
---- !u!114 &3862421628812500087
+--- !u!65 &6628997646467493935
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6857493593980909235}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1, z: 2}
+  m_Center: {x: 0, y: 0.2, z: 0}
+--- !u!114 &592327385053508373
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9971,21 +9984,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6857493593980909235}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DecisionPeriod: 5
-  TakeActionsBetweenDecisions: 1
---- !u!114 &8182621009662740423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6857493593980909235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afb03a3035d7b7749b40414200c15c80, type: 3}
+  m_Script: {fileID: 11500000, guid: b3646791f0095d84598f5b658223bdae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   agentParameters:
@@ -10000,25 +9999,24 @@ MonoBehaviour:
   shotShell: {fileID: 298460707195141789}
   Shells: {fileID: 0}
   launch_cnt: 0
-  shotInterval: 50
-  endT: 1500
-  now: 0
+  shotInterval: 10
   limit_rotation: 100
   sum_rotation: 0
   target: {fileID: 0}
---- !u!65 &6628997646467493935
-BoxCollider:
+--- !u!114 &178447579636135514
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6857493593980909235}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 1, z: 2}
-  m_Center: {x: 0, y: 0.2, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DecisionPeriod: 5
+  TakeActionsBetweenDecisions: 1
 --- !u!1 &8854375548522133792
 GameObject:
   m_ObjectHideFlags: 0
