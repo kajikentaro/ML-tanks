@@ -9891,8 +9891,8 @@ GameObject:
   - component: {fileID: 2916962239312229867}
   - component: {fileID: 601282616343517658}
   - component: {fileID: 3862421628812500087}
+  - component: {fileID: 8182621009662740423}
   - component: {fileID: 6628997646467493935}
-  - component: {fileID: 8639712664893720075}
   m_Layer: 0
   m_Name: tankD
   m_TagString: tank
@@ -9949,8 +9949,8 @@ MonoBehaviour:
     NumStackedVectorObservations: 5
     m_ActionSpec:
       m_NumContinuousActions: 0
-      BranchSizes: 0300000003000000020000000300000002000000
-    VectorActionSize: 0300000003000000020000000300000002000000
+      BranchSizes: 03000000030000000200000003000000
+    VectorActionSize: 03000000030000000200000003000000
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
@@ -9976,6 +9976,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 5
   TakeActionsBetweenDecisions: 1
+--- !u!114 &8182621009662740423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6857493593980909235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb03a3035d7b7749b40414200c15c80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  EnableMove: 1
+  speedTank: 1
+  aliving: 1
+  rBody: {fileID: 2916962239312229867}
+  tankTop: {fileID: 8854375548522133792}
+  shotShell: {fileID: 298460707195141789}
+  Shells: {fileID: 0}
+  launch_cnt: 0
+  shotInterval: 50
+  endT: 1500
+  now: 0
+  limit_rotation: 100
+  sum_rotation: 0
+  target: {fileID: 0}
 --- !u!65 &6628997646467493935
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9989,42 +10019,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 1, z: 2}
   m_Center: {x: 0, y: 0.2, z: 0}
---- !u!114 &8639712664893720075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6857493593980909235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1c2f7f0f871cd144aa49c08f732fbc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agentParameters:
-    maxStep: 0
-  hasUpgradedFromAgentParameters: 1
-  MaxStep: 0
-  EnableMove: 1
-  EnableSetMine: 1
-  speedTank: 1
-  aliving: 1
-  rBody: {fileID: 2916962239312229867}
-  tankTop: {fileID: 8854375548522133792}
-  shotShell: {fileID: 298460707195141789}
-  Shells: {fileID: 0}
-  minePrefab: {fileID: 8571320677559433196, guid: 56abd0da3bc593d46ac8ff74e5e74bf9,
-    type: 3}
-  launch_cnt: 0
-  shotInterval: 50
-  maxMineNum: 1
-  currentMineNum: 0
-  ExplodeTime: 3
-  endT: 1500
-  now: 0
-  limit_rotation: 100
-  sum_rotation: 0
-  target: {fileID: 0}
 --- !u!1 &8854375548522133792
 GameObject:
   m_ObjectHideFlags: 0

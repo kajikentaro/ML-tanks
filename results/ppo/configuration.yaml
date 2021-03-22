@@ -1,5 +1,6 @@
 default_settings: null
-behaviors: {}
+behaviors: !!python/object/apply:mlagents.trainers.settings.DefaultTrainerDict
+- !!python/name:mlagents.trainers.settings.TrainerSettings ''
 env_settings:
   env_path: null
   env_args: null
@@ -19,8 +20,11 @@ checkpoint_settings:
   run_id: ppo
   initialize_from: null
   load_model: false
-  resume: false
+  resume: true
   force: false
   train_model: false
   inference: false
+  results_dir: results
+torch_settings:
+  device: null
 debug: false

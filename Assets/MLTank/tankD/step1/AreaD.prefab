@@ -716,11 +716,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8166475958512024626}
     m_Modifications:
-    - target: {fileID: 298460707195141779, guid: 13baa7295f69dac49bdf42f98c4f4d25,
-        type: 3}
-      propertyPath: parentObj
-      value: 
-      objectReference: {fileID: 5723490609935417845}
     - target: {fileID: 5153138219730306595, guid: 13baa7295f69dac49bdf42f98c4f4d25,
         type: 3}
       propertyPath: m_RootOrder
@@ -781,16 +776,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: tankD
       objectReference: {fileID: 0}
-    - target: {fileID: 8639712664893720075, guid: 13baa7295f69dac49bdf42f98c4f4d25,
-        type: 3}
-      propertyPath: Shells
-      value: 
-      objectReference: {fileID: 5723490609935417845}
-    - target: {fileID: 8639712664893720075, guid: 13baa7295f69dac49bdf42f98c4f4d25,
-        type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 3304792283092599971}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13baa7295f69dac49bdf42f98c4f4d25, type: 3}
 --- !u!4 &1657344211943117861 stripped
