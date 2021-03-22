@@ -21,8 +21,9 @@ public class MLtankB : MLTank
         sum_rotation=0;
         int w=25;
         Vector3 newPosition1 = new Vector3(w*(Random.value-0.5f),0.3f,w*(Random.value-0.5f));
-        Vector3 newPosition2 = new Vector3(w*(Random.value-0.5f),0.3f,w*(Random.value-0.5f));
+        transform.localPosition = newPosition1;
         /*
+        Vector3 newPosition2 = new Vector3(w*(Random.value-0.5f),0.3f,w*(Random.value-0.5f));
         float limit = target.transform.localScale.x / 2 * 1.414f + 1.5f;
         while (true)
         {

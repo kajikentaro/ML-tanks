@@ -633,6 +633,12 @@ PrefabInstance:
       propertyPath: Shells
       value: 
       objectReference: {fileID: 5723490609935417845}
+    - target: {fileID: 601282616343517658, guid: 1767db57141c5f547bb5480aa95eff96,
+        type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 3d98bf12d17e2284f882446f7fba9595,
+        type: 3}
     - target: {fileID: 5153138219730306595, guid: 1767db57141c5f547bb5480aa95eff96,
         type: 3}
       propertyPath: m_RootOrder
@@ -733,6 +739,17 @@ PrefabInstance:
       propertyPath: Shells
       value: 
       objectReference: {fileID: 5723490609935417845}
+    - target: {fileID: 592327385053508373, guid: 1767db57141c5f547bb5480aa95eff96,
+        type: 3}
+      propertyPath: shotInterval
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 601282616343517658, guid: 1767db57141c5f547bb5480aa95eff96,
+        type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 3d98bf12d17e2284f882446f7fba9595,
+        type: 3}
     - target: {fileID: 5153138219730306595, guid: 1767db57141c5f547bb5480aa95eff96,
         type: 3}
       propertyPath: m_RootOrder
