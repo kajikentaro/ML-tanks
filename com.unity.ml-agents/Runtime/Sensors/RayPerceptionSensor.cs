@@ -234,10 +234,10 @@ namespace Unity.MLAgents.Sensors
     /// <summary>
     /// A sensor implementation that supports ray cast-based observations.
     /// </summary>
-    public class RayPerceptionSensor : ISensor
+    public class RayPerceptionSensor : ISensor, IBuiltInSensor
     {
         float[] m_Observations;
-        int[] m_Shape;
+        ObservationSpec m_ObservationSpec;
         string m_Name;
 
         RayPerceptionInput m_RayPerceptionInput;
@@ -269,7 +269,7 @@ namespace Unity.MLAgents.Sensors
 
         void SetNumObservations(int numObservations)
         {
-            m_Shape = new[] { numObservations };
+            m_ObservationSpec = ObservationSpec.Vector(numObservations);
             m_Observations = new float[numObservations];
         }
 
@@ -329,7 +329,7 @@ namespace Unity.MLAgents.Sensors
                     rayOutput.ToFloatArray(numDetectableTags, rayIndex, m_Observations);
                 }
                 // Finally, add the observations to the ObservationWriter
-                writer.AddRange(m_Observations);
+                writer.AddList(m_Observations);
             }
             return m_Observations.Length;
         }
@@ -343,9 +343,9 @@ namespace Unity.MLAgents.Sensors
         public void Reset() { }
 
         /// <inheritdoc/>
-        public int[] GetObservationShape()
+        public ObservationSpec GetObservationSpec()
         {
-            return m_Shape;
+            return m_ObservationSpec;
         }
 
         /// <inheritdoc/>
@@ -361,9 +361,15 @@ namespace Unity.MLAgents.Sensors
         }
 
         /// <inheritdoc/>
-        public virtual SensorCompressionType GetCompressionType()
+        public CompressionSpec GetCompressionSpec()
         {
-            return SensorCompressionType.None;
+            return CompressionSpec.Default();
+        }
+
+        /// <inheritdoc/>
+        public BuiltInSensorType GetBuiltInSensorType()
+        {
+            return BuiltInSensorType.RayPerceptionSensor;
         }
 
         /// <summary>
@@ -416,12 +422,13 @@ namespace Unity.MLAgents.Sensors
                 unscaledCastRadius;
 
             // Do the cast and assign the hit information for each detectable tag.
-            bool castHit;
-            float hitFraction;
-            GameObject hitObject;
+            var castHit = false;
+            var hitFraction = 1.0f;
+            GameObject hitObject = null;
 
             if (input.CastType == RayPerceptionCastType.Cast3D)
             {
+#if MLA_UNITY_PHYSICS_MODULE
                 RaycastHit rayHit;
                 if (scaledCastRadius > 0f)
                 {
@@ -438,9 +445,11 @@ namespace Unity.MLAgents.Sensors
                 // To avoid 0/0, set the fraction to 0.
                 hitFraction = castHit ? (scaledRayLength > 0 ? rayHit.distance / scaledRayLength : 0.0f) : 1.0f;
                 hitObject = castHit ? rayHit.collider.gameObject : null;
+#endif
             }
             else
             {
+#if MLA_UNITY_PHYSICS2D_MODULE
                 RaycastHit2D rayHit;
                 if (scaledCastRadius > 0f)
                 {
@@ -455,6 +464,7 @@ namespace Unity.MLAgents.Sensors
                 castHit = rayHit;
                 hitFraction = castHit ? rayHit.fraction : 1.0f;
                 hitObject = castHit ? rayHit.collider.gameObject : null;
+#endif
             }
 
             var rayOutput = new RayPerceptionOutput.RayOutput
