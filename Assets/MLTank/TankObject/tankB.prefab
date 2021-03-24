@@ -48,7 +48,7 @@ MonoBehaviour:
     type: 3}
   parentObj: {fileID: 0}
   tankObj: {fileID: 6857493593980909235}
-  maxColCount: 1
+  maxColCount: 2
   maxShellNum: 1
   shellNum: 0
   shot_speed: 1
