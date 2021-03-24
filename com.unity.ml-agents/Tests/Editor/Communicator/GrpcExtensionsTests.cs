@@ -1,19 +1,40 @@
+using System;
+using System.Text.RegularExpressions;
+using Google.Protobuf;
+using Google.Protobuf.Collections;
 using NUnit.Framework;
-using Unity.MLAgents.Policies;
-using Unity.MLAgents.Demonstrations;
 using Unity.MLAgents.Actuators;
+using Unity.MLAgents.Demonstrations;
+using Unity.MLAgents.Policies;
 using Unity.MLAgents.Sensors;
+
+using Unity.MLAgents.Analytics;
+using Unity.MLAgents.CommunicatorObjects;
+using UnityEngine;
+using UnityEngine.TestTools;
 
 namespace Unity.MLAgents.Tests
 {
     [TestFixture]
     public class GrpcExtensionsTests
     {
+        [SetUp]
+        public void SetUp()
+        {
+            Academy.Instance.TrainerCapabilities = new UnityRLCapabilities();
+        }
+
         [Test]
         public void TestDefaultBrainParametersToProto()
         {
             // Should be able to convert a default instance to proto.
             var brain = new BrainParameters();
+            brain.ToProto("foo", false);
+            Academy.Instance.TrainerCapabilities = new UnityRLCapabilities
+            {
+                BaseRLCapabilities = true,
+                HybridActions = false
+            };
             brain.ToProto("foo", false);
         }
 
@@ -23,14 +44,72 @@ namespace Unity.MLAgents.Tests
             // Should be able to convert a default instance to proto.
             var actionSpec = new ActionSpec();
             actionSpec.ToBrainParametersProto("foo", false);
+            Academy.Instance.TrainerCapabilities = new UnityRLCapabilities
+            {
+                BaseRLCapabilities = true,
+                HybridActions = false
+            };
+            actionSpec.ToBrainParametersProto("foo", false);
 
+            Academy.Instance.TrainerCapabilities = new UnityRLCapabilities();
             // Continuous
             actionSpec = ActionSpec.MakeContinuous(3);
             actionSpec.ToBrainParametersProto("foo", false);
+            Academy.Instance.TrainerCapabilities = new UnityRLCapabilities
+            {
+                BaseRLCapabilities = true,
+                HybridActions = false
+            };
+            actionSpec.ToBrainParametersProto("foo", false);
+
+            Academy.Instance.TrainerCapabilities = new UnityRLCapabilities();
 
             // Discrete
             actionSpec = ActionSpec.MakeDiscrete(1, 2, 3);
             actionSpec.ToBrainParametersProto("foo", false);
+            Academy.Instance.TrainerCapabilities = new UnityRLCapabilities
+            {
+                BaseRLCapabilities = true,
+                HybridActions = false
+            };
+            actionSpec.ToBrainParametersProto("foo", false);
+        }
+
+        [Test]
+        public void ToBrainParameters()
+        {
+            // Should be able to convert a default instance to proto.
+            var actionSpec = new ActionSpec();
+            actionSpec.ToBrainParametersProto("foo", false).ToBrainParameters();
+            Academy.Instance.TrainerCapabilities = new UnityRLCapabilities
+            {
+                BaseRLCapabilities = true,
+                HybridActions = false
+            };
+            actionSpec.ToBrainParametersProto("foo", false).ToBrainParameters();
+
+            Academy.Instance.TrainerCapabilities = new UnityRLCapabilities();
+            // Continuous
+            actionSpec = ActionSpec.MakeContinuous(3);
+            actionSpec.ToBrainParametersProto("foo", false).ToBrainParameters();
+            Academy.Instance.TrainerCapabilities = new UnityRLCapabilities
+            {
+                BaseRLCapabilities = true,
+                HybridActions = false
+            };
+            actionSpec.ToBrainParametersProto("foo", false).ToBrainParameters();
+
+            Academy.Instance.TrainerCapabilities = new UnityRLCapabilities();
+
+            // Discrete
+            actionSpec = ActionSpec.MakeDiscrete(1, 2, 3);
+            actionSpec.ToBrainParametersProto("foo", false).ToBrainParameters();
+            Academy.Instance.TrainerCapabilities = new UnityRLCapabilities
+            {
+                BaseRLCapabilities = true,
+                HybridActions = false
+            };
+            actionSpec.ToBrainParametersProto("foo", false).ToBrainParameters();
         }
 
         [Test]
@@ -38,7 +117,31 @@ namespace Unity.MLAgents.Tests
         {
             // Should be able to convert a default instance to proto.
             var agentInfo = new AgentInfo();
-            agentInfo.ToInfoActionPairProto();
+            var pairProto = agentInfo.ToInfoActionPairProto();
+            pairProto.AgentInfo.Observations.Add(new ObservationProto
+            {
+                CompressedData = ByteString.Empty,
+                CompressionType = CompressionTypeProto.None,
+                FloatData = new ObservationProto.Types.FloatData(),
+                ObservationType = ObservationTypeProto.Default,
+                Name = "Sensor"
+            });
+            pairProto.AgentInfo.Observations[0].Shape.Add(0);
+            pairProto.GetObservationSummaries();
+            agentInfo.ToAgentInfoProto();
+            agentInfo.groupId = 1;
+            Academy.Instance.TrainerCapabilities = new UnityRLCapabilities
+            {
+                BaseRLCapabilities = true,
+                MultiAgentGroups = false
+            };
+            agentInfo.ToAgentInfoProto();
+            LogAssert.Expect(LogType.Warning, new Regex(".+"));
+            Academy.Instance.TrainerCapabilities = new UnityRLCapabilities
+            {
+                BaseRLCapabilities = true,
+                MultiAgentGroups = true
+            };
             agentInfo.ToAgentInfoProto();
         }
 
@@ -52,16 +155,16 @@ namespace Unity.MLAgents.Tests
 
         class DummySensor : ISensor
         {
-            public int[] Shape;
+            public ObservationSpec ObservationSpec;
             public SensorCompressionType CompressionType;
 
             internal DummySensor()
             {
             }
 
-            public int[] GetObservationShape()
+            public ObservationSpec GetObservationSpec()
             {
-                return Shape;
+                return ObservationSpec;
             }
 
             public int Write(ObservationWriter writer)
@@ -78,27 +181,14 @@ namespace Unity.MLAgents.Tests
 
             public void Reset() { }
 
-            public SensorCompressionType GetCompressionType()
+            public CompressionSpec GetCompressionSpec()
             {
-                return CompressionType;
+                return new CompressionSpec(CompressionType);
             }
 
             public string GetName()
             {
                 return "Dummy";
-            }
-        }
-
-        class DummySparseChannelSensor : DummySensor, ISparseChannelSensor
-        {
-            public int[] Mapping;
-            internal DummySparseChannelSensor()
-            {
-            }
-
-            public int[] GetCompressedChannelMapping()
-            {
-                return Mapping;
             }
         }
 
@@ -122,12 +212,24 @@ namespace Unity.MLAgents.Tests
 
             foreach (var (shape, compressionType, supportsMultiPngObs, expectCompressed) in variants)
             {
+                var inplaceShape = InplaceArray<int>.FromList(shape);
                 var dummySensor = new DummySensor();
                 var obsWriter = new ObservationWriter();
 
-                dummySensor.Shape = shape;
+                if (shape.Length == 1)
+                {
+                    dummySensor.ObservationSpec = ObservationSpec.Vector(shape[0]);
+                }
+                else if (shape.Length == 3)
+                {
+                    dummySensor.ObservationSpec = ObservationSpec.Visual(shape[0], shape[1], shape[2]);
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
                 dummySensor.CompressionType = compressionType;
-                obsWriter.SetTarget(new float[128], shape, 0);
+                obsWriter.SetTarget(new float[128], inplaceShape, 0);
 
                 var caps = new UnityRLCapabilities
                 {
@@ -148,26 +250,32 @@ namespace Unity.MLAgents.Tests
                     Assert.AreEqual(obsProto.CompressedData.Length, 0);
                 }
             }
-
-
         }
 
         [Test]
-        public void TestIsTrivialMapping()
+        public void TestDefaultTrainingEvents()
         {
-            Assert.AreEqual(GrpcExtensions.IsTrivialMapping(new DummySensor()), true);
+            var trainingEnvInit = new TrainingEnvironmentInitialized
+            {
+                PythonVersion = "test",
+            };
+            var trainingEnvInitEvent = trainingEnvInit.ToTrainingEnvironmentInitializedEvent();
+            Assert.AreEqual(trainingEnvInit.PythonVersion, trainingEnvInitEvent.TrainerPythonVersion);
 
-            var sparseChannelSensor = new DummySparseChannelSensor();
-            sparseChannelSensor.Mapping = null;
-            Assert.AreEqual(GrpcExtensions.IsTrivialMapping(sparseChannelSensor), true);
-            sparseChannelSensor.Mapping = new[] { 0, 0, 0 };
-            Assert.AreEqual(GrpcExtensions.IsTrivialMapping(sparseChannelSensor), true);
-            sparseChannelSensor.Mapping = new[] { 0, 1, 2, 3, 4 };
-            Assert.AreEqual(GrpcExtensions.IsTrivialMapping(sparseChannelSensor), true);
-            sparseChannelSensor.Mapping = new[] { 1, 2, 3, 4, -1, -1 };
-            Assert.AreEqual(GrpcExtensions.IsTrivialMapping(sparseChannelSensor), false);
-            sparseChannelSensor.Mapping = new[] { 0, 0, 0, 1, 1, 1 };
-            Assert.AreEqual(GrpcExtensions.IsTrivialMapping(sparseChannelSensor), false);
+            var trainingBehavInit = new TrainingBehaviorInitialized
+            {
+                BehaviorName = "testBehavior",
+                ExtrinsicRewardEnabled = true,
+                CuriosityRewardEnabled = true,
+
+                RecurrentEnabled = true,
+                SelfPlayEnabled = true,
+            };
+            var trainingBehavInitEvent = trainingBehavInit.ToTrainingBehaviorInitializedEvent();
+            Assert.AreEqual(trainingBehavInit.BehaviorName, trainingBehavInitEvent.BehaviorName);
+
+            Assert.AreEqual(RewardSignals.Extrinsic | RewardSignals.Curiosity, trainingBehavInitEvent.RewardSignalFlags);
+            Assert.AreEqual(TrainingFeatures.Recurrent | TrainingFeatures.SelfPlay, trainingBehavInitEvent.TrainingFeatureFlags);
         }
     }
 }

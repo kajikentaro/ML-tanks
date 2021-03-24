@@ -1,5 +1,6 @@
 using Unity.Barracuda;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Inference;
 using Unity.MLAgents.Sensors;
@@ -12,14 +13,25 @@ namespace Unity.MLAgents.Policies
     public enum InferenceDevice
     {
         /// <summary>
-        /// CPU inference
+        /// Default inference. This is currently the same as Burst, but may change in the future.
         /// </summary>
-        CPU = 0,
+        Default = 0,
 
         /// <summary>
-        /// GPU inference
+        /// GPU inference. Corresponds to WorkerFactory.Type.ComputePrecompiled in Barracuda.
         /// </summary>
-        GPU = 1
+        GPU = 1,
+
+        /// <summary>
+        /// CPU inference using Burst. Corresponds to WorkerFactory.Type.CSharpBurst in Barracuda.
+        /// </summary>
+        Burst = 2,
+
+        /// <summary>
+        /// CPU inference. Corresponds to in WorkerFactory.Type.CSharp Barracuda.
+        /// Burst is recommended instead; this is kept for legacy compatibility.
+        /// </summary>
+        CPU = 3,
     }
 
     /// <summary>
@@ -43,14 +55,27 @@ namespace Unity.MLAgents.Policies
         private string m_BehaviorName;
 
         /// <summary>
+        /// List of actuators, only used for analytics
+        /// </summary>
+        private IList<IActuator> m_Actuators;
+
+        /// <summary>
         /// Whether or not we've tried to send analytics for this model. We only ever try to send once per policy,
         /// and do additional deduplication in the analytics code.
         /// </summary>
         private bool m_AnalyticsSent;
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Instantiate a BarracudaPolicy with the necessary objects for it to run.
+        /// </summary>
+        /// <param name="actionSpec">The action spec of the behavior.</param>
+        /// <param name="actuators">The actuators used for this behavior.</param>
+        /// <param name="model">The Neural Network to use.</param>
+        /// <param name="inferenceDevice">Which device Barracuda will run on.</param>
+        /// <param name="behaviorName">The name of the behavior.</param>
         public BarracudaPolicy(
             ActionSpec actionSpec,
+            IList<IActuator> actuators,
             NNModel model,
             InferenceDevice inferenceDevice,
             string behaviorName
@@ -60,10 +85,19 @@ namespace Unity.MLAgents.Policies
             m_ModelRunner = modelRunner;
             m_BehaviorName = behaviorName;
             m_ActionSpec = actionSpec;
+            m_Actuators = actuators;
         }
 
         /// <inheritdoc />
         public void RequestDecision(AgentInfo info, List<ISensor> sensors)
+        {
+            SendAnalytics(sensors);
+            m_AgentId = info.episodeId;
+            m_ModelRunner?.PutObservations(info, sensors);
+        }
+
+        [Conditional("MLA_UNITY_ANALYTICS_MODULE")]
+        void SendAnalytics(IList<ISensor> sensors)
         {
             if (!m_AnalyticsSent)
             {
@@ -73,11 +107,10 @@ namespace Unity.MLAgents.Policies
                     m_BehaviorName,
                     m_ModelRunner.InferenceDevice,
                     sensors,
-                    m_ActionSpec
+                    m_ActionSpec,
+                    m_Actuators
                 );
             }
-            m_AgentId = info.episodeId;
-            m_ModelRunner?.PutObservations(info, sensors);
         }
 
         /// <inheritdoc />

@@ -5,12 +5,12 @@ namespace Unity.MLAgents.Sensors
     /// <summary>
     /// Sensor class that wraps a [RenderTexture](https://docs.unity3d.com/ScriptReference/RenderTexture.html) instance.
     /// </summary>
-    public class RenderTextureSensor : ISensor
+    public class RenderTextureSensor : ISensor, IBuiltInSensor
     {
         RenderTexture m_RenderTexture;
         bool m_Grayscale;
         string m_Name;
-        int[] m_Shape;
+        private ObservationSpec m_ObservationSpec;
         SensorCompressionType m_CompressionType;
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace Unity.MLAgents.Sensors
             var height = renderTexture != null ? renderTexture.height : 0;
             m_Grayscale = grayscale;
             m_Name = name;
-            m_Shape = new[] { height, width, grayscale ? 1 : 3 };
+            m_ObservationSpec = ObservationSpec.Visual(height, width, grayscale ? 1 : 3);
             m_CompressionType = compressionType;
         }
 
@@ -51,9 +51,9 @@ namespace Unity.MLAgents.Sensors
         }
 
         /// <inheritdoc/>
-        public int[] GetObservationShape()
+        public ObservationSpec GetObservationSpec()
         {
-            return m_Shape;
+            return m_ObservationSpec;
         }
 
         /// <inheritdoc/>
@@ -88,9 +88,15 @@ namespace Unity.MLAgents.Sensors
         public void Reset() { }
 
         /// <inheritdoc/>
-        public SensorCompressionType GetCompressionType()
+        public CompressionSpec GetCompressionSpec()
         {
-            return m_CompressionType;
+            return new CompressionSpec(m_CompressionType);
+        }
+
+        /// <inheritdoc/>
+        public BuiltInSensorType GetBuiltInSensorType()
+        {
+            return BuiltInSensorType.RenderTextureSensor;
         }
 
         /// <summary>

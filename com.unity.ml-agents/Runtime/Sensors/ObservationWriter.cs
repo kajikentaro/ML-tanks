@@ -25,9 +25,20 @@ namespace Unity.MLAgents.Sensors
         /// Set the writer to write to an IList at the given channelOffset.
         /// </summary>
         /// <param name="data">Float array or list that will be written to.</param>
+        /// <param name="observationSpec">ObservationSpec of the observation to be written</param>
+        /// <param name="offset">Offset from the start of the float data to write to.</param>
+        internal void SetTarget(IList<float> data, ObservationSpec observationSpec, int offset)
+        {
+            SetTarget(data, observationSpec.Shape, offset);
+        }
+
+        /// <summary>
+        /// Set the writer to write to an IList at the given channelOffset.
+        /// </summary>
+        /// <param name="data">Float array or list that will be written to.</param>
         /// <param name="shape">Shape of the observations to be written.</param>
         /// <param name="offset">Offset from the start of the float data to write to.</param>
-        internal void SetTarget(IList<float> data, int[] shape, int offset)
+        internal void SetTarget(IList<float> data, InplaceArray<int> shape, int offset)
         {
             m_Data = data;
             m_Offset = offset;
@@ -64,7 +75,7 @@ namespace Unity.MLAgents.Sensors
         }
 
         /// <summary>
-        /// 1D write access at a specified index. Use AddRange if possible instead.
+        /// 1D write access at a specified index. Use AddList if possible instead.
         /// </summary>
         /// <param name="index">Index to write to.</param>
         public float this[int index]
@@ -118,28 +129,26 @@ namespace Unity.MLAgents.Sensors
         }
 
         /// <summary>
-        /// Write the range of floats
+        /// Write the list of floats.
         /// </summary>
-        /// <param name="data"></param>
-        /// <param name="writeOffset">Optional write offset.</param>
-        public void AddRange(IEnumerable<float> data, int writeOffset = 0)
+        /// <param name="data">The actual list of floats to write.</param>
+        /// <param name="writeOffset">Optional write offset to start writing from.</param>
+        public void AddList(IList<float> data, int writeOffset = 0)
         {
             if (m_Data != null)
             {
-                int index = 0;
-                foreach (var val in data)
+                for (var index = 0; index < data.Count; index++)
                 {
+                    var val = data[index];
                     m_Data[index + m_Offset + writeOffset] = val;
-                    index++;
                 }
             }
             else
             {
-                int index = 0;
-                foreach (var val in data)
+                for (var index = 0; index < data.Count; index++)
                 {
+                    var val = data[index];
                     m_Proxy.data[m_Batch, index + m_Offset + writeOffset] = val;
-                    index++;
                 }
             }
         }
