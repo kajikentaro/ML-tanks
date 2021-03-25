@@ -16,7 +16,8 @@ public class stageLoad : MonoBehaviour
     GameObject[] EnemyTank;
     float block_height = 1.0f;
     float block_width = 1.0f;
-    float block_depth = 1.0f;
+    float block_depth = -1.75f;
+    float tank_depth = 0.5f;
     public int stage_number = 1;
 
     char[,] LoadStage(int stage_number)//csvからテキスト情報を読み込み、int2次元配列を返す
@@ -53,32 +54,32 @@ public class stageLoad : MonoBehaviour
                 float z=block_width*(j-w/2+0.5f);
                 if (blocks[i,j] == '0') continue;
                 if(blocks[i,j] == '1'){
-                    Vector3 block_position = new Vector3(x, -block_depth * 4.0f, z);
+                    Vector3 block_position = new Vector3(x, block_depth, z);
                     Instantiate(BreakableBlock, block_position, Quaternion.identity);
                 }
                 if(blocks[i,j] == '2'){
-                    Vector3 block_position = new Vector3(x, -block_depth * 4.0f,z);
+                    Vector3 block_position = new Vector3(x, block_depth ,z);
                     Instantiate(unBreakableBlock, block_position, Quaternion.identity);
                     
                 }
-                if(blocks[i,j] == 'A'){
-                    Vector3 tank_position = new Vector3(x, block_depth / 2.0f,z);
+                if(blocks[i,j] == '.'){
+                    Vector3 tank_position = new Vector3(x, tank_depth,z);
                     Instantiate(tankMe, tank_position , Quaternion.identity);
                 }
                 if(blocks[i,j] == 'a'){
-                    Vector3 tank_position = new Vector3(x, block_depth / 2.0f, z);
+                    Vector3 tank_position = new Vector3(x, tank_depth, z);
                     Instantiate(EnemyTank[0], tank_position , Quaternion.identity);
                 }
             }
         }
     }
     void Start(){
-    BreakableBlock=Resources.Load("stageObject/Block1") as GameObject;
-    unBreakableBlock=Resources.Load("stageObject/Block2") as GameObject;
-    tankMe=Resources.Load("stageObject/tankMetest") as GameObject;
-    EnemyTank= new GameObject[1];
-    EnemyTank[0]=Resources.Load("stageObject/tankAtest") as GameObject;
-    char[,] blocks = LoadStage(1);
-    drawBlock(blocks);
+        BreakableBlock=Resources.Load("stageObject/Block1") as GameObject;
+        unBreakableBlock=Resources.Load("stageObject/Block2") as GameObject;
+        tankMe=Resources.Load("stageObject/tankMetest") as GameObject;
+        EnemyTank= new GameObject[1];
+        EnemyTank[0]=Resources.Load("stageObject/tankAtest") as GameObject;
+        char[,] blocks = LoadStage(1);
+        drawBlock(blocks);
     }
 }
