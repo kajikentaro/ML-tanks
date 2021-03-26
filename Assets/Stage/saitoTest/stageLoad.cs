@@ -65,11 +65,12 @@ public class stageLoad : MonoBehaviour
                     
                 }
                 else if(blocks[i,j] == '.'){
-                    if(learningMode)continue;
-                    Vector3 tank_position = new Vector3(x, tank_depth,z);
-                    var tank_gameobject=Instantiate(tankMe, tank_position , Quaternion.identity);
-                    tank_gameobject.GetComponent<RootTank>().Shells=Shells;
-                    tank_gameobject.GetComponent<TankMe>().learningMode=learningMode;
+                    if(!learningMode){
+                        Vector3 tank_position = new Vector3(x, tank_depth,z);
+                        var tank_gameobject=Instantiate(tankMe, tank_position , Quaternion.identity);
+                        tank_gameobject.GetComponent<RootTank>().Shells=Shells;
+                        tank_gameobject.GetComponent<TankMe>().learningMode=learningMode;
+                    }
                 }
                 else{
                     GameObject EnemyTank=Resources.Load("stageObject/tank"+blocks[i,j]) as GameObject;
@@ -81,6 +82,6 @@ public class stageLoad : MonoBehaviour
         }
     }
     void Start(){
-        LoadStage(1,false);
+        LoadStage(1,learningMode);
     }
 }
