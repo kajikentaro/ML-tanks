@@ -13,7 +13,6 @@ public class stageLoad : MonoBehaviour
     GameObject BreakableBlock;
     GameObject unBreakableBlock;
     GameObject tankMe;
-    GameObject[] EnemyTank;
     float block_height = 1.0f;
     float block_width = 1.0f;
     float block_depth = -1.75f;
@@ -31,7 +30,7 @@ public class stageLoad : MonoBehaviour
             int w = int.Parse(param[1]);
             blocks = new char[h,w];
             //while (fs.Peek() != -1)
-            for (int i = 0; i < h; i++)
+            for (int i = h-1; i >=0; i--)
             { 
                 string line = fs.ReadLine();
                 for (int j = 0; j < w; j++)
@@ -42,44 +41,48 @@ public class stageLoad : MonoBehaviour
         }
         return blocks;
     }
-    void drawBlock(char[,] blocks)//取得した配列を元にブロックをステージに描写するメソッド
+    void drawBlock(char[,] blocks,bool learningMode)//取得した配列を元にブロックをステージに描写するメソッド
     {
         int h = blocks.GetLength(0);
         int w = blocks.GetLength(1);
+        BreakableBlock=Resources.Load("stageObject/Block1") as GameObject;
+        unBreakableBlock=Resources.Load("stageObject/Block2") as GameObject;
+        tankMe=Resources.Load("stageObject/tankMe") as GameObject;
+        GameObject Blocks=new GameObject("Blocks");
+        GameObject Shells=new GameObject("Shells");
         for(int i = 0; i < h; i++)
         {
             for(int j = 0; j < w; j++)
             {
-                float x=block_height*(i-h/2+0.5f);
-                float z=block_width*(j-w/2+0.5f);
+                float z=block_height*(i-h/2+0.5f);
+                float x=block_width*(j-w/2+0.5f);
                 if (blocks[i,j] == '0') continue;
-                if(blocks[i,j] == '1'){
+                else if(blocks[i,j] == '1'){
                     Vector3 block_position = new Vector3(x, block_depth, z);
-                    Instantiate(BreakableBlock, block_position, Quaternion.identity);
+                    Instantiate(BreakableBlock, block_position, Quaternion.identity,Blocks.transform);
                 }
-                if(blocks[i,j] == '2'){
+                else if(blocks[i,j] == '2'){
                     Vector3 block_position = new Vector3(x, block_depth ,z);
-                    Instantiate(unBreakableBlock, block_position, Quaternion.identity);
+                    Instantiate(unBreakableBlock, block_position, Quaternion.identity,Blocks.transform);
                     
                 }
-                if(blocks[i,j] == '.'){
+                else if(blocks[i,j] == '.'){
                     Vector3 tank_position = new Vector3(x, tank_depth,z);
-                    Instantiate(tankMe, tank_position , Quaternion.identity);
+                    var tank_gameobject=Instantiate(tankMe, tank_position , Quaternion.identity);
+                    tank_gameobject.GetComponent<TankMe>().Shells=Shells;
+                    tank_gameobject.GetComponent<TankMe>().learningMode=learningMode;
                 }
-                if(blocks[i,j] == 'a'){
-                    Vector3 tank_position = new Vector3(x, tank_depth, z);
-                    Instantiate(EnemyTank[0], tank_position , Quaternion.identity);
-                }
+                else{}
+                //else{
+                    //GameObject EnemyTank=Resources.Load("stageObject/tank"+blocks[i,j]) as GameObject;
+                    //Vector3 tank_position = new Vector3(x, tank_depth, z);
+                    //Instantiate(EnemyTank, tank_position , Quaternion.identity);
+                //}
             }
         }
     }
     void Start(){
-        BreakableBlock=Resources.Load("stageObject/Block1") as GameObject;
-        unBreakableBlock=Resources.Load("stageObject/Block2") as GameObject;
-        tankMe=Resources.Load("stageObject/tankMetest") as GameObject;
-        EnemyTank= new GameObject[1];
-        EnemyTank[0]=Resources.Load("stageObject/tankAtest") as GameObject;
         char[,] blocks = LoadStage(1);
-        drawBlock(blocks);
+        drawBlock(blocks,false);
     }
 }

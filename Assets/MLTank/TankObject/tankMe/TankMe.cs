@@ -9,13 +9,9 @@ public class TankMe : RootTank
 {
     //public float rotate_speed = 3.0f;
     //Update is called once per frame
-    public GameObject tankTop;
     rotate rotate_script;
-    public GameObject shotShell;
-    ShotShell shotShell_script;
     void Start(){
-        shotShell_script = shotShell.GetComponent<ShotShell>();
-        rotate_script = tankTop.GetComponent<rotate>();
+        rotate_script = this.tankTop.GetComponent<rotate>();
     }
     void Update()
     {
@@ -39,7 +35,8 @@ public class TankMe : RootTank
                 leftTank(Time.deltaTime);
             }
             if (Input.GetMouseButtonDown(0)){
-                shotShell_script.shotShell();
+                Debug.Log("mouse");
+                shotShell();
             }
         }
         rotate_script.rotateByMouse();

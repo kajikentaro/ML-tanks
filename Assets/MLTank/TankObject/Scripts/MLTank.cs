@@ -7,21 +7,14 @@ using Unity.MLAgents.Sensors;
 
 public class MLTank: RootTank
 {
-    public Rigidbody rBody;
-    public GameObject tankTop;
-    public  GameObject shotShell;
-    public GameObject Shells;
+    Rigidbody rBody;
     public float launch_cnt=0;
     public int shotInterval=10;
     rotate tankTop_script;
-    ShotShell shotShell_script;
-    //public float launch_frequency_persec=0.2f;
     float last_launch_time=-100;
-    //bool launch_flag=true;
 	void Start(){
 		aliving = true;
         tankTop_script = tankTop.GetComponent<rotate>();
-        shotShell_script = shotShell.GetComponent<ShotShell>();
         rBody=GetComponent<Rigidbody>();
 	}
     void Update(){
@@ -31,7 +24,7 @@ public class MLTank: RootTank
     }
     public override void OnEpisodeBegin(){
         launch_cnt=0;
-        shotShell_script.shellNum=0;
+        shellNum=0;
         foreach(Transform child in Shells.transform){
             GameObject.Destroy(child.gameObject);
         }
@@ -42,7 +35,7 @@ public class MLTank: RootTank
         sensor.AddObservation(this.transform.localPosition.x);
         sensor.AddObservation(this.transform.localPosition.z);
         sensor.AddObservation(tankTop.transform.rotation.y);
-        sensor.AddObservation(shotShell_script.maxShellNum-shotShell_script.shellNum);
+        sensor.AddObservation(maxShellNum-shellNum);
     }
     public void action_control(ActionBuffers actionBuffers){
         rBody.velocity=Vector3.zero;
@@ -67,15 +60,18 @@ public class MLTank: RootTank
         if(actionBuffers.DiscreteActions[2] == 1)
         {
             if((Time.time-last_launch_time)>shotInterval){
-                if(shotShell_script.shellNum<shotShell_script.maxShellNum){
-                    shotShell_script.shotShell();
+                if(shellNum<maxShellNum){
+                    shotShell();
                     last_launch_time=Time.time;
                     launch_cnt+=1;
                 }
             }
         }
-        //tankTop_script.rotateByFloat(actionBuffers.DiscreteActions[3]-1);
         tankTop_script.rotateByFloat(actionBuffers.ContinuousActions[0]);
+    }
+    public override void OnActionReceived(ActionBuffers actionBuffers)
+    {
+        action_control(actionBuffers);
     }
     public void gameset(float reward){
         SetReward(reward);
