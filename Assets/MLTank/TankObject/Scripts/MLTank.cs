@@ -8,10 +8,7 @@ using Unity.MLAgents.Sensors;
 public class MLTank: RootTank
 {
     Rigidbody rBody;
-    public float launch_cnt=0;
-    public int shotInterval=10;
     rotate tankTop_script;
-    float last_launch_time=-100;
 	public override void Initialize(){
         tankTop_script = tankTop.GetComponent<rotate>();
         rBody=GetComponent<Rigidbody>();
@@ -38,35 +35,29 @@ public class MLTank: RootTank
     }
     public void action_control(ActionBuffers actionBuffers){
         rBody.velocity=Vector3.zero;
-        //if(EnableMove){
-            //if (actionBuffers.DiscreteActions[0] == 1)
-            //{
-                //forwardTank(Time.deltaTime);
-            //}
-            //if (actionBuffers.DiscreteActions[0] == 2)
-            //{
-                //backwardTank(Time.deltaTime);
-            //}
-            //if(actionBuffers.DiscreteActions[1] == 1)
-            //{
-                //rightTank(Time.deltaTime);
-            //}
-            //if(actionBuffers.DiscreteActions[1] == 2)
-            //{
-                //leftTank(Time.deltaTime);
-            //}
-        //}
-        //if(actionBuffers.DiscreteActions[2] == 1)
-        //{
-            //if((Time.time-last_launch_time)>shotInterval){
-                //if(shellNum<maxShellNum){
-                    //shotShell();
-                    //last_launch_time=Time.time;
-                    //launch_cnt+=1;
-                //}
-            //}
-        //}
-        //tankTop_script.rotateByFloat(actionBuffers.ContinuousActions[0]);
+        if(EnableMove){
+            if (actionBuffers.DiscreteActions[0] == 1)
+            {
+                forwardTank(Time.deltaTime);
+            }
+            if (actionBuffers.DiscreteActions[0] == 2)
+            {
+                backwardTank(Time.deltaTime);
+            }
+            if(actionBuffers.DiscreteActions[1] == 1)
+            {
+                rightTank(Time.deltaTime);
+            }
+            if(actionBuffers.DiscreteActions[1] == 2)
+            {
+                leftTank(Time.deltaTime);
+            }
+        }
+        if(actionBuffers.DiscreteActions[2] == 1)
+        {
+            shotShell();
+        }
+        tankTop_script.rotateByFloat(actionBuffers.ContinuousActions[0]);
     }
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {

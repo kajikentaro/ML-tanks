@@ -10,6 +10,7 @@ using UnityEngine.SceneManagement;
 public class stageLoad : MonoBehaviour
 {
     static public bool canMove = false;
+    public bool learningMode=true;
     GameObject BreakableBlock;
     GameObject unBreakableBlock;
     GameObject tankMe;
@@ -64,6 +65,7 @@ public class stageLoad : MonoBehaviour
                     
                 }
                 else if(blocks[i,j] == '.'){
+                    if(learningMode)continue;
                     Vector3 tank_position = new Vector3(x, tank_depth,z);
                     var tank_gameobject=Instantiate(tankMe, tank_position , Quaternion.identity);
                     tank_gameobject.GetComponent<RootTank>().Shells=Shells;

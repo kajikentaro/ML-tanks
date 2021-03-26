@@ -17,24 +17,29 @@ public class RootTank : Agent
     public int maxShellNum;
     public int shellNum;
     public float shot_speed;
+    public int shotInterval=10;
+    public int launch_cnt=0;
+    public float last_launch_time=-100;
     private float a=1.0f;
 
     //public AudioClip shotSound;
     // Update is called once per frame
     public void shotShell()
     {
-        shellNum+=1;
-        Vector3 shellPos=transform.position;
-        shellPos+=1.5f*tankTop.transform.forward;
-        GameObject shell = Instantiate(shellPrefab, shellPos,transform.rotation ,Shells.transform);
-        // 砲弾に付いているRigidbodyコンポーネントにアクセスする。
-        shell.GetComponent<shellScript>().maxCol=maxColCount;
-        shell.GetComponent<shellScript>().shotDirection=shot_speed*tankTop.transform.forward;
-        shell.GetComponent<shellScript>().tank_gameobject=this.gameObject;
-        shell.GetComponent<shellScript>().learningMode=learningMode;
-        //Rigidbody shellRb = shell.GetComponent<Rigidbody>();
-        //shellRb.velocity= transform.forward * shotSpeed*10;
-        //AudioSource.PlayClipAtPoint(shotSound, transform.position);
+        if((Time.time-last_launch_time)>shotInterval){
+            if(shellNum<maxShellNum){
+                shellNum+=1;
+                Vector3 shellPos=transform.position;
+                shellPos+=1.5f*tankTop.transform.forward;
+                GameObject shell = Instantiate(shellPrefab, shellPos,transform.rotation ,Shells.transform);
+                shell.GetComponent<shellScript>().maxCol=maxColCount;
+                shell.GetComponent<shellScript>().shotDirection=shot_speed*tankTop.transform.forward;
+                shell.GetComponent<shellScript>().tank_gameobject=this.gameObject;
+                shell.GetComponent<shellScript>().learningMode=learningMode;
+                last_launch_time=Time.time;
+                launch_cnt+=1;
+            }
+        }
     }
     public void forwardTank(float delta){
         if(EnableMove){
