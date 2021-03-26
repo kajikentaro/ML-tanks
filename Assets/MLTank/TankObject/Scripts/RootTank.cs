@@ -11,7 +11,6 @@ public class RootTank : Agent
     public GameObject Shells;
     public GameObject tankTop;
     public bool EnableMove=false;
-	public bool aliving=true;
     public bool learningMode;
     public float speedTank = 1.0f;
     public int maxColCount;

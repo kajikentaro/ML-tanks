@@ -10,12 +10,13 @@ public class TankMe : RootTank
     //public float rotate_speed = 3.0f;
     //Update is called once per frame
     rotate rotate_script;
+    stageLoad stageLoad;
     void Start(){
         rotate_script = this.tankTop.GetComponent<rotate>();
     }
     void Update()
     {
-        if (aliving)//&& StageMaker.canMove)
+        if (true)//&& StageMaker.canMove)
         {
             //平行移動
             if (Input.GetKey("w"))
@@ -35,7 +36,6 @@ public class TankMe : RootTank
                 leftTank(Time.deltaTime);
             }
             if (Input.GetMouseButtonDown(0)){
-                Debug.Log("mouse");
                 shotShell();
             }
         }
@@ -51,7 +51,6 @@ public class TankMe : RootTank
         {
             Destroy(other.gameObject);
             DestroyTank();
-            aliving = false;
         }
     }
 }
