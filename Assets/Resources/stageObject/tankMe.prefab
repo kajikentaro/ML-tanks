@@ -318,13 +318,15 @@ MonoBehaviour:
   Shells: {fileID: 0}
   tankTop: {fileID: 5705199802945029744}
   EnableMove: 1
-  aliving: 1
   learningMode: 0
   speedTank: 3
   maxColCount: 2
-  maxShellNum: 2
+  maxShellNum: 5
   shellNum: 0
   shot_speed: 1
+  shotInterval: 0.2
+  launch_cnt: 0
+  last_launch_time: -100
 --- !u!114 &3521457948955266709
 MonoBehaviour:
   m_ObjectHideFlags: 0

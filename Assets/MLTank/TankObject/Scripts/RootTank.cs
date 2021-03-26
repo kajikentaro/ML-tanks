@@ -17,7 +17,7 @@ public class RootTank : Agent
     public int maxShellNum;
     public int shellNum;
     public float shot_speed;
-    public int shotInterval=10;
+    public float shotInterval;
     public int launch_cnt=0;
     public float last_launch_time=-100;
     private float a=1.0f;

@@ -9932,11 +9932,12 @@ MonoBehaviour:
   learningMode: 0
   speedTank: 1
   maxColCount: 2
-  maxShellNum: 2
+  maxShellNum: 1
   shellNum: 0
   shot_speed: 1
+  shotInterval: 3
   launch_cnt: 0
-  shotInterval: 10
+  last_launch_time: -100
 --- !u!65 &6628997646467493935
 BoxCollider:
   m_ObjectHideFlags: 0
