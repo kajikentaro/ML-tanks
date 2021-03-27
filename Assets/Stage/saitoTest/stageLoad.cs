@@ -14,10 +14,11 @@ public class stageLoad : MonoBehaviour
     GameObject BreakableBlock;
     GameObject unBreakableBlock;
     GameObject tankMe;
+    public GameObject target;
     float block_height = 1.0f;
     float block_width = 1.0f;
-    float block_depth = -1.75f;
-    float tank_depth = 0.5f;
+    float block_depth = -2.5f;
+    float tank_depth = 0.3f;
     public int stage_number = 1;
 
     public void LoadStage(int stage_number,bool learningMode)//csvからテキスト情報を読み込み、int2次元配列を返す
@@ -48,12 +49,13 @@ public class stageLoad : MonoBehaviour
         tankMe=Resources.Load("stageObject/tankMe") as GameObject;
         GameObject Blocks=new GameObject("Blocks");
         GameObject Shells=new GameObject("Shells");
+        if(!learningMode)target=tankMe;
         for(int i = 0; i < h; i++)
         {
             for(int j = 0; j < w; j++)
             {
-                float z=block_height*(i-h/2+0.5f);
-                float x=block_width*(j-w/2+0.5f);
+                float x=block_width*(j-w/2+0.5f)+transform.localPosition.x;
+                float z=block_height*(i-h/2+0.5f)+transform.localPosition.z;
                 if (blocks[i,j] == '0') continue;
                 else if(blocks[i,j] == '1'){
                     Vector3 block_position = new Vector3(x, block_depth, z);
@@ -73,10 +75,14 @@ public class stageLoad : MonoBehaviour
                     }
                 }
                 else{
-                    GameObject EnemyTank=Resources.Load("stageObject/tank"+blocks[i,j]) as GameObject;
-                    Vector3 tank_position = new Vector3(x, tank_depth, z);
-                    var tank_gameobject=Instantiate(EnemyTank, tank_position , Quaternion.identity);
-                    tank_gameobject.GetComponent<RootTank>().Shells=Shells;
+                    GameObject EnemyTank;
+                    if(!learningMode) {
+                        EnemyTank=Resources.Load("stageObject/tank"+blocks[i,j]) as GameObject;
+                        Vector3 tank_position = new Vector3(x, tank_depth, z);
+                        var tank_gameobject=Instantiate(EnemyTank, tank_position , Quaternion.identity);
+                        tank_gameobject.GetComponent<MLTank>().target=target;
+                        tank_gameobject.GetComponent<RootTank>().Shells=Shells;
+                    }
                 }
             }
         }
