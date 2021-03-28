@@ -50,12 +50,13 @@ public class stageLoad : MonoBehaviour
         GameObject Blocks=new GameObject("Blocks");
         GameObject Shells=new GameObject("Shells");
         if(!learningMode)target=tankMe;
+        int tankNum=1;
         for(int i = 0; i < h; i++)
         {
             for(int j = 0; j < w; j++)
             {
-                float x=block_width*(j-w/2+0.5f)+transform.localPosition.x;
-                float z=block_height*(i-h/2+0.5f)+transform.localPosition.z;
+                float x=block_width*(j-w/2+0.5f)+transform.position.x;
+                float z=block_height*(i-h/2+0.5f)+transform.position.z;
                 if (blocks[i,j] == '0') continue;
                 else if(blocks[i,j] == '1'){
                     Vector3 block_position = new Vector3(x, block_depth, z);
@@ -82,6 +83,9 @@ public class stageLoad : MonoBehaviour
                         var tank_gameobject=Instantiate(EnemyTank, tank_position , Quaternion.identity);
                         tank_gameobject.GetComponent<MLTank>().target=target;
                         tank_gameobject.GetComponent<RootTank>().Shells=Shells;
+                        string dir="model/stage"+stage_number+"/Tank"+blocks[i,j]+""+tankNum;
+                        tank_gameobject.GetComponent<MLTank>().tankModelDir=dir;
+                        tankNum++;
                     }
                 }
             }

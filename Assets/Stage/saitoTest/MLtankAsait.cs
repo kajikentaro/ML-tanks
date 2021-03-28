@@ -20,10 +20,6 @@ public class MLtankAsait : MLTank
     {
         base.OnEpisodeBegin();
         start_time=Time.time;
-        int w=30;
-        int h=20;
-        Vector3 newPosition2 = new Vector3(w*(Random.value-0.5f),0.3f,h*(Random.value-0.5f));
-        target.transform.localPosition = newPosition2;
     }
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
@@ -32,13 +28,40 @@ public class MLtankAsait : MLTank
         foreach(var element in rayOutputs){
             if(element.HitTagIndex==0){
                 AddReward(0.0001f);
-                Debug.Log("addreward");
+                //Debug.Log("addreward");
             }
         }
-        if(Time.time - start_time >= 20){
-            //gameset(-1.0f);
+        if(received_attack){
+            SetReward(-1.0f);
+            received_attack=false;
+            Debug.Log("received_attack");
             EndEpisode();
-            //gamesetAll();
+        }
+        if(hitTank){
+            AddReward(-0.5f);
+            hitTank=false;
+            Debug.Log("hit tank");
+        }
+        if(hitTarget){
+            SetReward(1.0f);
+            hitTarget=false;
+            Debug.Log("hit target");
+            EndEpisode();
+        }
+        if(hitShell){
+            AddReward(0.3f);
+            hitShell=false;
+        }
+        if(notHit){
+            AddReward(-0.2f);
+            notHit=false;
+        }
+        if(Time.time - start_time >= 20){
+            int w=30;
+            int h=20;
+            Vector3 newPosition2 = new Vector3(w*(Random.value-0.5f),0.3f,h*(Random.value-0.5f));
+            target.transform.localPosition = newPosition2;
+            EndEpisode();
         }
     }
 }
