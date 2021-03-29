@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 3521457948955266709}
   m_Layer: 0
   m_Name: tankMe
-  m_TagString: tank
+  m_TagString: target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

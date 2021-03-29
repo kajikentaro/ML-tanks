@@ -79,13 +79,13 @@ public class stageLoad : MonoBehaviour
                     GameObject EnemyTank;
                     if(!learningMode) {
                         EnemyTank=Resources.Load("stageObject/tank"+blocks[i,j]) as GameObject;
+                        string dir="model/stage"+stage_number+"/Tank"+blocks[i,j]+""+tankNum;
+                        EnemyTank.GetComponent<MLTank>().tankModelDir=dir;
+                        tankNum++;
                         Vector3 tank_position = new Vector3(x, tank_depth, z);
                         var tank_gameobject=Instantiate(EnemyTank, tank_position , Quaternion.identity);
                         tank_gameobject.GetComponent<MLTank>().target=target;
                         tank_gameobject.GetComponent<RootTank>().Shells=Shells;
-                        string dir="model/stage"+stage_number+"/Tank"+blocks[i,j]+""+tankNum;
-                        tank_gameobject.GetComponent<MLTank>().tankModelDir=dir;
-                        tankNum++;
                     }
                 }
             }

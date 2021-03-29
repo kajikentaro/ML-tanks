@@ -162,7 +162,7 @@ MonoBehaviour:
   - Shell
   m_RaysPerDirection: 10
   m_MaxRayDegrees: 180
-  m_SphereCastRadius: 1.5
+  m_SphereCastRadius: 0
   m_RayLength: 100
   m_RayLayerMask:
     serializedVersion: 2
@@ -9823,11 +9823,10 @@ GameObject:
   - component: {fileID: 5153138219730306595}
   - component: {fileID: 2916962239312229867}
   - component: {fileID: 601282616343517658}
-  - component: {fileID: 3862421628812500087}
-  - component: {fileID: 8182621009662740423}
   - component: {fileID: 6628997646467493935}
+  - component: {fileID: 7435714596042843009}
   m_Layer: 0
-  m_Name: tankA
+  m_Name: learning_tankA
   m_TagString: tank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9890,63 +9889,11 @@ MonoBehaviour:
   m_Model: {fileID: 0}
   m_InferenceDevice: 0
   m_BehaviorType: 0
-  m_BehaviorName: Tank
+  m_BehaviorName: TankA
   TeamId: 0
   m_UseChildSensors: 1
   m_UseChildActuators: 1
   m_ObservableAttributeHandling: 0
---- !u!114 &3862421628812500087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6857493593980909235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DecisionPeriod: 5
-  TakeActionsBetweenDecisions: 1
---- !u!114 &8182621009662740423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6857493593980909235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1265f85597eae77429148de22fa1d68d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agentParameters:
-    maxStep: 0
-  hasUpgradedFromAgentParameters: 1
-  MaxStep: 0
-  shellPrefab: {fileID: 4915038115320194317, guid: 988574e4595729e42be7b4237e5df385,
-    type: 3}
-  Shells: {fileID: 0}
-  tankTop: {fileID: 8854375548522133792}
-  EnableMove: 0
-  learningMode: 0
-  speedTank: 1
-  maxColCount: 2
-  maxShellNum: 1
-  shellNum: 0
-  shot_speed: 1
-  shotInterval: 3
-  launch_cnt: 0
-  last_launch_time: -100
-  received_attack: 0
-  hitTank: 0
-  hitTarget: 0
-  hitShell: 0
-  notHit: 0
-  target: {fileID: 0}
-  tankModelDir: 
-  model: {fileID: 5022602860645237092, guid: 88475239a6d746e45990d431c66c9aa3, type: 3}
 --- !u!65 &6628997646467493935
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9960,6 +9907,43 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 1, z: 2}
   m_Center: {x: 0, y: 0.2, z: 0}
+--- !u!114 &7435714596042843009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6857493593980909235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 682d8dcc5eb08e64888aee734dc794b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  shellPrefab: {fileID: 4915038115320194317, guid: 988574e4595729e42be7b4237e5df385,
+    type: 3}
+  Shells: {fileID: 0}
+  tankTop: {fileID: 8854375548522133792}
+  EnableMove: 0
+  learningMode: 1
+  speedTank: 1
+  maxColCount: 2
+  maxShellNum: 1
+  shellNum: 0
+  shot_speed: 1
+  shotInterval: 0.3
+  launch_cnt: 0
+  last_launch_time: -100
+  received_attack: 0
+  hitTank: 0
+  hitTarget: 0
+  hitShell: 0
+  notHit: 0
+  target: {fileID: 0}
+  tankModelDir: 
 --- !u!1 &8854375548522133792
 GameObject:
   m_ObjectHideFlags: 0
@@ -10082,8 +10066,8 @@ MonoBehaviour:
   m_ObservationStacks: 1
   rayHitColor: {r: 1, g: 0, b: 0, a: 1}
   rayMissColor: {r: 1, g: 1, b: 1, a: 1}
-  m_StartVerticalOffset: 0
-  m_EndVerticalOffset: 0
+  m_StartVerticalOffset: -1
+  m_EndVerticalOffset: -1
 --- !u!54 &7205949602792303140
 Rigidbody:
   m_ObjectHideFlags: 0

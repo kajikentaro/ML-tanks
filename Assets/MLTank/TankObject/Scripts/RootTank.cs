@@ -20,6 +20,11 @@ public class RootTank : Agent
     public float shotInterval;
     public int launch_cnt=0;
     public float last_launch_time=-100;
+    public bool received_attack=false;
+    public bool hitTank=false;
+    public bool hitTarget=false;
+    public bool hitShell=false;
+    public bool notHit=false;
     private float a=1.0f;
 
     //public AudioClip shotSound;
