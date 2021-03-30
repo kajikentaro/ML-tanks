@@ -1,73 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &298460707195141789
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 298460707195141788}
-  - component: {fileID: 298460707195141779}
-  - component: {fileID: 298460707195141778}
-  m_Layer: 0
-  m_Name: ShotShellA
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &298460707195141788
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 298460707195141789}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 4}
-  m_LocalScale: {x: 8, y: 125, z: 8}
-  m_Children: []
-  m_Father: {fileID: 3278236052043713602}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &298460707195141779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 298460707195141789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 670c34a2005764b6c86e54463231ff7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shellPrefab: {fileID: 4915038115320194317, guid: 988574e4595729e42be7b4237e5df385,
-    type: 3}
-  parentObj: {fileID: 0}
-  tankObj: {fileID: 6857493593980909235}
-  maxColCount: 2
-  maxShellNum: 1
-  shellNum: 0
-  shot_speed: 1
---- !u!54 &298460707195141778
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 298460707195141789}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 14
-  m_CollisionDetection: 0
 --- !u!1 &3124964255311886582
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,11 +157,12 @@ MonoBehaviour:
   m_SensorName: RayPerceptionSensor2
   m_DetectableTags:
   - target
+  - tank
   - block
   - Shell
-  m_RaysPerDirection: 10
+  m_RaysPerDirection: 4
   m_MaxRayDegrees: 180
-  m_SphereCastRadius: 1.5
+  m_SphereCastRadius: 1
   m_RayLength: 100
   m_RayLayerMask:
     serializedVersion: 2
@@ -9890,9 +9823,9 @@ GameObject:
   - component: {fileID: 5153138219730306595}
   - component: {fileID: 2916962239312229867}
   - component: {fileID: 601282616343517658}
+  - component: {fileID: 3862421628812500087}
+  - component: {fileID: 8182621009662740423}
   - component: {fileID: 6628997646467493935}
-  - component: {fileID: 592327385053508373}
-  - component: {fileID: 178447579636135514}
   m_Layer: 0
   m_Name: tankB
   m_TagString: tank
@@ -9909,7 +9842,7 @@ Transform:
   m_GameObject: {fileID: 6857493593980909235}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 2633989275155254258}
   - {fileID: 5284893640701084899}
@@ -9945,8 +9878,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 4
-    NumStackedVectorObservations: 5
+    VectorObservationSize: 6
+    NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 1
       BranchSizes: 030000000300000002000000
@@ -9962,48 +9895,7 @@ MonoBehaviour:
   m_UseChildSensors: 1
   m_UseChildActuators: 1
   m_ObservableAttributeHandling: 0
---- !u!65 &6628997646467493935
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6857493593980909235}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 1, z: 2}
-  m_Center: {x: 0, y: 0.2, z: 0}
---- !u!114 &592327385053508373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6857493593980909235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3646791f0095d84598f5b658223bdae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agentParameters:
-    maxStep: 0
-  hasUpgradedFromAgentParameters: 1
-  MaxStep: 0
-  EnableMove: 1
-  speedTank: 1
-  aliving: 1
-  rBody: {fileID: 2916962239312229867}
-  tankTop: {fileID: 8854375548522133792}
-  shotShell: {fileID: 298460707195141789}
-  Shells: {fileID: 0}
-  launch_cnt: 0
-  shotInterval: 10
-  limit_rotation: 100
-  sum_rotation: 0
-  target: {fileID: 0}
---- !u!114 &178447579636135514
+--- !u!114 &3862421628812500087
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10017,6 +9909,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 5
   TakeActionsBetweenDecisions: 1
+--- !u!114 &8182621009662740423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6857493593980909235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1265f85597eae77429148de22fa1d68d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  shellPrefab: {fileID: 4915038115320194317, guid: 988574e4595729e42be7b4237e5df385,
+    type: 3}
+  Shells: {fileID: 0}
+  tankTop: {fileID: 8854375548522133792}
+  EnableMove: 1
+  learningMode: 0
+  speedTank: 1
+  maxColCount: 2
+  maxShellNum: 1
+  shellNum: 0
+  shot_speed: 1
+  shotInterval: 3
+  launch_cnt: 0
+  last_launch_time: -100
+  received_attack: 0
+  hitTank: 0
+  hitTarget: 0
+  hitShell: 0
+  notHit: 0
+  target: {fileID: 0}
+  tankModelDir: 
+--- !u!65 &6628997646467493935
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6857493593980909235}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1, z: 2}
+  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!1 &8854375548522133792
 GameObject:
   m_ObjectHideFlags: 0
@@ -10048,8 +9990,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 0.49999997, y: 0.2, z: 0.5}
-  m_Children:
-  - {fileID: 298460707195141788}
+  m_Children: []
   m_Father: {fileID: 2633989275155254258}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10127,10 +10068,11 @@ MonoBehaviour:
   m_SensorName: RayPerceptionSensor
   m_DetectableTags:
   - target
+  - tank
   - block
   - Shell
-  m_RaysPerDirection: 5
-  m_MaxRayDegrees: 60
+  m_RaysPerDirection: 3
+  m_MaxRayDegrees: 30
   m_SphereCastRadius: 0
   m_RayLength: 100
   m_RayLayerMask:

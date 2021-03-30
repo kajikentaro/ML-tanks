@@ -92,6 +92,6 @@ public class stageLoad : MonoBehaviour
         }
     }
     void Start(){
-        LoadStage(1,learningMode);
+        LoadStage(stage_number,learningMode);
     }
 }
