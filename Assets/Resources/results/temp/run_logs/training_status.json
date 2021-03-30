@@ -1,0 +1,73 @@
+{
+    "TankA3": {
+        "checkpoints": [
+            {
+                "steps": 499948,
+                "file_path": "results\\temp\\TankA3\\TankA3-499948.onnx",
+                "reward": 0.8348051481860745,
+                "creation_time": 1617042940.0149033
+            },
+            {
+                "steps": 500084,
+                "file_path": "results\\temp\\TankA3\\TankA3-500084.onnx",
+                "reward": 0.8263601976859903,
+                "creation_time": 1617042941.3945243
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 500084,
+            "file_path": "results\\temp\\TankA3.onnx",
+            "reward": 0.8263601976859903,
+            "creation_time": 1617042941.3945243
+        }
+    },
+    "TankA1": {
+        "checkpoints": [
+            {
+                "steps": 499995,
+                "file_path": "results\\temp\\TankA1\\TankA1-499995.onnx",
+                "reward": 0.39652500090612547,
+                "creation_time": 1617042940.235282
+            },
+            {
+                "steps": 500067,
+                "file_path": "results\\temp\\TankA1\\TankA1-500067.onnx",
+                "reward": 0.38828829874639387,
+                "creation_time": 1617042941.284543
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 500067,
+            "file_path": "results\\temp\\TankA1.onnx",
+            "reward": 0.38828829874639387,
+            "creation_time": 1617042941.284543
+        }
+    },
+    "TankA2": {
+        "checkpoints": [
+            {
+                "steps": 499978,
+                "file_path": "results\\temp\\TankA2\\TankA2-499978.onnx",
+                "reward": 0.9044176488399677,
+                "creation_time": 1617042940.9433882
+            },
+            {
+                "steps": 500106,
+                "file_path": "results\\temp\\TankA2\\TankA2-500106.onnx",
+                "reward": 0.9044176488399677,
+                "creation_time": 1617042941.1737723
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 500106,
+            "file_path": "results\\temp\\TankA2.onnx",
+            "reward": 0.9044176488399677,
+            "creation_time": 1617042941.1737723
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.25.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}

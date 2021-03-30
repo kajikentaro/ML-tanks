@@ -160,9 +160,9 @@ MonoBehaviour:
   - tank
   - block
   - Shell
-  m_RaysPerDirection: 10
+  m_RaysPerDirection: 4
   m_MaxRayDegrees: 180
-  m_SphereCastRadius: 1.5
+  m_SphereCastRadius: 1
   m_RayLength: 100
   m_RayLayerMask:
     serializedVersion: 2
@@ -9946,7 +9946,6 @@ MonoBehaviour:
   notHit: 0
   target: {fileID: 0}
   tankModelDir: 
-  model: {fileID: 5022602860645237092, guid: 88475239a6d746e45990d431c66c9aa3, type: 3}
 --- !u!65 &6628997646467493935
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10072,8 +10071,8 @@ MonoBehaviour:
   - tank
   - block
   - Shell
-  m_RaysPerDirection: 10
-  m_MaxRayDegrees: 60
+  m_RaysPerDirection: 3
+  m_MaxRayDegrees: 30
   m_SphereCastRadius: 0
   m_RayLength: 100
   m_RayLayerMask:

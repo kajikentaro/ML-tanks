@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4522596315219873477}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 4, y: 5, z: 4}
+  m_LocalScale: {x: 3, y: 5, z: 3}
   m_Children: []
   m_Father: {fileID: 4522596315512688838}
   m_RootOrder: 1
@@ -93,20 +93,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4522596315398072944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7055393991804679766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DecisionPeriod: 10
-  TakeActionsBetweenDecisions: 1
 --- !u!1 &4522596315512688839
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,34 +129,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4522596315896532429
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7055393991644727560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DecisionPeriod: 10
-  TakeActionsBetweenDecisions: 1
---- !u!114 &4522596316112399291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7055393990877291734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DecisionPeriod: 10
-  TakeActionsBetweenDecisions: 1
 --- !u!1 &4522596316533887721
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +142,7 @@ GameObject:
   - component: {fileID: 4522596316533887718}
   - component: {fileID: 4522596316533887719}
   - component: {fileID: 4522596316533887720}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,43 +278,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 601282616343517658, guid: 0b527fc004c26894998a48146ecc4971,
         type: 3}
-      propertyPath: m_Model
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 601282616343517658, guid: 0b527fc004c26894998a48146ecc4971,
-        type: 3}
       propertyPath: m_BehaviorName
-      value: TankA3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2818573667805828551, guid: 0b527fc004c26894998a48146ecc4971,
-        type: 3}
-      propertyPath: m_MaxRayDegrees
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2818573667805828551, guid: 0b527fc004c26894998a48146ecc4971,
-        type: 3}
-      propertyPath: m_DetectableTags.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2818573667805828551, guid: 0b527fc004c26894998a48146ecc4971,
-        type: 3}
-      propertyPath: m_DetectableTags.Array.data[0]
-      value: target
-      objectReference: {fileID: 0}
-    - target: {fileID: 2818573667805828551, guid: 0b527fc004c26894998a48146ecc4971,
-        type: 3}
-      propertyPath: m_DetectableTags.Array.data[1]
-      value: tank
-      objectReference: {fileID: 0}
-    - target: {fileID: 2818573667805828551, guid: 0b527fc004c26894998a48146ecc4971,
-        type: 3}
-      propertyPath: m_DetectableTags.Array.data[2]
-      value: block
-      objectReference: {fileID: 0}
-    - target: {fileID: 2818573667805828551, guid: 0b527fc004c26894998a48146ecc4971,
-        type: 3}
-      propertyPath: m_DetectableTags.Array.data[3]
-      value: Shell
+      value: TankA2
       objectReference: {fileID: 0}
     - target: {fileID: 2916962239312229867, guid: 0b527fc004c26894998a48146ecc4971,
         type: 3}
@@ -436,46 +359,20 @@ PrefabInstance:
     - target: {fileID: 7435714596042843009, guid: 0b527fc004c26894998a48146ecc4971,
         type: 3}
       propertyPath: maxColCount
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7435714596042843009, guid: 0b527fc004c26894998a48146ecc4971,
         type: 3}
       propertyPath: maxShellNum
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 7517340579433836638, guid: 0b527fc004c26894998a48146ecc4971,
+    - target: {fileID: 7435714596042843009, guid: 0b527fc004c26894998a48146ecc4971,
         type: 3}
-      propertyPath: m_DetectableTags.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7517340579433836638, guid: 0b527fc004c26894998a48146ecc4971,
-        type: 3}
-      propertyPath: m_DetectableTags.Array.data[0]
-      value: target
-      objectReference: {fileID: 0}
-    - target: {fileID: 7517340579433836638, guid: 0b527fc004c26894998a48146ecc4971,
-        type: 3}
-      propertyPath: m_DetectableTags.Array.data[1]
-      value: tank
-      objectReference: {fileID: 0}
-    - target: {fileID: 7517340579433836638, guid: 0b527fc004c26894998a48146ecc4971,
-        type: 3}
-      propertyPath: m_DetectableTags.Array.data[2]
-      value: block
-      objectReference: {fileID: 0}
-    - target: {fileID: 7517340579433836638, guid: 0b527fc004c26894998a48146ecc4971,
-        type: 3}
-      propertyPath: m_DetectableTags.Array.data[3]
-      value: Shell
+      propertyPath: shotInterval
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b527fc004c26894998a48146ecc4971, type: 3}
---- !u!1 &7055393991804679766 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6857493593980909235, guid: 0b527fc004c26894998a48146ecc4971,
-    type: 3}
-  m_PrefabInstance: {fileID: 4522596314987282661}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8737232366022248134 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5153138219730306595, guid: 0b527fc004c26894998a48146ecc4971,
@@ -492,37 +389,7 @@ PrefabInstance:
     - target: {fileID: 601282616343517658, guid: 0b527fc004c26894998a48146ecc4971,
         type: 3}
       propertyPath: m_BehaviorName
-      value: TankA2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2818573667805828551, guid: 0b527fc004c26894998a48146ecc4971,
-        type: 3}
-      propertyPath: m_MaxRayDegrees
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2818573667805828551, guid: 0b527fc004c26894998a48146ecc4971,
-        type: 3}
-      propertyPath: m_DetectableTags.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2818573667805828551, guid: 0b527fc004c26894998a48146ecc4971,
-        type: 3}
-      propertyPath: m_DetectableTags.Array.data[0]
-      value: target
-      objectReference: {fileID: 0}
-    - target: {fileID: 2818573667805828551, guid: 0b527fc004c26894998a48146ecc4971,
-        type: 3}
-      propertyPath: m_DetectableTags.Array.data[1]
-      value: tank
-      objectReference: {fileID: 0}
-    - target: {fileID: 2818573667805828551, guid: 0b527fc004c26894998a48146ecc4971,
-        type: 3}
-      propertyPath: m_DetectableTags.Array.data[2]
-      value: block
-      objectReference: {fileID: 0}
-    - target: {fileID: 2818573667805828551, guid: 0b527fc004c26894998a48146ecc4971,
-        type: 3}
-      propertyPath: m_DetectableTags.Array.data[3]
-      value: Shell
+      value: TankA1
       objectReference: {fileID: 0}
     - target: {fileID: 2916962239312229867, guid: 0b527fc004c26894998a48146ecc4971,
         type: 3}
@@ -602,46 +469,20 @@ PrefabInstance:
     - target: {fileID: 7435714596042843009, guid: 0b527fc004c26894998a48146ecc4971,
         type: 3}
       propertyPath: maxColCount
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7435714596042843009, guid: 0b527fc004c26894998a48146ecc4971,
         type: 3}
       propertyPath: maxShellNum
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 7517340579433836638, guid: 0b527fc004c26894998a48146ecc4971,
+    - target: {fileID: 7435714596042843009, guid: 0b527fc004c26894998a48146ecc4971,
         type: 3}
-      propertyPath: m_DetectableTags.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7517340579433836638, guid: 0b527fc004c26894998a48146ecc4971,
-        type: 3}
-      propertyPath: m_DetectableTags.Array.data[0]
-      value: target
-      objectReference: {fileID: 0}
-    - target: {fileID: 7517340579433836638, guid: 0b527fc004c26894998a48146ecc4971,
-        type: 3}
-      propertyPath: m_DetectableTags.Array.data[1]
-      value: tank
-      objectReference: {fileID: 0}
-    - target: {fileID: 7517340579433836638, guid: 0b527fc004c26894998a48146ecc4971,
-        type: 3}
-      propertyPath: m_DetectableTags.Array.data[2]
-      value: block
-      objectReference: {fileID: 0}
-    - target: {fileID: 7517340579433836638, guid: 0b527fc004c26894998a48146ecc4971,
-        type: 3}
-      propertyPath: m_DetectableTags.Array.data[3]
-      value: Shell
+      propertyPath: shotInterval
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b527fc004c26894998a48146ecc4971, type: 3}
---- !u!1 &7055393991644727560 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6857493593980909235, guid: 0b527fc004c26894998a48146ecc4971,
-    type: 3}
-  m_PrefabInstance: {fileID: 4522596315382120379}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8737232366165359000 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5153138219730306595, guid: 0b527fc004c26894998a48146ecc4971,
@@ -658,37 +499,7 @@ PrefabInstance:
     - target: {fileID: 601282616343517658, guid: 0b527fc004c26894998a48146ecc4971,
         type: 3}
       propertyPath: m_BehaviorName
-      value: TankA1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2818573667805828551, guid: 0b527fc004c26894998a48146ecc4971,
-        type: 3}
-      propertyPath: m_MaxRayDegrees
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2818573667805828551, guid: 0b527fc004c26894998a48146ecc4971,
-        type: 3}
-      propertyPath: m_DetectableTags.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2818573667805828551, guid: 0b527fc004c26894998a48146ecc4971,
-        type: 3}
-      propertyPath: m_DetectableTags.Array.data[0]
-      value: target
-      objectReference: {fileID: 0}
-    - target: {fileID: 2818573667805828551, guid: 0b527fc004c26894998a48146ecc4971,
-        type: 3}
-      propertyPath: m_DetectableTags.Array.data[1]
-      value: tank
-      objectReference: {fileID: 0}
-    - target: {fileID: 2818573667805828551, guid: 0b527fc004c26894998a48146ecc4971,
-        type: 3}
-      propertyPath: m_DetectableTags.Array.data[2]
-      value: block
-      objectReference: {fileID: 0}
-    - target: {fileID: 2818573667805828551, guid: 0b527fc004c26894998a48146ecc4971,
-        type: 3}
-      propertyPath: m_DetectableTags.Array.data[3]
-      value: Shell
+      value: TankA3
       objectReference: {fileID: 0}
     - target: {fileID: 2916962239312229867, guid: 0b527fc004c26894998a48146ecc4971,
         type: 3}
@@ -768,46 +579,20 @@ PrefabInstance:
     - target: {fileID: 7435714596042843009, guid: 0b527fc004c26894998a48146ecc4971,
         type: 3}
       propertyPath: maxColCount
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7435714596042843009, guid: 0b527fc004c26894998a48146ecc4971,
         type: 3}
       propertyPath: maxShellNum
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 7517340579433836638, guid: 0b527fc004c26894998a48146ecc4971,
+    - target: {fileID: 7435714596042843009, guid: 0b527fc004c26894998a48146ecc4971,
         type: 3}
-      propertyPath: m_DetectableTags.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7517340579433836638, guid: 0b527fc004c26894998a48146ecc4971,
-        type: 3}
-      propertyPath: m_DetectableTags.Array.data[0]
-      value: target
-      objectReference: {fileID: 0}
-    - target: {fileID: 7517340579433836638, guid: 0b527fc004c26894998a48146ecc4971,
-        type: 3}
-      propertyPath: m_DetectableTags.Array.data[1]
-      value: tank
-      objectReference: {fileID: 0}
-    - target: {fileID: 7517340579433836638, guid: 0b527fc004c26894998a48146ecc4971,
-        type: 3}
-      propertyPath: m_DetectableTags.Array.data[2]
-      value: block
-      objectReference: {fileID: 0}
-    - target: {fileID: 7517340579433836638, guid: 0b527fc004c26894998a48146ecc4971,
-        type: 3}
-      propertyPath: m_DetectableTags.Array.data[3]
-      value: Shell
+      propertyPath: shotInterval
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b527fc004c26894998a48146ecc4971, type: 3}
---- !u!1 &7055393990877291734 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6857493593980909235, guid: 0b527fc004c26894998a48146ecc4971,
-    type: 3}
-  m_PrefabInstance: {fileID: 4522596316946436709}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8737232368015152198 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5153138219730306595, guid: 0b527fc004c26894998a48146ecc4971,

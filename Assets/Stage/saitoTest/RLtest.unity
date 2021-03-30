@@ -128,25 +128,80 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1864183147864983458, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_MaxRayDegrees
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183147864983458, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148113876258, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_MaxRayDegrees
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148113876258, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148489828988, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_MaxRayDegrees
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148489828988, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3934829106554906209, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_BehaviorName
       value: TankA1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3934829106554906209, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_BrainParameters.NumStackedVectorObservations
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3934829106713794879, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_BehaviorName
       value: TankA2
       objectReference: {fileID: 0}
+    - target: {fileID: 3934829106713794879, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_BrainParameters.NumStackedVectorObservations
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3934829108010208191, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_BehaviorName
       value: TankA3
       objectReference: {fileID: 0}
+    - target: {fileID: 3934829108010208191, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_BrainParameters.NumStackedVectorObservations
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522596315219873476, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522596315219873476, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4522596315512688838, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4522596315512688838, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
@@ -203,6 +258,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: area (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4522596316533887721, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6237916555507052731, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6237916555617701861, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6237916556267708987, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3a077bb501c64348a6501db96d4538b, type: 3}
 --- !u!1001 &236113480
@@ -212,25 +287,80 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1864183147864983458, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_MaxRayDegrees
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183147864983458, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148113876258, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_MaxRayDegrees
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148113876258, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148489828988, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_MaxRayDegrees
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148489828988, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3934829106554906209, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_BehaviorName
       value: TankA1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3934829106554906209, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_BrainParameters.NumStackedVectorObservations
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3934829106713794879, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_BehaviorName
       value: TankA2
       objectReference: {fileID: 0}
+    - target: {fileID: 3934829106713794879, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_BrainParameters.NumStackedVectorObservations
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3934829108010208191, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_BehaviorName
       value: TankA3
       objectReference: {fileID: 0}
+    - target: {fileID: 3934829108010208191, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_BrainParameters.NumStackedVectorObservations
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522596315219873476, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522596315219873476, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4522596315512688838, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4522596315512688838, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
@@ -287,6 +417,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: area (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4522596316533887721, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6237916555507052731, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6237916555617701861, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6237916556267708987, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3a077bb501c64348a6501db96d4538b, type: 3}
 --- !u!1001 &311634364
@@ -296,25 +446,80 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1864183147864983458, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_MaxRayDegrees
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183147864983458, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148113876258, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_MaxRayDegrees
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148113876258, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148489828988, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_MaxRayDegrees
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148489828988, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3934829106554906209, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_BehaviorName
       value: TankA1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3934829106554906209, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_BrainParameters.NumStackedVectorObservations
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3934829106713794879, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_BehaviorName
       value: TankA2
       objectReference: {fileID: 0}
+    - target: {fileID: 3934829106713794879, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_BrainParameters.NumStackedVectorObservations
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3934829108010208191, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_BehaviorName
       value: TankA3
       objectReference: {fileID: 0}
+    - target: {fileID: 3934829108010208191, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_BrainParameters.NumStackedVectorObservations
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522596315219873476, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522596315219873476, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4522596315512688838, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4522596315512688838, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
@@ -371,6 +576,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: area (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4522596316533887721, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6237916555507052731, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6237916555617701861, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6237916556267708987, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3a077bb501c64348a6501db96d4538b, type: 3}
 --- !u!1001 &358702214
@@ -380,25 +605,80 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1864183147864983458, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_MaxRayDegrees
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183147864983458, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148113876258, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_MaxRayDegrees
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148113876258, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148489828988, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_MaxRayDegrees
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148489828988, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3934829106554906209, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_BehaviorName
       value: TankA1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3934829106554906209, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_BrainParameters.NumStackedVectorObservations
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3934829106713794879, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_BehaviorName
       value: TankA2
       objectReference: {fileID: 0}
+    - target: {fileID: 3934829106713794879, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_BrainParameters.NumStackedVectorObservations
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3934829108010208191, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_BehaviorName
       value: TankA3
       objectReference: {fileID: 0}
+    - target: {fileID: 3934829108010208191, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_BrainParameters.NumStackedVectorObservations
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522596315219873476, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522596315219873476, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4522596315512688838, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4522596315512688838, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
@@ -454,6 +734,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: area (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522596316533887721, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6237916555507052731, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6237916555617701861, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6237916556267708987, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3a077bb501c64348a6501db96d4538b, type: 3}
@@ -547,7 +847,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &1154663770
 PrefabInstance:
@@ -556,25 +856,80 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1864183147864983458, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_MaxRayDegrees
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183147864983458, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148113876258, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_MaxRayDegrees
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148113876258, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148489828988, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_MaxRayDegrees
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148489828988, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3934829106554906209, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_BehaviorName
       value: TankA1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3934829106554906209, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_BrainParameters.NumStackedVectorObservations
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3934829106713794879, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_BehaviorName
       value: TankA2
       objectReference: {fileID: 0}
+    - target: {fileID: 3934829106713794879, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_BrainParameters.NumStackedVectorObservations
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3934829108010208191, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_BehaviorName
       value: TankA3
       objectReference: {fileID: 0}
+    - target: {fileID: 3934829108010208191, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_BrainParameters.NumStackedVectorObservations
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522596315219873476, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522596315219873476, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4522596315512688838, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4522596315512688838, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
@@ -630,6 +985,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: area (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522596316533887721, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6237916555507052731, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6237916555617701861, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6237916556267708987, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3a077bb501c64348a6501db96d4538b, type: 3}
@@ -723,25 +1098,80 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1864183147864983458, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_MaxRayDegrees
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183147864983458, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148113876258, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_MaxRayDegrees
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148113876258, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148489828988, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_MaxRayDegrees
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148489828988, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3934829106554906209, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_BehaviorName
       value: TankA1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3934829106554906209, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_BrainParameters.NumStackedVectorObservations
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3934829106713794879, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_BehaviorName
       value: TankA2
       objectReference: {fileID: 0}
+    - target: {fileID: 3934829106713794879, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_BrainParameters.NumStackedVectorObservations
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3934829108010208191, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_BehaviorName
       value: TankA3
       objectReference: {fileID: 0}
+    - target: {fileID: 3934829108010208191, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_BrainParameters.NumStackedVectorObservations
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522596315219873476, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522596315219873476, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4522596315512688838, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4522596315512688838, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
@@ -798,6 +1228,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: area (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4522596316533887721, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6237916555507052731, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6237916555617701861, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6237916556267708987, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3a077bb501c64348a6501db96d4538b, type: 3}
 --- !u!1001 &2003907608
@@ -807,25 +1257,80 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1864183147864983458, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_MaxRayDegrees
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183147864983458, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148113876258, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_MaxRayDegrees
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148113876258, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148489828988, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_MaxRayDegrees
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148489828988, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3934829106554906209, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_BehaviorName
       value: TankA1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3934829106554906209, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_BrainParameters.NumStackedVectorObservations
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3934829106713794879, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_BehaviorName
       value: TankA2
       objectReference: {fileID: 0}
+    - target: {fileID: 3934829106713794879, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_BrainParameters.NumStackedVectorObservations
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3934829108010208191, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_BehaviorName
       value: TankA3
       objectReference: {fileID: 0}
+    - target: {fileID: 3934829108010208191, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_BrainParameters.NumStackedVectorObservations
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522596315219873476, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522596315219873476, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4522596315512688838, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4522596315512688838, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
@@ -882,6 +1387,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: area (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4522596316533887721, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6237916555507052731, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6237916555617701861, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6237916556267708987, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3a077bb501c64348a6501db96d4538b, type: 3}
 --- !u!1001 &2103527799
@@ -891,25 +1416,80 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1864183147864983458, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_MaxRayDegrees
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183147864983458, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148113876258, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_MaxRayDegrees
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148113876258, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148489828988, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_MaxRayDegrees
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148489828988, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3934829106554906209, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_BehaviorName
       value: TankA1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3934829106554906209, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_BrainParameters.NumStackedVectorObservations
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3934829106713794879, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_BehaviorName
       value: TankA2
       objectReference: {fileID: 0}
+    - target: {fileID: 3934829106713794879, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_BrainParameters.NumStackedVectorObservations
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3934829108010208191, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_BehaviorName
       value: TankA3
       objectReference: {fileID: 0}
+    - target: {fileID: 3934829108010208191, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_BrainParameters.NumStackedVectorObservations
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522596315219873476, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522596315219873476, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4522596315512688838, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4522596315512688838, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
@@ -966,6 +1546,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: area (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 4522596316533887721, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6237916555507052731, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6237916555617701861, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6237916556267708987, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3a077bb501c64348a6501db96d4538b, type: 3}
 --- !u!1001 &4522596317004901503
@@ -975,25 +1575,80 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1864183147864983458, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_MaxRayDegrees
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183147864983458, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148113876258, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_MaxRayDegrees
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148113876258, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148489828988, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_MaxRayDegrees
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864183148489828988, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3934829106554906209, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_BehaviorName
       value: TankA1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3934829106554906209, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_BrainParameters.NumStackedVectorObservations
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3934829106713794879, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_BehaviorName
       value: TankA2
       objectReference: {fileID: 0}
+    - target: {fileID: 3934829106713794879, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_BrainParameters.NumStackedVectorObservations
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3934829108010208191, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_BehaviorName
       value: TankA3
       objectReference: {fileID: 0}
+    - target: {fileID: 3934829108010208191, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_BrainParameters.NumStackedVectorObservations
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522596315219873476, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522596315219873476, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4522596315512688838, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4522596315512688838, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
@@ -1049,6 +1704,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: area
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522596316533887721, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6237916555617701861, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6237916556267708987, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6237916556267708987, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_SphereCastRadius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6237916556267708987, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_RayLayerMask.m_Bits
+      value: 51
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3a077bb501c64348a6501db96d4538b, type: 3}

@@ -8,6 +8,7 @@ using Unity.MLAgents.Sensors;
 public class MLtankAsait : MLTank
 {
     float start_time;
+    int NotHitCount;
     RayPerceptionSensorComponent3D rayPer;
     public RayPerceptionInput rayInput;
     public override void Initialize()
@@ -19,6 +20,10 @@ public class MLtankAsait : MLTank
     public override void OnEpisodeBegin()
     {
         base.OnEpisodeBegin();
+        int w=30;
+        int h=20;
+        Vector3 newPosition2 = new Vector3(w*(Random.value-0.5f),0.3f,h*(Random.value-0.5f));
+        target.transform.localPosition = newPosition2;
         start_time=Time.time;
     }
     public override void OnActionReceived(ActionBuffers actionBuffers)
@@ -38,9 +43,10 @@ public class MLtankAsait : MLTank
             EndEpisode();
         }
         if(hitTank){
-            AddReward(-0.5f);
+            SetReward(-0.5f);
             hitTank=false;
             Debug.Log("hit tank");
+            EndEpisode();
         }
         if(hitTarget){
             SetReward(1.0f);
@@ -53,15 +59,13 @@ public class MLtankAsait : MLTank
             hitShell=false;
         }
         if(notHit){
-            AddReward(-0.2f);
+            AddReward(-0.01f);
             notHit=false;
+            Debug.Log("Not hit");
         }
         if(Time.time - start_time >= 20){
-            int w=30;
-            int h=20;
-            Vector3 newPosition2 = new Vector3(w*(Random.value-0.5f),0.3f,h*(Random.value-0.5f));
-            target.transform.localPosition = newPosition2;
             EndEpisode();
         }
+        //AddReward(-0.0001f);
     }
 }
