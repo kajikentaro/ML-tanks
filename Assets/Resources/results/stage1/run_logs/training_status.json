@@ -1,66 +1,90 @@
 {
-    "TankA2": {
-        "checkpoints": [
-            {
-                "steps": 216859,
-                "file_path": "results\\stage1\\TankA2\\TankA2-216859.onnx",
-                "reward": -0.18462499831124055,
-                "creation_time": 1617094316.0146317
-            }
-        ],
-        "final_checkpoint": {
-            "steps": 216859,
-            "file_path": "results\\stage1\\TankA2.onnx",
-            "reward": -0.18462499831124055,
-            "creation_time": 1617094316.0146317
-        }
-    },
     "My Behavior": {
         "checkpoints": [
             {
-                "steps": 216839,
-                "file_path": "results\\stage1\\My Behavior\\My Behavior-216839.onnx",
-                "reward": 0.5594615386082575,
-                "creation_time": 1617094316.0654948
+                "steps": 499994,
+                "file_path": "results\\stage1\\My Behavior\\My Behavior-499994.onnx",
+                "reward": -0.8382689614405577,
+                "creation_time": 1617115504.3875282
+            },
+            {
+                "steps": 500119,
+                "file_path": "results\\stage1\\My Behavior\\My Behavior-500119.onnx",
+                "reward": -0.8404674117484789,
+                "creation_time": 1617115507.814551
             }
         ],
         "final_checkpoint": {
-            "steps": 216839,
+            "steps": 500119,
             "file_path": "results\\stage1\\My Behavior.onnx",
-            "reward": 0.5594615386082575,
-            "creation_time": 1617094316.0654948
+            "reward": -0.8404674117484789,
+            "creation_time": 1617115507.814551
         }
     },
-    "TankA1": {
+    "TankA2": {
         "checkpoints": [
             {
-                "steps": 216802,
-                "file_path": "results\\stage1\\TankA1\\TankA1-216802.onnx",
-                "reward": 0.09983998469542713,
-                "creation_time": 1617094316.1771965
+                "steps": 499942,
+                "file_path": "results\\stage1\\TankA2\\TankA2-499942.onnx",
+                "reward": 0.5856748149971471,
+                "creation_time": 1617115506.4230607
+            },
+            {
+                "steps": 500084,
+                "file_path": "results\\stage1\\TankA2\\TankA2-500084.onnx",
+                "reward": 0.5743757089965844,
+                "creation_time": 1617115507.725788
             }
         ],
         "final_checkpoint": {
-            "steps": 216802,
-            "file_path": "results\\stage1\\TankA1.onnx",
-            "reward": 0.09983998469542713,
-            "creation_time": 1617094316.1771965
+            "steps": 500084,
+            "file_path": "results\\stage1\\TankA2.onnx",
+            "reward": 0.5743757089965844,
+            "creation_time": 1617115507.725788
         }
     },
     "TankA3": {
         "checkpoints": [
             {
-                "steps": 216824,
-                "file_path": "results\\stage1\\TankA3\\TankA3-216824.onnx",
-                "reward": -0.1640117588069509,
-                "creation_time": 1617094316.2910292
+                "steps": 499993,
+                "file_path": "results\\stage1\\TankA3\\TankA3-499993.onnx",
+                "reward": 0.24777553177425277,
+                "creation_time": 1617115507.1798315
+            },
+            {
+                "steps": 500024,
+                "file_path": "results\\stage1\\TankA3\\TankA3-500024.onnx",
+                "reward": 0.24239070655478698,
+                "creation_time": 1617115508.1851013
             }
         ],
         "final_checkpoint": {
-            "steps": 216824,
+            "steps": 500024,
             "file_path": "results\\stage1\\TankA3.onnx",
-            "reward": -0.1640117588069509,
-            "creation_time": 1617094316.2910292
+            "reward": 0.24239070655478698,
+            "creation_time": 1617115508.1851013
+        }
+    },
+    "TankA1": {
+        "checkpoints": [
+            {
+                "steps": 499969,
+                "file_path": "results\\stage1\\TankA1\\TankA1-499969.onnx",
+                "reward": 0.013205633734530788,
+                "creation_time": 1617115507.481027
+            },
+            {
+                "steps": 500005,
+                "file_path": "results\\stage1\\TankA1\\TankA1-500005.onnx",
+                "reward": 0.013022222154884529,
+                "creation_time": 1617115508.0102184
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 500005,
+            "file_path": "results\\stage1\\TankA1.onnx",
+            "reward": 0.013022222154884529,
+            "creation_time": 1617115508.0102184
         }
     },
     "metadata": {

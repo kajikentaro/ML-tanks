@@ -32,7 +32,7 @@ public class MLtankAsait : MLTank
         var rayOutputs=RayPerceptionSensor.Perceive(rayInput).RayOutputs;
         foreach(var element in rayOutputs){
             if(element.HitTagIndex==0){
-                AddReward(0.0001f);
+                AddReward(0.0004f);
                 target.GetComponent<target>().hitRay=true;
                 //Debug.Log("addreward");
             }

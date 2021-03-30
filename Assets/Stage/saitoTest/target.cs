@@ -55,15 +55,17 @@ public class target : Agent
             Debug.Log("target received_attack");
             EndEpisode();
         }
-        if(this.transform.localPosition.y<0){
-            SetReward(-1.0f);
-            Debug.Log("fall");
-            EndEpisode();
-        }
         if(Time.time - start_time >= 20){
             SetReward(1.0f);
             EndEpisode();
         }
         //AddReward(-0.0001f);
+    }
+    void OnCollisionEnter(Collision collision){
+        if(collision.gameObject.tag=="block"){
+            Debug.Log("collision block");
+            SetReward(-1.0f);
+            EndEpisode();
+        }
     }
 }
