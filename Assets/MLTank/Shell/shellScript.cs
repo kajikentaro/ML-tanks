@@ -32,6 +32,7 @@ public class shellScript : MonoBehaviour
         col_count+=1;
         if(collision.gameObject.tag=="tank"){
             Debug.Log(collision.gameObject.tag);
+            tank_gameobject.GetComponent<RootTank>().shellNum-=1;
             if(learningMode){
                 collision.gameObject.GetComponent<RootTank>().received_attack=true;
                 if(tank_gameobject!=collision.gameObject)tank_gameobject.GetComponent<MLTank>().hitTank=true;
@@ -40,6 +41,7 @@ public class shellScript : MonoBehaviour
         }
         else if(collision.gameObject.tag=="target"){
             tank_gameobject.GetComponent<RootTank>().hitTarget=true;
+            tank_gameobject.GetComponent<RootTank>().shellNum-=1;
             Destroy(this.gameObject);
         }
         else if(col_count==maxCol||collision.gameObject.tag=="Shell"){

@@ -22,8 +22,8 @@ public class MLtankAsait : MLTank
         base.OnEpisodeBegin();
         int w=30;
         int h=20;
-        Vector3 newPosition2 = new Vector3(w*(Random.value-0.5f),0.3f,h*(Random.value-0.5f));
-        target.transform.localPosition = newPosition2;
+        //Vector3 newPosition2 = new Vector3(w*(Random.value-0.5f),0.3f,h*(Random.value-0.5f));
+        //target.transform.localPosition = newPosition2;
         start_time=Time.time;
     }
     public override void OnActionReceived(ActionBuffers actionBuffers)
@@ -33,23 +33,25 @@ public class MLtankAsait : MLTank
         foreach(var element in rayOutputs){
             if(element.HitTagIndex==0){
                 AddReward(0.0001f);
+                target.GetComponent<target>().hitRay=true;
                 //Debug.Log("addreward");
             }
         }
         if(received_attack){
             SetReward(-1.0f);
             received_attack=false;
-            Debug.Log("received_attack");
+            //Debug.Log("received_attack");
             EndEpisode();
         }
         if(hitTank){
             SetReward(-0.5f);
             hitTank=false;
-            Debug.Log("hit tank");
+            //Debug.Log("hit tank");
             EndEpisode();
         }
         if(hitTarget){
             SetReward(1.0f);
+            target.GetComponent<target>().received_attack=true;
             hitTarget=false;
             Debug.Log("hit target");
             EndEpisode();
