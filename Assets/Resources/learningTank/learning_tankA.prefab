@@ -10072,7 +10072,7 @@ MonoBehaviour:
   - block
   - Shell
   m_RaysPerDirection: 3
-  m_MaxRayDegrees: 30
+  m_MaxRayDegrees: 10
   m_SphereCastRadius: 0
   m_RayLength: 100
   m_RayLayerMask:
