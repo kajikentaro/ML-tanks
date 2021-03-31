@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &260282630
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6e0fe42a0503e44da8d3afed2e90edb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  learningMode: 1
+  learningMode: 0
   target: {fileID: 0}
   stage_number: 2
 --- !u!64 &944703927

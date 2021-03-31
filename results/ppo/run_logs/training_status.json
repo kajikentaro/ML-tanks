@@ -1,50 +1,50 @@
 {
-    "TankA1": {
+    "TankB2": {
         "checkpoints": [
             {
-                "steps": 1152,
-                "file_path": "results\\ppo\\TankA1\\TankA1-1152.onnx",
+                "steps": 768,
+                "file_path": "results\\ppo\\TankB2\\TankB2-768.onnx",
                 "reward": null,
-                "creation_time": 1617213931.6473072
+                "creation_time": 1617214709.1448557
             }
         ],
         "final_checkpoint": {
-            "steps": 1152,
-            "file_path": "results\\ppo\\TankA1.onnx",
+            "steps": 768,
+            "file_path": "results\\ppo\\TankB2.onnx",
             "reward": null,
-            "creation_time": 1617213931.6473072
+            "creation_time": 1617214709.1448557
         }
     },
-    "TankA2": {
+    "TankB3": {
         "checkpoints": [
             {
-                "steps": 1152,
-                "file_path": "results\\ppo\\TankA2\\TankA2-1152.onnx",
+                "steps": 768,
+                "file_path": "results\\ppo\\TankB3\\TankB3-768.onnx",
                 "reward": null,
-                "creation_time": 1617213931.7533333
+                "creation_time": 1617214709.2528796
             }
         ],
         "final_checkpoint": {
-            "steps": 1152,
-            "file_path": "results\\ppo\\TankA2.onnx",
+            "steps": 768,
+            "file_path": "results\\ppo\\TankB3.onnx",
             "reward": null,
-            "creation_time": 1617213931.7533333
+            "creation_time": 1617214709.2528796
         }
     },
-    "TankA3": {
+    "TankB1": {
         "checkpoints": [
             {
-                "steps": 1152,
-                "file_path": "results\\ppo\\TankA3\\TankA3-1152.onnx",
+                "steps": 768,
+                "file_path": "results\\ppo\\TankB1\\TankB1-768.onnx",
                 "reward": null,
-                "creation_time": 1617213931.8582695
+                "creation_time": 1617214709.3599038
             }
         ],
         "final_checkpoint": {
-            "steps": 1152,
-            "file_path": "results\\ppo\\TankA3.onnx",
+            "steps": 768,
+            "file_path": "results\\ppo\\TankB1.onnx",
             "reward": null,
-            "creation_time": 1617213931.8582695
+            "creation_time": 1617214709.3599038
         }
     },
     "metadata": {

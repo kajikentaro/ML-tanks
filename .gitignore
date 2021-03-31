@@ -30,8 +30,8 @@ sysinfo.txt
 
 #mlagents
 .ml-agents-release_12/
-.results
-.results.meta
+results/
+results.meta
 
 # Visual Studio
 .vs
