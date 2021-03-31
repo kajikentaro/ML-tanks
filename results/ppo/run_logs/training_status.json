@@ -1,24 +1,50 @@
 {
-    "Tank": {
+    "TankA1": {
         "checkpoints": [
             {
-                "steps": 25244,
-                "file_path": "results\\ppo\\Tank\\Tank-25244.onnx",
-                "reward": -0.2698809088074735,
-                "creation_time": 1615581280.2332249
-            },
-            {
-                "steps": 197054,
-                "file_path": "results\\ppo\\Tank\\Tank-197054.onnx",
-                "reward": 0.3851767180762457,
-                "creation_time": 1615581959.5345116
+                "steps": 1152,
+                "file_path": "results\\ppo\\TankA1\\TankA1-1152.onnx",
+                "reward": null,
+                "creation_time": 1617213931.6473072
             }
         ],
         "final_checkpoint": {
-            "steps": 197054,
-            "file_path": "results\\ppo\\Tank.onnx",
-            "reward": 0.3851767180762457,
-            "creation_time": 1615581959.5345116
+            "steps": 1152,
+            "file_path": "results\\ppo\\TankA1.onnx",
+            "reward": null,
+            "creation_time": 1617213931.6473072
+        }
+    },
+    "TankA2": {
+        "checkpoints": [
+            {
+                "steps": 1152,
+                "file_path": "results\\ppo\\TankA2\\TankA2-1152.onnx",
+                "reward": null,
+                "creation_time": 1617213931.7533333
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 1152,
+            "file_path": "results\\ppo\\TankA2.onnx",
+            "reward": null,
+            "creation_time": 1617213931.7533333
+        }
+    },
+    "TankA3": {
+        "checkpoints": [
+            {
+                "steps": 1152,
+                "file_path": "results\\ppo\\TankA3\\TankA3-1152.onnx",
+                "reward": null,
+                "creation_time": 1617213931.8582695
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 1152,
+            "file_path": "results\\ppo\\TankA3.onnx",
+            "reward": null,
+            "creation_time": 1617213931.8582695
         }
     },
     "metadata": {

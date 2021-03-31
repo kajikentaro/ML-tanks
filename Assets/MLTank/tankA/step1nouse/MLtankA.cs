@@ -9,7 +9,7 @@ public class MLtankA : MLTank
 {
     public float limit_rotation=100.0f;
     public float sum_rotation;
-    public GameObject target;
+    public GameObject targetA;
     float start_time;
     public override void Initialize()
     {
@@ -22,7 +22,7 @@ public class MLtankA : MLTank
         int w=25;
         Vector3 newPosition1 = new Vector3(w*(Random.value-0.5f),0.3f,w*(Random.value-0.5f));
         Vector3 newPosition2 = new Vector3(w*(Random.value-0.5f),0.3f,w*(Random.value-0.5f));
-        float limit = target.transform.localScale.x / 2 * 1.414f + 1.5f;
+        float limit = targetA.transform.localScale.x / 2 * 1.414f + 1.5f;
         while (true)
         {
             if (Vector3.Distance(newPosition1,newPosition2) >= limit)break;
@@ -30,7 +30,7 @@ public class MLtankA : MLTank
             newPosition2 = new Vector3(w*(Random.value-0.5f),0.3f,w*(Random.value-0.5f));
         }
         transform.localPosition = newPosition1;
-        target.transform.localPosition = newPosition2;
+        targetA.transform.localPosition = newPosition2;
     }
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
@@ -43,7 +43,7 @@ public class MLtankA : MLTank
         }
         else
         {
-            target.GetComponent<Renderer>().material.color = Color.blue;
+            targetA.GetComponent<Renderer>().material.color = Color.blue;
             //AddReward(-0.001f);
         }
         AddReward(-0.005f);
