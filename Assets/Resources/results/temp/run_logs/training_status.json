@@ -1,4 +1,36 @@
 {
+    "TankA1": {
+        "checkpoints": [
+            {
+                "steps": 45195,
+                "file_path": "results\\temp\\TankA1\\TankA1-45195.onnx",
+                "reward": 3.7555556290058627,
+                "creation_time": 1617179865.2364168
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 45195,
+            "file_path": "results\\temp\\TankA1.onnx",
+            "reward": 3.7555556290058627,
+            "creation_time": 1617179865.2364168
+        }
+    },
+    "My Behavior": {
+        "checkpoints": [
+            {
+                "steps": 15065,
+                "file_path": "results\\temp\\My Behavior\\My Behavior-15065.onnx",
+                "reward": 0.5680207995076975,
+                "creation_time": 1617179865.293265
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 15065,
+            "file_path": "results\\temp\\My Behavior.onnx",
+            "reward": 0.5680207995076975,
+            "creation_time": 1617179865.293265
+        }
+    },
     "metadata": {
         "stats_format_version": "0.2.0",
         "mlagents_version": "0.25.0",

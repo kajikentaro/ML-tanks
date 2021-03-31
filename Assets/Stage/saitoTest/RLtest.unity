@@ -1647,6 +1647,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3934829106554906209, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3934829106554906209, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
       propertyPath: m_BehaviorName
       value: TankA1
       objectReference: {fileID: 0}
@@ -1657,6 +1662,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3934829106713794879, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3934829106713794879, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
       propertyPath: m_BehaviorName
       value: TankA2
       objectReference: {fileID: 0}
@@ -1664,6 +1674,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BrainParameters.NumStackedVectorObservations
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3934829108010208191, guid: e3a077bb501c64348a6501db96d4538b,
+        type: 3}
+      propertyPath: m_Model
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3934829108010208191, guid: e3a077bb501c64348a6501db96d4538b,
         type: 3}

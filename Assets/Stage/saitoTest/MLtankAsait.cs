@@ -22,20 +22,36 @@ public class MLtankAsait : MLTank
         base.OnEpisodeBegin();
         int w=30;
         int h=20;
+        rayCount=0;
         //Vector3 newPosition2 = new Vector3(w*(Random.value-0.5f),0.3f,h*(Random.value-0.5f));
         //target.transform.localPosition = newPosition2;
         start_time=Time.time;
     }
+    int rayCount=0;
+    public int clear=200;
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
         action_control(actionBuffers);
         var rayOutputs=RayPerceptionSensor.Perceive(rayInput).RayOutputs;
+        bool f=true;
         foreach(var element in rayOutputs){
             if(element.HitTagIndex==0){
-                AddReward(0.0004f);
+                AddReward(0.001f);
                 target.GetComponent<target>().hitRay=true;
                 //Debug.Log("addreward");
+                f=false;
+                rayCount++;
             }
+        }
+        if(f){
+            if(rayCount>0){
+                SetReward(-1.0f);
+                EndEpisode();
+            }
+        }
+        if(rayCount>clear){
+            SetReward(1.0f);
+            EndEpisode();
         }
         if(received_attack){
             SetReward(-1.0f);

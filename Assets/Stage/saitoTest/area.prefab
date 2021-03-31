@@ -337,7 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DecisionPeriod: 10
+  DecisionPeriod: 5
   TakeActionsBetweenDecisions: 1
 --- !u!54 &5586605090522908240
 Rigidbody:
@@ -457,6 +457,11 @@ PrefabInstance:
       propertyPath: shotInterval
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8819951663012431701, guid: 0b527fc004c26894998a48146ecc4971,
+        type: 3}
+      propertyPath: DecisionPeriod
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b527fc004c26894998a48146ecc4971, type: 3}
 --- !u!1 &7055393991804679766 stripped
@@ -573,6 +578,11 @@ PrefabInstance:
       propertyPath: shotInterval
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8819951663012431701, guid: 0b527fc004c26894998a48146ecc4971,
+        type: 3}
+      propertyPath: DecisionPeriod
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b527fc004c26894998a48146ecc4971, type: 3}
 --- !u!1 &7055393991644727560 stripped
@@ -688,6 +698,11 @@ PrefabInstance:
         type: 3}
       propertyPath: shotInterval
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819951663012431701, guid: 0b527fc004c26894998a48146ecc4971,
+        type: 3}
+      propertyPath: DecisionPeriod
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b527fc004c26894998a48146ecc4971, type: 3}
