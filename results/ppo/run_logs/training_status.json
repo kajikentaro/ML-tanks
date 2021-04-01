@@ -1,50 +1,68 @@
 {
-    "TankB2": {
-        "checkpoints": [
-            {
-                "steps": 768,
-                "file_path": "results\\ppo\\TankB2\\TankB2-768.onnx",
-                "reward": null,
-                "creation_time": 1617214709.1448557
-            }
-        ],
-        "final_checkpoint": {
-            "steps": 768,
-            "file_path": "results\\ppo\\TankB2.onnx",
-            "reward": null,
-            "creation_time": 1617214709.1448557
-        }
-    },
     "TankB3": {
         "checkpoints": [
             {
-                "steps": 768,
-                "file_path": "results\\ppo\\TankB3\\TankB3-768.onnx",
+                "steps": 499968,
+                "file_path": "results\\ppo\\TankB3\\TankB3-499968.onnx",
                 "reward": null,
-                "creation_time": 1617214709.2528796
+                "creation_time": 1617259604.6454213
+            },
+            {
+                "steps": 500032,
+                "file_path": "results\\ppo\\TankB3\\TankB3-500032.onnx",
+                "reward": null,
+                "creation_time": 1617259605.1377654
             }
         ],
         "final_checkpoint": {
-            "steps": 768,
+            "steps": 500032,
             "file_path": "results\\ppo\\TankB3.onnx",
             "reward": null,
-            "creation_time": 1617214709.2528796
+            "creation_time": 1617259605.1377654
         }
     },
     "TankB1": {
         "checkpoints": [
             {
-                "steps": 768,
-                "file_path": "results\\ppo\\TankB1\\TankB1-768.onnx",
+                "steps": 499968,
+                "file_path": "results\\ppo\\TankB1\\TankB1-499968.onnx",
                 "reward": null,
-                "creation_time": 1617214709.3599038
+                "creation_time": 1617259604.7604454
+            },
+            {
+                "steps": 500032,
+                "file_path": "results\\ppo\\TankB1\\TankB1-500032.onnx",
+                "reward": null,
+                "creation_time": 1617259605.0267406
             }
         ],
         "final_checkpoint": {
-            "steps": 768,
+            "steps": 500032,
             "file_path": "results\\ppo\\TankB1.onnx",
             "reward": null,
-            "creation_time": 1617214709.3599038
+            "creation_time": 1617259605.0267406
+        }
+    },
+    "TankB2": {
+        "checkpoints": [
+            {
+                "steps": 499968,
+                "file_path": "results\\ppo\\TankB2\\TankB2-499968.onnx",
+                "reward": null,
+                "creation_time": 1617259604.8784719
+            },
+            {
+                "steps": 500032,
+                "file_path": "results\\ppo\\TankB2\\TankB2-500032.onnx",
+                "reward": null,
+                "creation_time": 1617259605.249791
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 500032,
+            "file_path": "results\\ppo\\TankB2.onnx",
+            "reward": null,
+            "creation_time": 1617259605.249791
         }
     },
     "metadata": {
