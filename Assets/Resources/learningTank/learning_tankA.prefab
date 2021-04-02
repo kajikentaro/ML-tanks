@@ -160,7 +160,7 @@ MonoBehaviour:
   - tank
   - block
   - Shell
-  m_RaysPerDirection: 4
+  m_RaysPerDirection: 8
   m_MaxRayDegrees: 180
   m_SphereCastRadius: 2
   m_RayLength: 100
