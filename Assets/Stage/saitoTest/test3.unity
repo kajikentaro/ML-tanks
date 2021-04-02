@@ -966,5 +966,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5022602860645237092, guid: 6ee6d9d564f75074eb1774936a5244b3,
         type: 3}
+    - target: {fileID: 1088569861983995780, guid: d3fe8f61ea371b946b66a9a86a1b38d2,
+        type: 3}
+      propertyPath: m_BehaviorType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6950101889297382879, guid: d3fe8f61ea371b946b66a9a86a1b38d2,
+        type: 3}
+      propertyPath: EnableMove
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3fe8f61ea371b946b66a9a86a1b38d2, type: 3}
