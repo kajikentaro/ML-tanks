@@ -22,7 +22,7 @@ public class targetMoveKaji : MonoBehaviour
         {
             transform.position = new Vector3(0, 1.1f, 2);
         }
-        Debug.Log(Time.time);
+        //Debug.Log(Time.time);
         float elapsed_time = Time.time - move_dir_time;
         if(elapsed_time > 1)
         {
