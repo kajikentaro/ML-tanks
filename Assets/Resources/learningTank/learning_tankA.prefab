@@ -160,7 +160,7 @@ MonoBehaviour:
   - tank
   - block
   - Shell
-  m_RaysPerDirection: 4
+  m_RaysPerDirection: 8
   m_MaxRayDegrees: 180
   m_SphereCastRadius: 2
   m_RayLength: 100
@@ -9945,6 +9945,7 @@ MonoBehaviour:
   notHit: 0
   target: {fileID: 0}
   tankModelDir: 
+  clear: 200
 --- !u!114 &8819951663012431701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9988,7 +9989,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8854375548522133792}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.52, z: 0}
   m_LocalScale: {x: 0.49999997, y: 0.2, z: 0.5}
   m_Children: []
   m_Father: {fileID: 2633989275155254258}

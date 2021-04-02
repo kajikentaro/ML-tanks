@@ -160,7 +160,7 @@ MonoBehaviour:
   - tank
   - block
   - Shell
-  m_RaysPerDirection: 4
+  m_RaysPerDirection: 8
   m_MaxRayDegrees: 180
   m_SphereCastRadius: 2
   m_RayLength: 100
@@ -9827,7 +9827,7 @@ GameObject:
   - component: {fileID: 7435714596042843009}
   - component: {fileID: 8819951663012431701}
   m_Layer: 0
-  m_Name: learning_tankA
+  m_Name: learning_tankB
   m_TagString: tank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9945,6 +9945,7 @@ MonoBehaviour:
   notHit: 0
   target: {fileID: 0}
   tankModelDir: 
+  clear: 200
 --- !u!114 &8819951663012431701
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 
-public class MLtankAsait : MLTank
+public class MLtankAhoshi : MLTank
 {
     float start_time;
     int NotHitCount;
@@ -38,14 +38,13 @@ public class MLtankAsait : MLTank
         foreach(var element in rayOutputs){
             if(element.HitTagIndex==0){
                 AddReward(0.01f);
-                target.GetComponent<target>().hitRay=true;
                 //Debug.Log("addreward");
                 f=false;
                 rayCount++;
             }
         }
         if(f){
-            AddReward(-0.1f);
+            AddReward(-0.01f);
             rayCount=0;
         }
         if(rayCount>clear){
