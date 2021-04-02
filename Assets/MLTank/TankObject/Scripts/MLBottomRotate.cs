@@ -24,5 +24,6 @@ public class MLBottomRotate : MonoBehaviour
 		Vector3 newDir = Vector3.RotateTowards(transform.forward,diff,step,10.0F);
 		transform.rotation = Quaternion.LookRotation(newDir);
         }
+		transform.rotation=Quaternion.Euler(0,transform.rotation.y,0);
     }
 }

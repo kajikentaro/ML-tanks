@@ -1,46 +1,24 @@
 {
-    "My Behavior": {
-        "checkpoints": [
-            {
-                "steps": 499976,
-                "file_path": "results\\target\\My Behavior\\My Behavior-499976.onnx",
-                "reward": -0.5575765543155842,
-                "creation_time": 1617196430.2185848
-            },
-            {
-                "steps": 500151,
-                "file_path": "results\\target\\My Behavior\\My Behavior-500151.onnx",
-                "reward": -0.5591696208076817,
-                "creation_time": 1617196431.1192791
-            }
-        ],
-        "final_checkpoint": {
-            "steps": 500151,
-            "file_path": "results\\target\\My Behavior.onnx",
-            "reward": -0.5591696208076817,
-            "creation_time": 1617196431.1192791
-        }
-    },
     "TankA1": {
         "checkpoints": [
             {
-                "steps": 499991,
-                "file_path": "results\\target\\TankA1\\TankA1-499991.onnx",
-                "reward": 10.265171506281558,
-                "creation_time": 1617196431.0009155
+                "steps": 499983,
+                "file_path": "results\\target\\TankA1\\TankA1-499983.onnx",
+                "reward": 31.09570901166825,
+                "creation_time": 1617277251.0210757
             },
             {
-                "steps": 500127,
-                "file_path": "results\\target\\TankA1\\TankA1-500127.onnx",
-                "reward": 10.348332419991493,
-                "creation_time": 1617196431.232979
+                "steps": 500252,
+                "file_path": "results\\target\\TankA1\\TankA1-500252.onnx",
+                "reward": 29.812267590652812,
+                "creation_time": 1617277251.179651
             }
         ],
         "final_checkpoint": {
-            "steps": 500127,
+            "steps": 500252,
             "file_path": "results\\target\\TankA1.onnx",
-            "reward": 10.348332419991493,
-            "creation_time": 1617196431.232979
+            "reward": 29.812267590652812,
+            "creation_time": 1617277251.179651
         }
     },
     "metadata": {

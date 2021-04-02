@@ -20,8 +20,9 @@ public class MLtankAsait : MLTank
     public override void OnEpisodeBegin()
     {
         base.OnEpisodeBegin();
-        int w=30;
-        int h=20;
+        //int w=30;
+        //int h=20;
+        tankTop.transform.rotation=Quaternion.Euler(0.0f,360*Random.value,0.0f);
         rayCount=0;
         //Vector3 newPosition2 = new Vector3(w*(Random.value-0.5f),0.3f,h*(Random.value-0.5f));
         //target.transform.localPosition = newPosition2;
@@ -36,7 +37,7 @@ public class MLtankAsait : MLTank
         bool f=true;
         foreach(var element in rayOutputs){
             if(element.HitTagIndex==0){
-                AddReward(0.001f);
+                AddReward(0.01f);
                 target.GetComponent<target>().hitRay=true;
                 //Debug.Log("addreward");
                 f=false;
@@ -44,10 +45,8 @@ public class MLtankAsait : MLTank
             }
         }
         if(f){
-            if(rayCount>0){
-                SetReward(-1.0f);
-                EndEpisode();
-            }
+            AddReward(-0.1f);
+            rayCount=0;
         }
         if(rayCount>clear){
             SetReward(1.0f);
@@ -81,7 +80,7 @@ public class MLtankAsait : MLTank
             notHit=false;
             Debug.Log("Not hit");
         }
-        if(Time.time - start_time >= 20){
+        if(Time.time - start_time >= 60){
             EndEpisode();
         }
         //AddReward(-0.0001f);
