@@ -9931,7 +9931,7 @@ MonoBehaviour:
   tankTop: {fileID: 8854375548522133792}
   EnableMove: 1
   learningMode: 0
-  speedTank: 1
+  speedTank: 3
   maxColCount: 2
   maxShellNum: 1
   shellNum: 0

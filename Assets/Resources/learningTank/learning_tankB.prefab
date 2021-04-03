@@ -9890,7 +9890,7 @@ MonoBehaviour:
   m_Model: {fileID: 0}
   m_InferenceDevice: 0
   m_BehaviorType: 0
-  m_BehaviorName: TankA
+  m_BehaviorName: TankB
   TeamId: 0
   m_UseChildSensors: 1
   m_UseChildActuators: 1
@@ -9928,9 +9928,9 @@ MonoBehaviour:
     type: 3}
   Shells: {fileID: 0}
   tankTop: {fileID: 8854375548522133792}
-  EnableMove: 0
+  EnableMove: 1
   learningMode: 1
-  speedTank: 1
+  speedTank: 3
   maxColCount: 2
   maxShellNum: 1
   shellNum: 0

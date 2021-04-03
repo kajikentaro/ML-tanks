@@ -9931,7 +9931,7 @@ MonoBehaviour:
   tankTop: {fileID: 8854375548522133792}
   EnableMove: 0
   learningMode: 0
-  speedTank: 1
+  speedTank: 3
   maxColCount: 2
   maxShellNum: 1
   shellNum: 0
@@ -9945,7 +9945,6 @@ MonoBehaviour:
   hitShell: 0
   notHit: 0
   target: {fileID: 0}
-  tankModelDir: 
 --- !u!65 &6628997646467493935
 BoxCollider:
   m_ObjectHideFlags: 0
