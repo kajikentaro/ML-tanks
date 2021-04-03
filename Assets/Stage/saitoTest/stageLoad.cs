@@ -27,7 +27,7 @@ public class stageLoad : MonoBehaviour
 
     public void LoadStage(int stage_number,bool learningMode)//csvからテキスト情報を読み込み、int2次元配列を返す
     {
-        string map_file_path = Application.dataPath + "/Stage/StageData/test" + stage_number + ".csv";
+        string map_file_path = Application.dataPath + "/Stage/StageData/stage" + stage_number + ".csv";
         char[,] blocks;
         int h,w;
         using (var fs = new StreamReader(map_file_path, System.Text.Encoding.GetEncoding("UTF-8")))
@@ -86,7 +86,6 @@ public class stageLoad : MonoBehaviour
                     GameObject EnemyTank;
                     if(!learningMode) {
                         EnemyTank=Resources.Load("stageObject/tank"+blocks[i,j]) as GameObject;
-                        GetComponent<BehaviorParameters>().Model=tanksModel[blocks[i,j]];
                         Vector3 tank_position = new Vector3(x, tank_depth, z);
                         var tank_gameobject=Instantiate(EnemyTank, tank_position , Quaternion.identity);
                         tank_gameobject.GetComponent<BehaviorParameters>().Model=tanksModel[blocks[i,j]];

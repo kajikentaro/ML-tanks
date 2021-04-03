@@ -676,7 +676,7 @@ PrefabInstance:
     - target: {fileID: 601282616343517658, guid: 92eaccf8952dfb04f90a115b1dfb6f24,
         type: 3}
       propertyPath: m_BehaviorName
-      value: TankA1
+      value: TankA
       objectReference: {fileID: 0}
     - target: {fileID: 601282616343517658, guid: 92eaccf8952dfb04f90a115b1dfb6f24,
         type: 3}
