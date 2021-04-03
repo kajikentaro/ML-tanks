@@ -9879,7 +9879,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BrainParameters:
     VectorObservationSize: 6
-    NumStackedVectorObservations: 1
+    NumStackedVectorObservations: 10
     m_ActionSpec:
       m_NumContinuousActions: 1
       BranchSizes: 030000000300000002000000
@@ -9890,7 +9890,7 @@ MonoBehaviour:
   m_Model: {fileID: 5022602860645237092, guid: 6449e3746be58754a90fcc952834f1bb, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
-  m_BehaviorName: Tank
+  m_BehaviorName: TankB
   TeamId: 0
   m_UseChildSensors: 1
   m_UseChildActuators: 1
@@ -9931,7 +9931,7 @@ MonoBehaviour:
   tankTop: {fileID: 8854375548522133792}
   EnableMove: 1
   learningMode: 0
-  speedTank: 1
+  speedTank: 3
   maxColCount: 2
   maxShellNum: 1
   shellNum: 0
@@ -9945,7 +9945,6 @@ MonoBehaviour:
   hitShell: 0
   notHit: 0
   target: {fileID: 0}
-  tankModelDir: 
 --- !u!65 &6628997646467493935
 BoxCollider:
   m_ObjectHideFlags: 0

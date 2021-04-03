@@ -155,6 +155,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   learningMode: 0
   target: {fileID: 0}
+  tankAModel: {fileID: 5022602860645237092, guid: 1733819cc2a15d645b69960af3f72aa3,
+    type: 3}
+  tankBModel: {fileID: 0}
   stage_number: 1
 --- !u!64 &944703927
 MeshCollider:

@@ -13,6 +13,7 @@ public class MLBottomRotate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		//transform.rotation=Quaternion.Euler(0,transform.rotation.y,0);
 		Vector3 diff = transform.position - latestPos;   //前回からどこに進んだかをベクトルで取得
     	latestPos = transform.position;  //前回のPositionの更新
 		if(diff.magnitude >= 0.0000001f)
@@ -24,6 +25,5 @@ public class MLBottomRotate : MonoBehaviour
 		Vector3 newDir = Vector3.RotateTowards(transform.forward,diff,step,10.0F);
 		transform.rotation = Quaternion.LookRotation(newDir);
         }
-		transform.rotation=Quaternion.Euler(0,transform.rotation.y,0);
     }
 }
