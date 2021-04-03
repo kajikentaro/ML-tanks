@@ -968,6 +968,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 1088569861983995780, guid: d3fe8f61ea371b946b66a9a86a1b38d2,
         type: 3}
+      propertyPath: m_BehaviorName
+      value: TankA
+      objectReference: {fileID: 0}
+    - target: {fileID: 1088569861983995780, guid: d3fe8f61ea371b946b66a9a86a1b38d2,
+        type: 3}
       propertyPath: m_BehaviorType
       value: 0
       objectReference: {fileID: 0}

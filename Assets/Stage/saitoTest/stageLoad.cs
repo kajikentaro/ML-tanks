@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Threading.Tasks;
 using UnityEngine.SceneManagement;
+using Unity.MLAgents.Policies;
+using Unity.Barracuda;
 
 
 public class stageLoad : MonoBehaviour
@@ -15,6 +17,8 @@ public class stageLoad : MonoBehaviour
     GameObject unBreakableBlock;
     GameObject tankMe;
     public GameObject target;
+    public NNModel tankAModel;
+    public NNModel tankBModel;
     float block_height = 1.0f;
     float block_width = 1.0f;
     float block_depth = -2.5f;
@@ -50,7 +54,10 @@ public class stageLoad : MonoBehaviour
         GameObject Blocks=new GameObject("Blocks");
         GameObject Shells=new GameObject("Shells");
         if(!learningMode)target=tankMe;
-        int tankNum=1;
+        var tanksModel=new Dictionary<char,NNModel>(){
+            {'A',tankAModel},
+            {'B',tankBModel}
+        };
         for(int i = 0; i < h; i++)
         {
             for(int j = 0; j < w; j++)
@@ -79,11 +86,10 @@ public class stageLoad : MonoBehaviour
                     GameObject EnemyTank;
                     if(!learningMode) {
                         EnemyTank=Resources.Load("stageObject/tank"+blocks[i,j]) as GameObject;
-                        string dir="results/stage"+stage_number+"/Tank"+blocks[i,j]+""+tankNum;
-                        EnemyTank.GetComponent<MLTank>().tankModelDir=dir;
-                        tankNum++;
+                        GetComponent<BehaviorParameters>().Model=tanksModel[blocks[i,j]];
                         Vector3 tank_position = new Vector3(x, tank_depth, z);
                         var tank_gameobject=Instantiate(EnemyTank, tank_position , Quaternion.identity);
+                        tank_gameobject.GetComponent<BehaviorParameters>().Model=tanksModel[blocks[i,j]];
                         tank_gameobject.GetComponent<MLTank>().target=target;
                         tank_gameobject.GetComponent<RootTank>().Shells=Shells;
                     }

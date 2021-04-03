@@ -9890,7 +9890,7 @@ MonoBehaviour:
   m_Model: {fileID: 5022602860645237092, guid: 6449e3746be58754a90fcc952834f1bb, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
-  m_BehaviorName: Tank
+  m_BehaviorName: TankB
   TeamId: 0
   m_UseChildSensors: 1
   m_UseChildActuators: 1

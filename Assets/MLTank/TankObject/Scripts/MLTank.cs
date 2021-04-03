@@ -4,21 +4,13 @@ using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
-using Unity.MLAgents.Policies;
-using Unity.Barracuda;
 
 public class MLTank: RootTank
 {
     Rigidbody rBody;
     rotate tankTop_script;
     public GameObject target;
-    public string tankModelDir;
 	public override void Initialize(){
-        if(!learningMode){
-            string BehaviorName=tankModelDir.Split('/')[2];
-            GetComponent<BehaviorParameters>().BehaviorName=BehaviorName;
-            GetComponent<BehaviorParameters>().Model=Resources.Load(tankModelDir) as NNModel;
-        }
         tankTop_script = tankTop.GetComponent<rotate>();
         rBody=GetComponent<Rigidbody>();
 	}
