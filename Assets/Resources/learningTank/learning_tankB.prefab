@@ -9879,7 +9879,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BrainParameters:
     VectorObservationSize: 6
-    NumStackedVectorObservations: 1
+    NumStackedVectorObservations: 10
     m_ActionSpec:
       m_NumContinuousActions: 1
       BranchSizes: 030000000300000002000000
@@ -9944,7 +9944,6 @@ MonoBehaviour:
   hitShell: 0
   notHit: 0
   target: {fileID: 0}
-  tankModelDir: 
   clear: 200
 --- !u!114 &8819951663012431701
 MonoBehaviour:
