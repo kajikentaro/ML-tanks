@@ -38,7 +38,7 @@ public class kajitankB : RootTank
         target.GetComponent<targetMoveKaji>().reset_position();
         start_time = Time.time;
         hitTarget = false;
-        transform.position = Vector3.zero;
+        transform.position = transform.parent.position;
         launch_cnt = 0;
         shellNum = 0;
         foreach (Transform child in Shells.transform)

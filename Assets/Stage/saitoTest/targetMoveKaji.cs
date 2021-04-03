@@ -20,12 +20,12 @@ public class targetMoveKaji : MonoBehaviour
         float x = Random.Range(-15f, 15f);
         float y = Random.Range(-10f, 10f);
 
-        transform.position = new Vector3(x, 1, y);
+        transform.localPosition = new Vector3(x, 0.5f, y);
     }
     // Update is called once per frame
     void Update()
     {
-        if(Mathf.Abs(transform.position.x) >= 15 || Mathf.Abs(transform.position.z) >= 10)
+        if(Mathf.Abs(transform.localPosition.x) >= 15 || Mathf.Abs(transform.localPosition.z) >= 10)
         {
             reset_position();
         }
