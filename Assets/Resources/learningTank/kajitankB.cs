@@ -35,6 +35,7 @@ public class kajitankB : RootTank
     }
     public override void OnEpisodeBegin()
     {
+        target.GetComponent<targetMoveKaji>().reset_position();
         start_time = Time.time;
         hitTarget = false;
         transform.position = Vector3.zero;

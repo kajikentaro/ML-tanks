@@ -15,12 +15,19 @@ public class targetMoveKaji : MonoBehaviour
         rBody = this.GetComponent<Rigidbody>();
     }
 
+    public void reset_position()
+    {
+        float x = Random.Range(-15f, 15f);
+        float y = Random.Range(-10f, 10f);
+
+        transform.position = new Vector3(x, 1, y);
+    }
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.y <= -2)
+        if(Mathf.Abs(transform.position.x) >= 15 || Mathf.Abs(transform.position.z) >= 10)
         {
-            transform.position = new Vector3(0, 1.1f, 2);
+            reset_position();
         }
         //Debug.Log(Time.time);
         float elapsed_time = Time.time - move_dir_time;
@@ -30,6 +37,6 @@ public class targetMoveKaji : MonoBehaviour
             rand = Random.Range(0,4);
         }
         Vector3[] dirs = { Vector3.forward, Vector3.back, Vector3.left, Vector3.right };
-        rBody.velocity = dirs[rand] * 3f;
+        rBody.velocity = dirs[rand] * 4f;
     }
 }
