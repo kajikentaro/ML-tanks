@@ -11,8 +11,9 @@ public class MLTank: RootTank
     rotate tankTop_script;
     public GameObject target;
 	public override void Initialize(){
-        tankTop_script = tankTop.GetComponent<rotate>();
+        base.Initialize();
         rBody=GetComponent<Rigidbody>();
+        tankTop_script = tankTop.GetComponent<rotate>();
 	}
     void Update(){
         if(!EnableMove){

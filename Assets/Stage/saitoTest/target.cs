@@ -14,7 +14,7 @@ public class target : MonoBehaviour
     float multiz=1;
     public bool received_attack;
     void FixedUpdate(){
-        int w=12;
+        int w=17;
         float x=this.transform.localPosition.x;
         float z=this.transform.localPosition.z;
         if(x==w&&z>w){

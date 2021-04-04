@@ -9864,7 +9864,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 116
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &601282616343517658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9879,7 +9879,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BrainParameters:
     VectorObservationSize: 6
-    NumStackedVectorObservations: 10
+    NumStackedVectorObservations: 5
     m_ActionSpec:
       m_NumContinuousActions: 1
       BranchSizes: 030000000300000002000000
@@ -10070,8 +10070,8 @@ MonoBehaviour:
   - tank
   - block
   - Shell
-  m_RaysPerDirection: 3
-  m_MaxRayDegrees: 30
+  m_RaysPerDirection: 5
+  m_MaxRayDegrees: 10
   m_SphereCastRadius: 0
   m_RayLength: 100
   m_RayLayerMask:

@@ -20,16 +20,19 @@ public class MLtankAsait : MLTank
     public override void OnEpisodeBegin()
     {
         base.OnEpisodeBegin();
-        //int w=30;
-        //int h=20;
+        int w=26;
+        int h=26;
         tankTop.transform.rotation=Quaternion.Euler(0.0f,360*Random.value,0.0f);
         rayCount=0;
-        //Vector3 newPosition2 = new Vector3(w*(Random.value-0.5f),0.3f,h*(Random.value-0.5f));
-        //target.transform.localPosition = newPosition2;
+        Vector3 newPosition = new Vector3(w*(Random.value-0.5f),0.3f,h*(Random.value-0.5f));
+        Vector3 newPosition2 = new Vector3(w*(Random.value-0.5f),0.3f,h*(Random.value-0.5f));
+        //Vector3 newPosition2 = new Vector3(10,0.3f,10);
+        target.transform.localPosition = newPosition;
+        transform.localPosition = newPosition2;
         start_time=Time.time;
     }
     int rayCount=0;
-    public int clear=200;
+    public int clear=1000;
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
         action_control(actionBuffers);
@@ -37,16 +40,19 @@ public class MLtankAsait : MLTank
         bool f=true;
         foreach(var element in rayOutputs){
             if(element.HitTagIndex==0){
-                AddReward(0.01f);
-                target.GetComponent<target>().hitRay=true;
+                AddReward(0.0001f);
+                //target.GetComponent<target>().hitRay=true;
                 //Debug.Log("addreward");
                 f=false;
                 rayCount++;
             }
         }
         if(f){
-            AddReward(-0.1f);
-            rayCount=0;
+            AddReward(-0.0003f);
+            if(rayCount!=0){
+                AddReward(-0.002f);
+                rayCount=0;
+            }
         }
         if(rayCount>clear){
             SetReward(1.0f);
@@ -80,9 +86,17 @@ public class MLtankAsait : MLTank
             notHit=false;
             Debug.Log("Not hit");
         }
-        if(Time.time - start_time >= 60){
+        if(Time.time - start_time >= 30){
+            SetReward(-1.0f);
             EndEpisode();
         }
         //AddReward(-0.0001f);
+    }
+    void OnCollisionEnter(Collision collision){
+        var Tag=collision.gameObject.tag;
+        if(Tag=="Shell"){
+            SetReward(-1.0f);
+            EndEpisode();
+        }
     }
 }
