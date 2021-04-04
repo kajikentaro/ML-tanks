@@ -25,7 +25,7 @@ public class targetMoveKaji : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Mathf.Abs(transform.localPosition.x) >= 15 || Mathf.Abs(transform.localPosition.z) >= 10)
+        if(Mathf.Abs(transform.localPosition.x) >= 15 || Mathf.Abs(transform.localPosition.z) >= 10 | transform.localPosition.y < -2)
         {
             reset_position();
         }
