@@ -1,0 +1,47 @@
+{
+    "TankB": {
+        "checkpoints": [
+            {
+                "steps": 1499970,
+                "file_path": "results\\test\\TankB\\TankB-1499970.onnx",
+                "reward": 1.091514239353793,
+                "creation_time": 1617516939.0414119
+            },
+            {
+                "steps": 1999978,
+                "file_path": "results\\test\\TankB\\TankB-1999978.onnx",
+                "reward": 1.0736330405815988,
+                "creation_time": 1617518780.448878
+            },
+            {
+                "steps": 2499956,
+                "file_path": "results\\test\\TankB\\TankB-2499956.onnx",
+                "reward": 1.097918036405042,
+                "creation_time": 1617520634.19154
+            },
+            {
+                "steps": 2999985,
+                "file_path": "results\\test\\TankB\\TankB-2999985.onnx",
+                "reward": 1.0983199613168835,
+                "creation_time": 1617522487.7848222
+            },
+            {
+                "steps": 3000094,
+                "file_path": "results\\test\\TankB\\TankB-3000094.onnx",
+                "reward": 1.0955434358962204,
+                "creation_time": 1617522487.975521
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 3000094,
+            "file_path": "results\\test\\TankB.onnx",
+            "reward": 1.0955434358962204,
+            "creation_time": 1617522487.975521
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.25.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}

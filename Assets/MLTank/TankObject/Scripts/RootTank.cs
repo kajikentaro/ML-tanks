@@ -7,6 +7,7 @@ using Unity.MLAgents.Sensors;
 
 public class RootTank : Agent
 {
+    Rigidbody rBodya;
     public GameObject shellPrefab;
     public GameObject Shells;
     public GameObject tankTop;
@@ -25,10 +26,13 @@ public class RootTank : Agent
     public bool hitTarget=false;
     public bool hitShell=false;
     public bool notHit=false;
-    private float a=1.0f;
+    private float a=50.0f;
 
     //public AudioClip shotSound;
     // Update is called once per frame
+	public override void Initialize(){
+        rBodya=GetComponent<Rigidbody>();
+	}
     public void shotShell()
     {
         if((Time.time-last_launch_time)>shotInterval){
@@ -48,22 +52,22 @@ public class RootTank : Agent
     }
     public void forwardTank(float delta){
         if(EnableMove){
-            transform.position +=a*transform.forward * speedTank * delta;
+            rBodya.velocity=new Vector3(rBodya.velocity.x,0.0f,a*speedTank*delta);
         }
     }
     public void backwardTank(float delta){
         if(EnableMove){
-            transform.position -= a*transform.forward * speedTank * delta;
+            rBodya.velocity=new Vector3(rBodya.velocity.x,0.0f,-a*speedTank*delta);
         }
     }
     public void rightTank(float delta){
         if(EnableMove){
-            transform.position += a*transform.right * speedTank * delta;
+            rBodya.velocity=new Vector3(a*speedTank*delta,0.0f,rBodya.velocity.z);
         }
     }
     public void leftTank(float delta){
         if(EnableMove){
-            transform.position -= a*transform.right * speedTank * delta;
+            rBodya.velocity=new Vector3(-a*speedTank*delta,0.0f,rBodya.velocity.z);
         }
     }
     public void DestroyTank(){
