@@ -14,10 +14,11 @@ public class TankMe : RootTank
     void Start(){
         rotate_script = this.tankTop.GetComponent<rotate>();
     }
-    void Update()
+    void FixedUpdate()
     {
         if (true)//&& StageMaker.canMove)
         {
+            base.FixedUpdate();
             //平行移動
             if (Input.GetKey("w"))
             {
@@ -40,7 +41,6 @@ public class TankMe : RootTank
             }
         }
         rotate_script.rotateByMouse();
-
     }
     private void OnCollisionEnter(Collision other)
     {

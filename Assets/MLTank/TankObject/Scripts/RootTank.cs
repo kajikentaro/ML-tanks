@@ -50,24 +50,33 @@ public class RootTank : Agent
             }
         }
     }
+    public void FixedUpdate(){
+        if(!EnableMove){
+            rBodya.velocity=Vector3.zero;
+        }
+    }
     public void forwardTank(){
         if(EnableMove){
             rBodya.velocity=new Vector3(rBodya.velocity.x,0.0f,speedTank);
+            rBodya.velocity*=speedTank/rBodya.velocity.magnitude;
         }
     }
     public void backwardTank(){
         if(EnableMove){
             rBodya.velocity=new Vector3(rBodya.velocity.x,0.0f,-speedTank);
+            rBodya.velocity*=speedTank/rBodya.velocity.magnitude;
         }
     }
     public void rightTank(){
         if(EnableMove){
             rBodya.velocity=new Vector3(speedTank,0.0f,rBodya.velocity.z);
+            rBodya.velocity*=speedTank/rBodya.velocity.magnitude;
         }
     }
     public void leftTank(){
         if(EnableMove){
             rBodya.velocity=new Vector3(-speedTank,0.0f,rBodya.velocity.z);
+            rBodya.velocity*=speedTank/rBodya.velocity.magnitude;
         }
     }
     public void DestroyTank(){

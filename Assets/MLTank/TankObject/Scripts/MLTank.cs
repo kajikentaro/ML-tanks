@@ -10,16 +10,14 @@ public class MLTank: RootTank
     Rigidbody rBody;
     rotate tankTop_script;
     public GameObject target;
+    void FixedUpdate(){
+        base.FixedUpdate();
+    }
 	public override void Initialize(){
         base.Initialize();
         rBody=GetComponent<Rigidbody>();
         tankTop_script = tankTop.GetComponent<rotate>();
 	}
-    void Update(){
-        if(!EnableMove){
-            rBody.velocity=Vector3.zero;
-        }
-    }
     public override void OnEpisodeBegin(){
         launch_cnt=0;
         shellNum=0;
