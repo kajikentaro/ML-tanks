@@ -21,19 +21,19 @@ public class TankMe : RootTank
             //平行移動
             if (Input.GetKey("w"))
             {
-                forwardTank(Time.deltaTime);
+                forwardTank();
             }
             if (Input.GetKey("s"))
             {
-                backwardTank(Time.deltaTime);
+                backwardTank();
             }
             if (Input.GetKey("d"))
             {
-                rightTank(Time.deltaTime);
+                rightTank();
             }
             if (Input.GetKey("a"))
             {
-                leftTank(Time.deltaTime);
+                leftTank();
             }
             if (Input.GetMouseButtonDown(0)){
                 shotShell();

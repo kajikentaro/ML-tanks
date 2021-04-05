@@ -42,19 +42,19 @@ public class MLTank: RootTank
         if(EnableMove){
             if (actionBuffers.DiscreteActions[0] == 1)
             {
-                forwardTank(Time.deltaTime);
+                forwardTank();
             }
             if (actionBuffers.DiscreteActions[0] == 2)
             {
-                backwardTank(Time.deltaTime);
+                backwardTank();
             }
             if(actionBuffers.DiscreteActions[1] == 1)
             {
-                rightTank(Time.deltaTime);
+                rightTank();
             }
             if(actionBuffers.DiscreteActions[1] == 2)
             {
-                leftTank(Time.deltaTime);
+                leftTank();
             }
         }
         if(actionBuffers.DiscreteActions[2] == 1)

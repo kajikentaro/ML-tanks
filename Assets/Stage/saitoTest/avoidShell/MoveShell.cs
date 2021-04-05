@@ -20,6 +20,7 @@ public class MoveShell : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if(Mathf.Abs(rb.velocity.x)<0.001f||Mathf.Abs(rb.velocity.z)<0.001f)rb.velocity=new Vector3(speed,0,speed);
         //float x=transform.localPosition.x;
         //float z=transform.localPosition.z;
         //if(x>startX||z>startZ){
@@ -35,13 +36,13 @@ public class MoveShell : MonoBehaviour
 
     private int count;
     void OnCollisionEnter(Collision collision){
-        count++;
-        if(count==10){
-            int w=30;
-            int h=30;
-            transform.localPosition = new Vector3(w*(Random.value-0.5f),1.0f,h*(Random.value-0.5f));
-            rb.velocity=new Vector3(speed,0,speed);
-            count=0;
-        }
+        //count++;
+        //if(count==50){
+            //int w=30;
+            //int h=30;
+            //transform.localPosition = new Vector3(w,0.6f,h*(Random.value-0.5f));
+            //rb.velocity=new Vector3(speed,0,speed);
+            //count=0;
+        //}
     }
 }

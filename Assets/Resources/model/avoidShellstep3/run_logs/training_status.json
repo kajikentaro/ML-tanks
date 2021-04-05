@@ -1,0 +1,23 @@
+{
+    "TankB": {
+        "checkpoints": [
+            {
+                "steps": 7678,
+                "file_path": "results\\test2\\TankB\\TankB-7678.onnx",
+                "reward": -0.47842437957690376,
+                "creation_time": 1617634953.2678096
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 7678,
+            "file_path": "results\\test2\\TankB.onnx",
+            "reward": -0.47842437957690376,
+            "creation_time": 1617634953.2678096
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.25.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}

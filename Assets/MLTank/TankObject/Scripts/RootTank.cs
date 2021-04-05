@@ -26,7 +26,7 @@ public class RootTank : Agent
     public bool hitTarget=false;
     public bool hitShell=false;
     public bool notHit=false;
-    private float a=50.0f;
+    private float a=1.0f;
 
     //public AudioClip shotSound;
     // Update is called once per frame
@@ -50,24 +50,24 @@ public class RootTank : Agent
             }
         }
     }
-    public void forwardTank(float delta){
+    public void forwardTank(){
         if(EnableMove){
-            rBodya.velocity=new Vector3(rBodya.velocity.x,0.0f,a*speedTank*delta);
+            rBodya.velocity=new Vector3(rBodya.velocity.x,0.0f,speedTank);
         }
     }
-    public void backwardTank(float delta){
+    public void backwardTank(){
         if(EnableMove){
-            rBodya.velocity=new Vector3(rBodya.velocity.x,0.0f,-a*speedTank*delta);
+            rBodya.velocity=new Vector3(rBodya.velocity.x,0.0f,-speedTank);
         }
     }
-    public void rightTank(float delta){
+    public void rightTank(){
         if(EnableMove){
-            rBodya.velocity=new Vector3(a*speedTank*delta,0.0f,rBodya.velocity.z);
+            rBodya.velocity=new Vector3(speedTank,0.0f,rBodya.velocity.z);
         }
     }
-    public void leftTank(float delta){
+    public void leftTank(){
         if(EnableMove){
-            rBodya.velocity=new Vector3(-a*speedTank*delta,0.0f,rBodya.velocity.z);
+            rBodya.velocity=new Vector3(-speedTank,0.0f,rBodya.velocity.z);
         }
     }
     public void DestroyTank(){

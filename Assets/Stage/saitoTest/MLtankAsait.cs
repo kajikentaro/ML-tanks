@@ -25,8 +25,8 @@ public class MLtankAsait : MLTank
         tankTop.transform.rotation=Quaternion.Euler(0.0f,360*Random.value,0.0f);
         rayCount=0;
         Vector3 newPosition = new Vector3(w*(Random.value-0.5f),0.3f,h*(Random.value-0.5f));
-        Vector3 newPosition2 = new Vector3(w*(Random.value-0.5f),0.3f,h*(Random.value-0.5f));
-        //Vector3 newPosition2 = new Vector3(10,0.3f,10);
+        //Vector3 newPosition2 = new Vector3(w*(Random.value-0.5f),0.3f,h*(Random.value-0.5f));
+        Vector3 newPosition2 = new Vector3(10,0.3f,10);
         target.transform.localPosition = newPosition;
         transform.localPosition = newPosition2;
         start_time=Time.time;
@@ -54,10 +54,10 @@ public class MLtankAsait : MLTank
                 rayCount=0;
             }
         }
-        if(rayCount>clear){
-            SetReward(1.0f);
-            EndEpisode();
-        }
+        //if(rayCount>clear){
+            //SetReward(1.0f);
+            //EndEpisode();
+        //}
         if(received_attack){
             SetReward(-1.0f);
             received_attack=false;
@@ -86,15 +86,15 @@ public class MLtankAsait : MLTank
             notHit=false;
             Debug.Log("Not hit");
         }
-        if(Time.time - start_time >= 30){
-            SetReward(-1.0f);
+        if(Time.time - start_time >= 20){
+            SetReward(1.0f);
             EndEpisode();
         }
         //AddReward(-0.0001f);
     }
     void OnCollisionEnter(Collision collision){
         var Tag=collision.gameObject.tag;
-        if(Tag=="Shell"){
+        if(Tag=="Shell"||Tag=="block"){
             SetReward(-1.0f);
             EndEpisode();
         }
