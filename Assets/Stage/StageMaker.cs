@@ -108,6 +108,7 @@ public class StageMaker : MonoBehaviour
         else
         {
             await Task.Delay(1000);
+            bgm.Play();
             Panel.SetActive(false);
             canMove = true;
         }
@@ -135,11 +136,14 @@ public class StageMaker : MonoBehaviour
     {
         if (Input.GetKeyDown("p")) pause_game();
     }
+    public AudioSource bgm;
+    public AudioSource countdown_music;
     void Start()
     {
         canMove = false;
         char[,] blocks = LoadStage(stage_number);
         drawBlock(blocks);
+        countdown_music.Play();
         countDown(3);
     }
 }
