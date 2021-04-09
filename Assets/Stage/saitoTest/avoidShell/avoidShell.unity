@@ -137,6 +137,11 @@ PrefabInstance:
       propertyPath: speed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2322768839449175933, guid: 6cd57f0b39454e9419064af20b124a19,
+        type: 3}
+      propertyPath: speedTank
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2656926752755237153, guid: 6cd57f0b39454e9419064af20b124a19,
         type: 3}
       propertyPath: speed
@@ -146,6 +151,11 @@ PrefabInstance:
         type: 3}
       propertyPath: speed
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413204708472173730, guid: 6cd57f0b39454e9419064af20b124a19,
+        type: 3}
+      propertyPath: m_SphereCastRadius
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4226595877774888214, guid: 6cd57f0b39454e9419064af20b124a19,
         type: 3}
@@ -235,6 +245,11 @@ PrefabInstance:
       propertyPath: speed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2322768839449175933, guid: 6cd57f0b39454e9419064af20b124a19,
+        type: 3}
+      propertyPath: speedTank
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2656926752755237153, guid: 6cd57f0b39454e9419064af20b124a19,
         type: 3}
       propertyPath: speed
@@ -244,6 +259,11 @@ PrefabInstance:
         type: 3}
       propertyPath: speed
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413204708472173730, guid: 6cd57f0b39454e9419064af20b124a19,
+        type: 3}
+      propertyPath: m_SphereCastRadius
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4226595877774888214, guid: 6cd57f0b39454e9419064af20b124a19,
         type: 3}
@@ -508,6 +528,11 @@ PrefabInstance:
       propertyPath: speed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2322768839449175933, guid: 6cd57f0b39454e9419064af20b124a19,
+        type: 3}
+      propertyPath: speedTank
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2656926752755237153, guid: 6cd57f0b39454e9419064af20b124a19,
         type: 3}
       propertyPath: speed
@@ -517,6 +542,11 @@ PrefabInstance:
         type: 3}
       propertyPath: speed
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413204708472173730, guid: 6cd57f0b39454e9419064af20b124a19,
+        type: 3}
+      propertyPath: m_SphereCastRadius
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4226595877774888214, guid: 6cd57f0b39454e9419064af20b124a19,
         type: 3}
@@ -606,6 +636,11 @@ PrefabInstance:
       propertyPath: speed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2322768839449175933, guid: 6cd57f0b39454e9419064af20b124a19,
+        type: 3}
+      propertyPath: speedTank
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2656926752755237153, guid: 6cd57f0b39454e9419064af20b124a19,
         type: 3}
       propertyPath: speed
@@ -615,6 +650,11 @@ PrefabInstance:
         type: 3}
       propertyPath: speed
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413204708472173730, guid: 6cd57f0b39454e9419064af20b124a19,
+        type: 3}
+      propertyPath: m_SphereCastRadius
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4226595877774888214, guid: 6cd57f0b39454e9419064af20b124a19,
         type: 3}
@@ -704,6 +744,11 @@ PrefabInstance:
       propertyPath: speed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2322768839449175933, guid: 6cd57f0b39454e9419064af20b124a19,
+        type: 3}
+      propertyPath: speedTank
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2656926752755237153, guid: 6cd57f0b39454e9419064af20b124a19,
         type: 3}
       propertyPath: speed
@@ -713,6 +758,11 @@ PrefabInstance:
         type: 3}
       propertyPath: speed
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413204708472173730, guid: 6cd57f0b39454e9419064af20b124a19,
+        type: 3}
+      propertyPath: m_SphereCastRadius
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4226595877774888214, guid: 6cd57f0b39454e9419064af20b124a19,
         type: 3}
@@ -802,6 +852,11 @@ PrefabInstance:
       propertyPath: speed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2322768839449175933, guid: 6cd57f0b39454e9419064af20b124a19,
+        type: 3}
+      propertyPath: speedTank
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2656926752755237153, guid: 6cd57f0b39454e9419064af20b124a19,
         type: 3}
       propertyPath: speed
@@ -811,6 +866,11 @@ PrefabInstance:
         type: 3}
       propertyPath: speed
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413204708472173730, guid: 6cd57f0b39454e9419064af20b124a19,
+        type: 3}
+      propertyPath: m_SphereCastRadius
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4226595877774888214, guid: 6cd57f0b39454e9419064af20b124a19,
         type: 3}
@@ -900,6 +960,11 @@ PrefabInstance:
       propertyPath: speed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2322768839449175933, guid: 6cd57f0b39454e9419064af20b124a19,
+        type: 3}
+      propertyPath: speedTank
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2656926752755237153, guid: 6cd57f0b39454e9419064af20b124a19,
         type: 3}
       propertyPath: speed
@@ -909,6 +974,11 @@ PrefabInstance:
         type: 3}
       propertyPath: speed
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413204708472173730, guid: 6cd57f0b39454e9419064af20b124a19,
+        type: 3}
+      propertyPath: m_SphereCastRadius
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4226595877774888214, guid: 6cd57f0b39454e9419064af20b124a19,
         type: 3}
@@ -998,6 +1068,11 @@ PrefabInstance:
       propertyPath: speed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2322768839449175933, guid: 6cd57f0b39454e9419064af20b124a19,
+        type: 3}
+      propertyPath: speedTank
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2656926752755237153, guid: 6cd57f0b39454e9419064af20b124a19,
         type: 3}
       propertyPath: speed
@@ -1007,6 +1082,11 @@ PrefabInstance:
         type: 3}
       propertyPath: speed
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413204708472173730, guid: 6cd57f0b39454e9419064af20b124a19,
+        type: 3}
+      propertyPath: m_SphereCastRadius
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4226595877774888214, guid: 6cd57f0b39454e9419064af20b124a19,
         type: 3}
@@ -1087,45 +1167,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1167684743, guid: 6cd57f0b39454e9419064af20b124a19, type: 3}
-      propertyPath: speed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 474570203391824167, guid: 6cd57f0b39454e9419064af20b124a19,
+    - target: {fileID: 2322768839449175933, guid: 6cd57f0b39454e9419064af20b124a19,
         type: 3}
-      propertyPath: speed
-      value: 4
+      propertyPath: rotLimit
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 2322768839449175933, guid: 6cd57f0b39454e9419064af20b124a19,
         type: 3}
       propertyPath: speedTank
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2985424361829691419, guid: 6cd57f0b39454e9419064af20b124a19,
-        type: 3}
-      propertyPath: speed
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 4226595877774888214, guid: 6cd57f0b39454e9419064af20b124a19,
+    - target: {fileID: 2732108281342698315, guid: 6cd57f0b39454e9419064af20b124a19,
         type: 3}
-      propertyPath: speed
-      value: 4
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 056b8378eaa9abc4099799b460ca1f78, type: 2}
+    - target: {fileID: 3711395206977196628, guid: 6cd57f0b39454e9419064af20b124a19,
+        type: 3}
+      propertyPath: m_EndVerticalOffset
+      value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 5250763753105008347, guid: 6cd57f0b39454e9419064af20b124a19,
+    - target: {fileID: 3711395206977196628, guid: 6cd57f0b39454e9419064af20b124a19,
         type: 3}
-      propertyPath: speed
-      value: 4
+      propertyPath: m_StartVerticalOffset
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5716468352929570086, guid: 6cd57f0b39454e9419064af20b124a19,
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5716468352929570086, guid: 6cd57f0b39454e9419064af20b124a19,
+      objectReference: {fileID: 5022602860645237092, guid: ba45aa326a9b0e54db87d0d50727ffae,
         type: 3}
-      propertyPath: m_BehaviorType
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8025984665677869587, guid: 6cd57f0b39454e9419064af20b124a19,
         type: 3}
       propertyPath: m_Name

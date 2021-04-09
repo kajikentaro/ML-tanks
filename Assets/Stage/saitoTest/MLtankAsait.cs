@@ -16,6 +16,7 @@ public class MLtankAsait : MLTank
         base.Initialize();
         rayPer=tankTop.GetComponent<RayPerceptionSensorComponent3D>();
         rayInput=rayPer.GetRayPerceptionInput();
+        Debug.Log(Time.deltaTime);
     }
     public override void OnEpisodeBegin()
     {
@@ -24,15 +25,16 @@ public class MLtankAsait : MLTank
         int h=26;
         tankTop.transform.rotation=Quaternion.Euler(0.0f,360*Random.value,0.0f);
         rayCount=0;
-        Vector3 newPosition = new Vector3(w*(Random.value-0.5f),0.3f,h*(Random.value-0.5f));
-        //Vector3 newPosition2 = new Vector3(w*(Random.value-0.5f),0.3f,h*(Random.value-0.5f));
-        Vector3 newPosition2 = new Vector3(10,0.3f,10);
+        Vector3 newPosition = new Vector3(6+w*(Random.value-0.5f),0.3f,h*(Random.value-0.5f));
+        //Vector3 newPosition2 = new Vector3(-16,0.3f,0);
+        Vector3 newPosition2 = new Vector3(w*(Random.value-0.5f),0.3f,h*(Random.value-0.5f));
         target.transform.localPosition = newPosition;
         transform.localPosition = newPosition2;
         start_time=Time.time;
     }
     int rayCount=0;
     public int clear=1000;
+    public float distLimit=3.0f;
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
         action_control(actionBuffers);
@@ -40,7 +42,7 @@ public class MLtankAsait : MLTank
         bool f=true;
         foreach(var element in rayOutputs){
             if(element.HitTagIndex==0){
-                AddReward(0.0001f);
+                AddReward(0.004f);
                 //target.GetComponent<target>().hitRay=true;
                 //Debug.Log("addreward");
                 f=false;
@@ -48,12 +50,19 @@ public class MLtankAsait : MLTank
             }
         }
         if(f){
-            AddReward(-0.0003f);
+            AddReward(-0.1f);
             if(rayCount!=0){
-                AddReward(-0.002f);
-                rayCount=0;
+                SetReward(-1.0f);
+                EndEpisode();
+                //AddReward(-0.02f);
+                //AddReward(-0.05f);
+                //rayCount=0;
             }
         }
+        //float distanceTarget=Vector3.Distance(target.transform.localPosition,transform.localPosition);
+        //if(distanceTarget<distLimit){
+            //AddReward((distanceTarget-distLimit)/100);
+        //}
         //if(rayCount>clear){
             //SetReward(1.0f);
             //EndEpisode();
@@ -86,8 +95,7 @@ public class MLtankAsait : MLTank
             notHit=false;
             Debug.Log("Not hit");
         }
-        if(Time.time - start_time >= 20){
-            SetReward(1.0f);
+        if(Time.time - start_time >= 30){
             EndEpisode();
         }
         //AddReward(-0.0001f);
