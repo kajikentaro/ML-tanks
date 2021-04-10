@@ -29,7 +29,7 @@ public class shellScript : MonoBehaviour
         rb=GetComponent<Rigidbody>();
         Vector3 v=rb.velocity;
         transform.LookAt(v+transform.position);
-        col_count+=1;
+        if(collision.gameObject.tag=="block")col_count+=1;
         if(collision.gameObject.tag=="tank"){
             Debug.Log(collision.gameObject.tag);
             tank_gameobject.GetComponent<RootTank>().shellNum-=1;

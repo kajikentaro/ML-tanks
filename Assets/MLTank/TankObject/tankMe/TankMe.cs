@@ -19,23 +19,25 @@ public class TankMe : RootTank
         if (true)//&& StageMaker.canMove)
         {
             base.FixedUpdate();
+            Vector3 Speed=Vector3.zero;
             //平行移動
             if (Input.GetKey("w"))
             {
-                forwardTank();
+                Speed.z=1.0f;
             }
             if (Input.GetKey("s"))
             {
-                backwardTank();
+                Speed.z=-1.0f;
             }
             if (Input.GetKey("d"))
             {
-                rightTank();
+                Speed.x=1.0f;
             }
             if (Input.GetKey("a"))
             {
-                leftTank();
+                Speed.x=-1.0f;
             }
+            decide_speed(Speed);
             if (Input.GetMouseButtonDown(0)){
                 shotShell();
             }

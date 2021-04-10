@@ -157,8 +157,9 @@ MonoBehaviour:
   target: {fileID: 0}
   tankAModel: {fileID: 5022602860645237092, guid: 1733819cc2a15d645b69960af3f72aa3,
     type: 3}
-  tankBModel: {fileID: 0}
-  stage_number: 1
+  tankBModel: {fileID: 5022602860645237092, guid: a06da514982da8e4295a0d311b3fdfba,
+    type: 3}
+  stage_number: 2
 --- !u!64 &944703927
 MeshCollider:
   m_ObjectHideFlags: 0

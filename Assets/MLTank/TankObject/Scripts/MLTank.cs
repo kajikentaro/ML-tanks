@@ -36,25 +36,24 @@ public class MLTank: RootTank
         sensor.AddObservation(target.transform.localPosition.z);
     }
     public void action_control(ActionBuffers actionBuffers){
-        rBody.velocity=Vector3.zero;
-        if(EnableMove){
-            if (actionBuffers.DiscreteActions[0] == 1)
-            {
-                forwardTank();
-            }
-            if (actionBuffers.DiscreteActions[0] == 2)
-            {
-                backwardTank();
-            }
-            if(actionBuffers.DiscreteActions[1] == 1)
-            {
-                rightTank();
-            }
-            if(actionBuffers.DiscreteActions[1] == 2)
-            {
-                leftTank();
-            }
+        Vector3 Speed=Vector3.zero;
+        if (actionBuffers.DiscreteActions[0] == 1)
+        {
+            Speed.z=1.0f;
         }
+        if (actionBuffers.DiscreteActions[0] == 2)
+        {
+            Speed.z=-1.0f;
+        }
+        if(actionBuffers.DiscreteActions[1] == 1)
+        {
+            Speed.x=1.0f;
+        }
+        if(actionBuffers.DiscreteActions[1] == 2)
+        {
+            Speed.x=-1.0f;
+        }
+        decide_speed(Speed);
         if(actionBuffers.DiscreteActions[2] == 1)
         {
             shotShell();

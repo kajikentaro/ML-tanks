@@ -13,7 +13,7 @@ public class BottomRotate : MonoBehaviour
 		transform.rotation = Quaternion.identity;
 	}
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //平行移動
         /* 
