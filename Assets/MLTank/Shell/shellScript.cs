@@ -11,6 +11,7 @@ public class shellScript : MonoBehaviour
     public int maxCol;
     public bool learningMode;
     private int col_count=0;
+    private Vector3 pre_collision_velocity = Vector3.up;
     void Start()
     {
         //Time.timeScale=1.0f;
@@ -25,6 +26,8 @@ public class shellScript : MonoBehaviour
         transform.LookAt(v+transform.position);
     }
     void OnCollisionEnter(Collision collision){
+        if (Vector3.Distance(rb.velocity, pre_collision_velocity) < 0.05f) return;//何回もの衝突防止
+        else pre_collision_velocity = rb.velocity;
         //Debug.Log(collision.gameObject.tag);
         rb=GetComponent<Rigidbody>();
         Vector3 v=rb.velocity;
