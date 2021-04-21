@@ -37,28 +37,30 @@ public class MLTank: RootTank
     }
     public void action_control(ActionBuffers actionBuffers){
         Vector3 Speed=Vector3.zero;
-        if (actionBuffers.DiscreteActions[0] == 1)
-        {
-            Speed.z=1.0f;
+        if(!BanAction){
+            if (actionBuffers.DiscreteActions[0] == 1)
+            {
+                Speed.z=1.0f;
+            }
+            if (actionBuffers.DiscreteActions[0] == 2)
+            {
+                Speed.z=-1.0f;
+            }
+            if(actionBuffers.DiscreteActions[1] == 1)
+            {
+                Speed.x=1.0f;
+            }
+            if(actionBuffers.DiscreteActions[1] == 2)
+            {
+                Speed.x=-1.0f;
+            }
+            decide_speed(Speed);
+            if(actionBuffers.DiscreteActions[2] == 1)
+            {
+                shotShell();
+            }
+            tankTop_script.rotateByFloat(actionBuffers.ContinuousActions[0]);
         }
-        if (actionBuffers.DiscreteActions[0] == 2)
-        {
-            Speed.z=-1.0f;
-        }
-        if(actionBuffers.DiscreteActions[1] == 1)
-        {
-            Speed.x=1.0f;
-        }
-        if(actionBuffers.DiscreteActions[1] == 2)
-        {
-            Speed.x=-1.0f;
-        }
-        decide_speed(Speed);
-        if(actionBuffers.DiscreteActions[2] == 1)
-        {
-            shotShell();
-        }
-        tankTop_script.rotateByFloat(actionBuffers.ContinuousActions[0]);
     }
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {

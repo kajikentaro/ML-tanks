@@ -9,7 +9,6 @@ using UnityEngine.SceneManagement;
 
 public class StageMaker : MonoBehaviour
 {
-    static public bool canMove = false;
     GameObject[] block_objs;
     float block_height = 1.0f;
     float block_width = 1.6f;
@@ -110,7 +109,7 @@ public class StageMaker : MonoBehaviour
             await Task.Delay(1000);
             bgm.Play();
             Panel.SetActive(false);
-            canMove = true;
+            RootTank.BanAction=false;
         }
     }
     bool pausing= false;
@@ -140,9 +139,11 @@ public class StageMaker : MonoBehaviour
     public AudioSource countdown_music;
     void Start()
     {
-        canMove = false;
-        char[,] blocks = LoadStage(stage_number);
-        drawBlock(blocks);
+        RootTank.BanAction=true;
+        var load= GetComponent<stageLoad>();
+        GetComponent<stageLoad>().LoadStage(stage_number,false);
+        //char[,] blocks = LoadStage(stage_number);
+        //drawBlock(blocks);
         countdown_music.Play();
         countDown(3);
     }

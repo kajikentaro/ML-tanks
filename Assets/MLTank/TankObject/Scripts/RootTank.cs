@@ -26,6 +26,7 @@ public class RootTank : Agent
     public bool hitTarget=false;
     public bool hitShell=false;
     public bool notHit=false;
+    static public bool BanAction=false;
     private float a=1.0f;
 
     //public AudioClip shotSound;

@@ -10,13 +10,12 @@ public class TankMe : RootTank
     //public float rotate_speed = 3.0f;
     //Update is called once per frame
     rotate rotate_script;
-    stageLoad stageLoad;
     void Start(){
         rotate_script = this.tankTop.GetComponent<rotate>();
     }
     void FixedUpdate()
     {
-        if (true)//&& StageMaker.canMove)
+        if (!BanAction)
         {
             base.FixedUpdate();
             Vector3 Speed=Vector3.zero;
@@ -41,8 +40,8 @@ public class TankMe : RootTank
             if (Input.GetMouseButtonDown(0)){
                 shotShell();
             }
-        }
         rotate_script.rotateByMouse();
+        }
     }
     private void OnCollisionEnter(Collision other)
     {

@@ -11,7 +11,6 @@ using Unity.Barracuda;
 
 public class stageLoad : MonoBehaviour
 {
-    static public bool canMove = false;
     public bool learningMode=true;
     GameObject BreakableBlock;
     GameObject unBreakableBlock;

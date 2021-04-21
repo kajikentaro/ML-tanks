@@ -26,10 +26,10 @@ public class shellScript : MonoBehaviour
         transform.LookAt(v+transform.position);
     }
     void OnCollisionEnter(Collision collision){
+        rb=GetComponent<Rigidbody>();
         if (Vector3.Distance(rb.velocity, pre_collision_velocity) < 0.05f) return;//何回もの衝突防止
         else pre_collision_velocity = rb.velocity;
         //Debug.Log(collision.gameObject.tag);
-        rb=GetComponent<Rigidbody>();
         Vector3 v=rb.velocity;
         transform.LookAt(v+transform.position);
         if(collision.gameObject.tag=="block")col_count+=1;
