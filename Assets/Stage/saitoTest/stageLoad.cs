@@ -23,6 +23,7 @@ public class stageLoad : MonoBehaviour
     float block_depth = -2.5f;
     float tank_depth = 0.3f;
     public int stage_number = 1;
+    public int enemy_num = 0;
 
     public IEnumerator LoadStage(int stage_number,bool learningMode)//csvからテキスト情報を読み込み、int2次元配列を返す
     {
@@ -80,17 +81,20 @@ public class stageLoad : MonoBehaviour
                         var tank_gameobject=Instantiate(tankMe, tank_position , Quaternion.identity);
                         tank_gameobject.GetComponent<RootTank>().Shells=Shells;
                         tank_gameobject.GetComponent<TankMe>().learningMode=learningMode;
+                        tank_gameobject.GetComponent<RootTank>().script_holder = this.gameObject;
                     }
                 }
                 else{
                     GameObject EnemyTank;
                     if(!learningMode) {
+                        enemy_num++;
                         EnemyTank=Resources.Load("stageObject/tank"+blocks[i,j]) as GameObject;
                         Vector3 tank_position = new Vector3(x, tank_depth, z);
                         var tank_gameobject=Instantiate(EnemyTank, tank_position , Quaternion.identity);
                         tank_gameobject.GetComponent<RootTank>().Shells=Shells;
                         tank_gameobject.GetComponent<MLTank>().target=target;
                         tank_gameobject.GetComponent<BehaviorParameters>().Model=tanksModel[blocks[i,j]];
+                        tank_gameobject.GetComponent<RootTank>().script_holder = this.gameObject;
                         yield return 0;
                         tank_gameobject.SetActive(true);//これをしないとOnEpisodeBeginがtank_gameobject.GetComponent<RootTank>().Shells=Shells;より先に発生してヌルポになる。
                         yield return 0;
