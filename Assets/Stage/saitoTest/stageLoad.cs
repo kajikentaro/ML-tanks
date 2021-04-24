@@ -85,15 +85,15 @@ public class stageLoad : MonoBehaviour
                 else{
                     GameObject EnemyTank;
                     if(!learningMode) {
-                        yield return 0;
                         EnemyTank=Resources.Load("stageObject/tank"+blocks[i,j]) as GameObject;
-                        yield return 0;
                         Vector3 tank_position = new Vector3(x, tank_depth, z);
                         var tank_gameobject=Instantiate(EnemyTank, tank_position , Quaternion.identity);
                         tank_gameobject.GetComponent<RootTank>().Shells=Shells;
                         tank_gameobject.GetComponent<MLTank>().target=target;
                         tank_gameobject.GetComponent<BehaviorParameters>().Model=tanksModel[blocks[i,j]];
+                        yield return 0;
                         tank_gameobject.SetActive(true);//これをしないとOnEpisodeBeginがtank_gameobject.GetComponent<RootTank>().Shells=Shells;より先に発生してヌルポになる。
+                        yield return 0;
                     }
                 }
             }

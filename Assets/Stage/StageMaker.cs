@@ -138,6 +138,7 @@ public class StageMaker : MonoBehaviour
     public AudioSource bgm;
     public AudioSource countdown_music;
     public GameObject loading_menu;
+    public GameObject countdown_panel;
     void Start()
     {
         RootTank.BanAction=true;
@@ -153,5 +154,6 @@ public class StageMaker : MonoBehaviour
         countdown_music.Play();
         countDown(3);
         loading_menu.SetActive(false);
+        countdown_panel.SetActive(true);
     }
 }
