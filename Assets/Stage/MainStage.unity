@@ -400,7 +400,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 984163597}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &984163600
 Camera:
   m_ObjectHideFlags: 0
@@ -477,9 +477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9787656312c836745bbdbe7d108c8849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage_number: 1
-  tankPrefab: {fileID: 405897957522867300, guid: c138938fc5e554e46ac1a7e5794e2fdb,
-    type: 3}
+  tankPrefab: {fileID: 0}
   startGameCounter: {fileID: 1294749040}
   Panel: {fileID: 1422846643}
   bgm: {fileID: 1018887583}
@@ -711,6 +709,7 @@ MonoBehaviour:
   tankBModel: {fileID: 5022602860645237092, guid: 19e737a6303eb4a408d2e881df2e0e7f,
     type: 3}
   stage_number: 1
+  enemy_num: 0
 --- !u!82 &1018887585
 AudioSource:
   m_ObjectHideFlags: 0
