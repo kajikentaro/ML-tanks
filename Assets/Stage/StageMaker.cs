@@ -67,6 +67,7 @@ public class StageMaker : MonoBehaviour
         if(sl.enemy_num == 0)
         {
             startGameCounter.text = "Game Clear";
+            bgm.Stop();
             gameclear_audio.Play();
             Panel.SetActive(true);
             Invoke("nextStage", 3);
@@ -75,6 +76,7 @@ public class StageMaker : MonoBehaviour
     public void dead_me()
     {
         startGameCounter.text = "Game Over";
+        bgm.Stop();
         Panel.SetActive(true);
         gameover_audio.Play();
         Invoke("restartStage", 3);
