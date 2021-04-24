@@ -16,6 +16,7 @@ public class StageMaker : MonoBehaviour
     private int stage_number = 1;
     private int next_stage_number;
 
+    public Text loading_message;
     public GameObject tankPrefab;
     public Text startGameCounter;
     public GameObject Panel;
@@ -62,14 +63,14 @@ public class StageMaker : MonoBehaviour
         sl.enemy_num--;
         if(sl.enemy_num == 0)
         {
-            startGameCounter.text = "Finish";
+            startGameCounter.text = "Game Clear";
             Panel.SetActive(true);
             Invoke("nextStage", 3);
         }
     }
     public void dead_me()
     {
-        startGameCounter.text = "Finish";
+        startGameCounter.text = "Game Over";
         Panel.SetActive(true);
         Invoke("restartStage", 3);
     }
@@ -102,18 +103,34 @@ public class StageMaker : MonoBehaviour
     void Start()
     {
         RootTank.BanAction=true;
+        loading_message.text = stage_number + ""; 
         //char[,] blocks = LoadStage(stage_number);
         //drawBlock(blocks);
         StartCoroutine(load_stage_async());
+        StartCoroutine(wait4sec());
+    }
+    /* wait3sec()とload_stage_async()の両方が終わった場合のみカウントダウンを開始する*/
+    private int checkDone_counter = 0;
+    void checkDoneTwoMethods()
+    {
+        checkDone_counter++;
+        if(checkDone_counter == 2)
+        {
+            countdown_music.Play();
+            countDown(3);
+            loading_menu.SetActive(false);
+            countdown_panel.SetActive(true);
+        }
+    }
+    IEnumerator wait4sec()
+    {
+        yield return new WaitForSeconds(4);
+        checkDoneTwoMethods();
     }
     IEnumerator load_stage_async()
     {
         stageLoad sl = GetComponent<stageLoad>();
         yield return StartCoroutine(sl.LoadStage(stage_number, false));
-        //sl.LoadStage(stage_number, false);
-        countdown_music.Play();
-        countDown(3);
-        loading_menu.SetActive(false);
-        countdown_panel.SetActive(true);
+        checkDoneTwoMethods();
     }
 }

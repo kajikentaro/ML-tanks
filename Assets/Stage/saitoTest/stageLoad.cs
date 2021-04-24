@@ -95,9 +95,7 @@ public class stageLoad : MonoBehaviour
                         tank_gameobject.GetComponent<MLTank>().target=target;
                         tank_gameobject.GetComponent<BehaviorParameters>().Model=tanksModel[blocks[i,j]];
                         tank_gameobject.GetComponent<RootTank>().script_holder = this.gameObject;
-                        yield return 0;
                         tank_gameobject.SetActive(true);//これをしないとOnEpisodeBeginがtank_gameobject.GetComponent<RootTank>().Shells=Shells;より先に発生してヌルポになる。
-                        yield return 0;
                     }
                 }
             }
