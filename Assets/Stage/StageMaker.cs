@@ -60,7 +60,7 @@ public class StageMaker : MonoBehaviour
     {
         stageLoad sl = GetComponent<stageLoad>();
         sl.enemy_num--;
-        if(sl.enemy_num == 1)
+        if(sl.enemy_num == 0)
         {
             startGameCounter.text = "Finish";
             Panel.SetActive(true);
