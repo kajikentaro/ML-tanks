@@ -62,12 +62,13 @@ public class RootTank : Agent
         if(rBodya.velocity.magnitude!=0)rBodya.velocity*=speedTank/rBodya.velocity.magnitude;
     }
     public void DestroyTank(){
-        GameObject refObj;
-        refObj = GameObject.Find("Exposion");
-        effectStart es = refObj.GetComponent<effectStart>();
-        es.startEffect();
+        //GameObject refObj;
+        //refObj = GameObject.Find("Exposion");
+        //effectStart es = refObj.GetComponent<effectStart>();
+        //es.startEffect();
         // このスクリプトがついているオブジェクトを破壊する（thisは省略が可能）
-        //Destroy(gameObject.transform.Find("tank").gameObject);
+
+        //gameObject.transform.Find("tank").gameObject.SetActive(false);
         //Destroy(gameObject.transform.Find("bottom").gameObject);
         Destroy(this.gameObject);
     }

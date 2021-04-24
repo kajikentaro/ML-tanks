@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class shellScript : MonoBehaviour
@@ -10,6 +11,7 @@ public class shellScript : MonoBehaviour
     public Vector3 shotDirection;
     public int maxCol;
     public bool learningMode;
+    public bool aliving=true;
     private int col_count=0;
     private Vector3 pre_collision_velocity = Vector3.up;
     void Start()
@@ -29,13 +31,13 @@ public class shellScript : MonoBehaviour
         rb=GetComponent<Rigidbody>();
         if (Vector3.Distance(rb.velocity, pre_collision_velocity) < 0.05f) return;//何回もの衝突防止
         else pre_collision_velocity = rb.velocity;
-        //Debug.Log(collision.gameObject.tag);
         Vector3 v=rb.velocity;
         transform.LookAt(v+transform.position);
         if(collision.gameObject.tag=="block")col_count+=1;
         if(collision.gameObject.tag=="tank"){
-            Debug.Log(collision.gameObject.tag);
-            tank_gameobject.GetComponent<RootTank>().shellNum-=1;
+            try{
+                tank_gameobject.GetComponent<RootTank>().shellNum-=1;
+            }catch(Exception ignored){}
             if(learningMode){
                 collision.gameObject.GetComponent<RootTank>().received_attack=true;
                 if(tank_gameobject!=collision.gameObject)tank_gameobject.GetComponent<MLTank>().hitTank=true;
@@ -43,14 +45,18 @@ public class shellScript : MonoBehaviour
             Destroy(this.gameObject);
         }
         else if(collision.gameObject.tag=="target"){
-            tank_gameobject.GetComponent<RootTank>().hitTarget=true;
-            tank_gameobject.GetComponent<RootTank>().shellNum-=1;
+            try{
+                tank_gameobject.GetComponent<RootTank>().hitTarget=true;
+                tank_gameobject.GetComponent<RootTank>().shellNum-=1;
+            }catch(Exception ignored){}
             Destroy(this.gameObject);
         }
         else if(col_count==maxCol||collision.gameObject.tag=="Shell"){
-            if(collision.gameObject.tag=="Shell")tank_gameobject.GetComponent<RootTank>().hitShell=true;
-            else tank_gameobject.GetComponent<RootTank>().notHit=true;
-            tank_gameobject.GetComponent<RootTank>().shellNum-=1;
+            try{
+                if(collision.gameObject.tag=="Shell")tank_gameobject.GetComponent<RootTank>().hitShell=true;
+                else tank_gameobject.GetComponent<RootTank>().notHit=true;
+                tank_gameobject.GetComponent<RootTank>().shellNum-=1;
+            }catch(Exception ignored){}
             Destroy(this.gameObject);
         }
     }

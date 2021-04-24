@@ -50,7 +50,6 @@ public class TankMe : RootTank
         // もしもぶつかった相手のTagにShellという名前が書いてあったならば（条件）
         if (other.gameObject.tag == "Shell")
         {
-            Destroy(other.gameObject);
             script_holder.GetComponent<StageMaker>().dead_me();
             DestroyTank();
         }
