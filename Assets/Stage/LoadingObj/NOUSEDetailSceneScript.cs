@@ -56,7 +56,7 @@ public class DetailSceneScript : MonoBehaviour
     {
         // シーン切り替え後のスクリプトを取得
         var stageMaker = GameObject.Find("ScriptHolder").GetComponent<StageMaker>();
-        stageMaker.stage_number = pre_stage_number + 1;
+        //stageMaker.stage_number = pre_stage_number + 1;
         SceneManager.sceneLoaded -= pass_value_toStage;
     }
 

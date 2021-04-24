@@ -51,7 +51,7 @@ public class TankMe : RootTank
         if (other.gameObject.tag == "Shell")
         {
             Destroy(other.gameObject);
-            StageMaker sm=script_holder.GetComponent<StageMaker>().dead_me();
+            script_holder.GetComponent<StageMaker>().dead_me();
             DestroyTank();
         }
     }
