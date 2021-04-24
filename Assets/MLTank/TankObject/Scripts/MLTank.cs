@@ -12,6 +12,9 @@ public class MLTank: RootTank
     public GameObject target;
     void FixedUpdate(){
         base.FixedUpdate();
+        if(received_attack){
+            StageMaker sm=script_holder.GetComponent<StageMaker>().dead_enemy();
+        }
     }
 	public override void Initialize(){
         base.Initialize();

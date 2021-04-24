@@ -11,6 +11,7 @@ public class RootTank : Agent
     public GameObject shellPrefab;
     public GameObject Shells;
     public GameObject tankTop;
+    public GameObject script_holder;
     public bool EnableMove=false;
     public bool learningMode;
     public float speedTank = 1.0f;
