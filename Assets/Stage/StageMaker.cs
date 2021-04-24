@@ -57,6 +57,9 @@ public class StageMaker : MonoBehaviour
         }
     }
     bool pausing= false;
+    public AudioSource gameover_audio;
+    public AudioSource gameclear_audio;
+
     public void dead_enemy()
     {
         stageLoad sl = GetComponent<stageLoad>();
@@ -64,6 +67,7 @@ public class StageMaker : MonoBehaviour
         if(sl.enemy_num == 0)
         {
             startGameCounter.text = "Game Clear";
+            gameclear_audio.Play();
             Panel.SetActive(true);
             Invoke("nextStage", 3);
         }
@@ -72,6 +76,7 @@ public class StageMaker : MonoBehaviour
     {
         startGameCounter.text = "Game Over";
         Panel.SetActive(true);
+        gameover_audio.Play();
         Invoke("restartStage", 3);
     }
     void pause_game()
