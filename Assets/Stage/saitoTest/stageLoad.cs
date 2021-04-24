@@ -24,7 +24,7 @@ public class stageLoad : MonoBehaviour
     float tank_depth = 0.3f;
     public int stage_number = 1;
 
-    public void LoadStage(int stage_number,bool learningMode)//csvからテキスト情報を読み込み、int2次元配列を返す
+    public IEnumerator LoadStage(int stage_number,bool learningMode)//csvからテキスト情報を読み込み、int2次元配列を返す
     {
         string map_file_path = Application.dataPath + "/Stage/StageData/stage" + stage_number + ".csv";
         char[,] blocks;
@@ -61,6 +61,7 @@ public class stageLoad : MonoBehaviour
         {
             for(int j = 0; j < w; j++)
             {
+                yield return 0;
                 float x=block_width*(j-w/2+0.5f)+transform.position.x;
                 float z=block_height*(i-h/2+0.5f)+transform.position.z;
                 if (blocks[i,j] == '0') continue;

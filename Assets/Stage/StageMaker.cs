@@ -142,11 +142,13 @@ public class StageMaker : MonoBehaviour
         RootTank.BanAction=true;
         //char[,] blocks = LoadStage(stage_number);
         //drawBlock(blocks);
-        load_stage_async();
+        StartCoroutine(load_stage_async());
     }
-    async void load_stage_async()
+    IEnumerator load_stage_async()
     {
-        GetComponent<stageLoad>().LoadStage(stage_number,false);
+        stageLoad sl = GetComponent<stageLoad>();
+        yield return StartCoroutine(sl.LoadStage(stage_number, false));
+        //sl.LoadStage(stage_number, false);
         countdown_music.Play();
         countDown(3);
     }
