@@ -11,7 +11,7 @@ public class footPoint : MonoBehaviour
     void Update()
     {
         this.time += Time.deltaTime;
-        if (this.time > 0.1f)
+        if (this.time > 0.1f || true)
         {
             this.time = 0;
             Vector3 a=this.transform.position;
