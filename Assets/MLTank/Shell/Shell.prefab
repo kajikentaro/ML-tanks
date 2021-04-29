@@ -146,6 +146,7 @@ MonoBehaviour:
   shotDirection: {x: 0, y: 0, z: 0}
   maxCol: 0
   learningMode: 0
+  aliving: 1
 --- !u!135 &8948820567546750365
 SphereCollider:
   m_ObjectHideFlags: 0
