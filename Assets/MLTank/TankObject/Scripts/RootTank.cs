@@ -37,7 +37,7 @@ public class RootTank : Agent
 	}
     public void shotShell()
     {
-        if((Time.time-last_launch_time)>shotInterval){
+        if(true){
             if(shellNum<maxShellNum){
                 shellNum+=1;
                 Vector3 shellPos=transform.position;
