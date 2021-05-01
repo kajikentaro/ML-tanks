@@ -16,10 +16,11 @@ public class StageMaker : MonoBehaviour
     private int stage_number = 1;
     private int next_stage_number;
 
-    public Text loading_message;
+    public Text life_text, enemy_text, loading_message;
     public GameObject tankPrefab;
     public Text startGameCounter;
     public GameObject Panel;
+    static int user_life = 3;
     private void pass_value_to_MainStage(Scene next, LoadSceneMode mode)
     {
         // シーン切り替え後のスクリプトを取得
@@ -36,8 +37,15 @@ public class StageMaker : MonoBehaviour
     void nextStage()
     {
         next_stage_number = stage_number + 1;
-        SceneManager.sceneLoaded += pass_value_to_MainStage;
-        SceneManager.LoadScene("MainStage");
+        if(next_stage_number > stage_max)
+        {
+            //お祝いメッセージTODO
+        }
+        else
+        {
+            SceneManager.sceneLoaded += pass_value_to_MainStage;
+            SceneManager.LoadScene("MainStage");
+        }
     }
     async void countDown(int n)
     {
@@ -66,7 +74,7 @@ public class StageMaker : MonoBehaviour
         sl.enemy_num--;
         if(sl.enemy_num == 0)
         {
-            startGameCounter.text = "Game Clear";
+            startGameCounter.text = "You Win";
             bgm.Stop();
             gameclear_audio.Play();
             Panel.SetActive(true);
@@ -75,11 +83,16 @@ public class StageMaker : MonoBehaviour
     }
     public void dead_me()
     {
-        startGameCounter.text = "Game Over";
+        startGameCounter.text = "You lost";
         bgm.Stop();
         Panel.SetActive(true);
         gameover_audio.Play();
         Invoke("restartStage", 3);
+        user_life--;
+        if(user_life == 0)
+        {
+            //ゲームオーバーTODO
+        }
     }
     void pause_game()
     {
@@ -107,14 +120,38 @@ public class StageMaker : MonoBehaviour
     public AudioSource countdown_music;
     public GameObject loading_menu;
     public GameObject countdown_panel;
+    private static int[] diff_lists;
+    private static int[] enemy_nums;
+    private static int stage_max = -1;
     void Start()
     {
+        if(stage_max == -1)
+        {
+            init_diffs();
+        }
         RootTank.BanAction=true;
-        loading_message.text = stage_number + ""; 
-        //char[,] blocks = LoadStage(stage_number);
-        //drawBlock(blocks);
+        loading_message.text = "Stage " + stage_number;
+        life_text.text = "life ×" + user_life;
+        enemy_text.text = "enemy ×" + enemy_nums[stage_number - 1];
+
         StartCoroutine(load_stage_async());
         StartCoroutine(wait4sec());
+    }
+    void init_diffs()
+    {
+        string difficulty_txt_path = Application.dataPath + "/Stage/StageData/difficulty.txt";
+        using (var fs = new StreamReader(difficulty_txt_path, System.Text.Encoding.GetEncoding("UTF-8")))
+        {
+            stage_max = int.Parse(fs.ReadLine());
+            diff_lists = new int[stage_max];
+            enemy_nums = new int[stage_max];
+            for (int i = 0; i < stage_max; i++)
+            {
+                string[] param = fs.ReadLine().Split(' ');
+                enemy_nums[i] = int.Parse(param[0]);
+                diff_lists[i] = int.Parse(param[1]);
+            }
+        }
     }
     /* wait3sec()とload_stage_async()の両方が終わった場合のみカウントダウンを開始する*/
     private int checkDone_counter = 0;
