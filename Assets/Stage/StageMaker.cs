@@ -83,16 +83,16 @@ public class StageMaker : MonoBehaviour
     }
     public void dead_me()
     {
-        startGameCounter.text = "You lost";
-        bgm.Stop();
-        Panel.SetActive(true);
-        gameover_audio.Play();
-        Invoke("restartStage", 3);
         user_life--;
         if(user_life == 0)
         {
             //ゲームオーバーTODO
         }
+        startGameCounter.text = "You lost";
+        bgm.Stop();
+        Panel.SetActive(true);
+        gameover_audio.Play();
+        Invoke("restartStage", 3);
     }
     void pause_game()
     {

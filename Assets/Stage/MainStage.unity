@@ -1172,8 +1172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: 0.5, y: 0.5}
+  m_EffectColor: {r: 0.26415092, g: 0.071021706, b: 0.071021706, a: 0.5}
+  m_EffectDistance: {x: 2, y: 2}
   m_UseGraphicAlpha: 1
 --- !u!114 &1083125106
 MonoBehaviour:
@@ -1188,7 +1188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.6978417, b: 0.266187, a: 1}
+  m_Color: {r: 0.9528302, g: 0.8510434, b: 0.7056337, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1727,7 +1727,7 @@ GameObject:
   - component: {fileID: 1306278709}
   - component: {fileID: 1306278711}
   - component: {fileID: 1306278710}
-  - component: {fileID: 1306278712}
+  - component: {fileID: 1306278713}
   m_Layer: 5
   m_Name: stage_num
   m_TagString: Untagged
@@ -1744,7 +1744,7 @@ RectTransform:
   m_GameObject: {fileID: 1306278708}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 778712628}
   m_RootOrder: 0
@@ -1795,7 +1795,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1306278708}
   m_CullTransparentMesh: 0
---- !u!114 &1306278712
+--- !u!114 &1306278713
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1804,12 +1804,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1306278708}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f5916623579e1d4cbb7408f059727d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
-  m_EffectDistance: {x: 2, y: 2}
-  m_UseGraphicAlpha: 1
+  m_EffectColor: {r: 0.28235295, g: 0.1882353, b: 0.05490196, a: 0.5}
+  m_EffectDistance: 3
+  m_nEffectNumber: 5
+  m_UseGraphicAlpha: 0
 --- !u!1 &1422846643
 GameObject:
   m_ObjectHideFlags: 0
@@ -2031,11 +2032,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1904132705}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f5916623579e1d4cbb7408f059727d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: 0.5, y: 0.5}
+  m_EffectColor: {r: 0.8679245, g: 0.8138839, b: 0.7328231, a: 0.5}
+  m_EffectDistance: 3
+  m_nEffectNumber: 4
   m_UseGraphicAlpha: 1
 --- !u!114 &1904132708
 MonoBehaviour:
@@ -2050,7 +2052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.6978417, b: 0.266187, a: 1}
+  m_Color: {r: 0.14150941, g: 0.10172658, b: 0.042052325, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
