@@ -29,7 +29,7 @@ public class MLtankAhoshi : MLTank
         start_time=Time.time;
     }
     int rayCount=0;
-    public int clear=200;
+    public int clear=400;
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
         action_control(actionBuffers);

@@ -141,7 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tank: {fileID: 0}
   hitRay: 0
-  speedTarget: 1
+  speedTarget: 0.1
   received_attack: 0
 --- !u!1001 &349792369
 PrefabInstance:
@@ -255,6 +255,11 @@ PrefabInstance:
       propertyPath: maxShellNum
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8672187891692041966, guid: 67782d92ad8514590b4c2147d315a365,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8990998190403471376, guid: 67782d92ad8514590b4c2147d315a365, type: 3}
     - {fileID: 3589016314535302945, guid: 67782d92ad8514590b4c2147d315a365, type: 3}
@@ -281,7 +286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tank: {fileID: 0}
   hitRay: 0
-  speedTarget: 1
+  speedTarget: 0.1
   received_attack: 0
 --- !u!1001 &655107875
 PrefabInstance:
@@ -395,6 +400,11 @@ PrefabInstance:
       propertyPath: maxShellNum
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8672187891692041966, guid: 67782d92ad8514590b4c2147d315a365,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8990998190403471376, guid: 67782d92ad8514590b4c2147d315a365, type: 3}
     - {fileID: 3589016314535302945, guid: 67782d92ad8514590b4c2147d315a365, type: 3}
@@ -421,7 +431,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tank: {fileID: 0}
   hitRay: 0
-  speedTarget: 1
+  speedTarget: 0.1
   received_attack: 0
 --- !u!1001 &796414968
 PrefabInstance:
@@ -534,6 +544,11 @@ PrefabInstance:
         type: 3}
       propertyPath: maxShellNum
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8672187891692041966, guid: 67782d92ad8514590b4c2147d315a365,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8990998190403471376, guid: 67782d92ad8514590b4c2147d315a365, type: 3}
@@ -745,6 +760,11 @@ PrefabInstance:
       propertyPath: maxShellNum
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8672187891692041966, guid: 67782d92ad8514590b4c2147d315a365,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8990998190403471376, guid: 67782d92ad8514590b4c2147d315a365, type: 3}
     - {fileID: 3589016314535302945, guid: 67782d92ad8514590b4c2147d315a365, type: 3}
@@ -854,7 +874,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tank: {fileID: 0}
   hitRay: 0
-  speedTarget: 1
+  speedTarget: 0.1
   received_attack: 0
 --- !u!1 &1191783615 stripped
 GameObject:
@@ -876,7 +896,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tank: {fileID: 0}
   hitRay: 0
-  speedTarget: 1
+  speedTarget: 0.1
   received_attack: 0
 --- !u!1 &1226983678 stripped
 GameObject:
@@ -898,7 +918,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tank: {fileID: 0}
   hitRay: 0
-  speedTarget: 1
+  speedTarget: 0.1
   received_attack: 0
 --- !u!1001 &1244804952
 PrefabInstance:
@@ -1011,6 +1031,11 @@ PrefabInstance:
         type: 3}
       propertyPath: maxShellNum
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8672187891692041966, guid: 67782d92ad8514590b4c2147d315a365,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8990998190403471376, guid: 67782d92ad8514590b4c2147d315a365, type: 3}
@@ -1130,6 +1155,11 @@ PrefabInstance:
       propertyPath: maxShellNum
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8672187891692041966, guid: 67782d92ad8514590b4c2147d315a365,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8990998190403471376, guid: 67782d92ad8514590b4c2147d315a365, type: 3}
     - {fileID: 3589016314535302945, guid: 67782d92ad8514590b4c2147d315a365, type: 3}
@@ -1156,7 +1186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tank: {fileID: 0}
   hitRay: 0
-  speedTarget: 1
+  speedTarget: 0.1
   received_attack: 0
 --- !u!1001 &1695297525
 PrefabInstance:
@@ -1270,6 +1300,11 @@ PrefabInstance:
       propertyPath: maxShellNum
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8672187891692041966, guid: 67782d92ad8514590b4c2147d315a365,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8990998190403471376, guid: 67782d92ad8514590b4c2147d315a365, type: 3}
     - {fileID: 3589016314535302945, guid: 67782d92ad8514590b4c2147d315a365, type: 3}
@@ -1296,7 +1331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tank: {fileID: 0}
   hitRay: 0
-  speedTarget: 1
+  speedTarget: 0.1
   received_attack: 0
 --- !u!1 &1944563407 stripped
 GameObject:
@@ -1318,7 +1353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tank: {fileID: 0}
   hitRay: 0
-  speedTarget: 1
+  speedTarget: 0.1
   received_attack: 0
 --- !u!1001 &2114064639
 PrefabInstance:
@@ -1431,6 +1466,11 @@ PrefabInstance:
         type: 3}
       propertyPath: maxShellNum
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8672187891692041966, guid: 67782d92ad8514590b4c2147d315a365,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8990998190403471376, guid: 67782d92ad8514590b4c2147d315a365, type: 3}
@@ -1549,6 +1589,11 @@ PrefabInstance:
         type: 3}
       propertyPath: maxShellNum
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8672187891692041966, guid: 67782d92ad8514590b4c2147d315a365,
+        type: 3}
+      propertyPath: m_RaysPerDirection
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8990998190403471376, guid: 67782d92ad8514590b4c2147d315a365, type: 3}

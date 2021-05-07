@@ -58,6 +58,180 @@ public class stageLoad : MonoBehaviour
             {'A',tankAModel},
             {'B',tankBModel}
         };
+        //頂点の個数と、必要なメッシュの個数を数える
+        int vcnt = 0;
+        int tcnt = 0;
+        for(int i = 0; i < h; i++)
+        {
+            for(int j = 0; j < w; j++)
+            {
+                if(blocks[i,j] == '2'){
+                    int f = 0;
+                    if(i > 0 && blocks[i-1,j] == '2')f = 1;
+                    if(j > 0 && blocks[i,j-1] == '2')f = 1;
+                    if(i == 0 || j == 0)f = 1;
+                    if(i > 0 && j > 0 && blocks[i-1,j-1] == '2')f = 1;
+                    if(f == 0)vcnt++;
+                    f = 0;
+                    if(i > 0 && blocks[i-1,j] == '2')f = 1;
+                    if(i > 0 && j + 1 < w && blocks[i-1,j+1] == '2')f = 1;
+                    if(i == 0 || j == w - 1)f = 1;
+                    if(f == 0)vcnt++;
+                    f = 0;
+                    if(j > 0 && blocks[i,j-1] == '2')f = 1;
+                    if(j == 0)f = 1;
+                    if(f == 0)vcnt++;
+                    vcnt++;
+
+                    if(i > 0 && blocks[i-1,j] != '2')tcnt++;
+                    if(j > 0 && blocks[i,j-1] != '2')tcnt++;
+                    if(i + 1 < h && blocks[i+1,j] != '2')tcnt++;
+                    if(j + 1 < w && blocks[i,j+1] != '2')tcnt++;
+
+                }
+            }
+        }
+        //頂点とメッシュを作る
+        Vector3[] vertices = new Vector3[vcnt * 2];
+        int[] triangles = new int[tcnt * 2 * 3];
+        int[,,] idx = new int[h,w,4];
+        /*             ^上から見てZ順に0,1,2,3
+        */
+        int now = 0;
+        int cur = 0;
+        for(int i = 0; i < h; i++)
+        {
+            for(int j = 0; j < w; j++)
+            {
+                if(blocks[i,j] == '2'){
+
+                    int f = 0;
+                    float x=block_width*(j-w/2)+transform.position.x;
+                    float z=block_height*(i-h/2)+transform.position.z;
+
+                    if(i > 0 && blocks[i-1,j] == '2')f = 1;
+                    if(j > 0 && blocks[i,j-1] == '2')f = 1;
+                    if(i == 0 || j == 0)f = 1;
+                    if(i > 0 && j > 0 && blocks[i-1,j-1] == '2')f = 1;
+                    if(f == 0){
+                        idx[i,j,0] = now;
+                        vertices[now] = new Vector3(x,5.0f,z);
+                        vertices[now+vcnt] = new Vector3(x,-5.0f,z);
+                        now++;
+                    }
+                    f = 0;
+                    if(i > 0 && blocks[i-1,j] == '2')f = 1;
+                    if(i > 0 && j + 1 < w && blocks[i-1,j+1] == '2')f = 1;
+                    if(i == 0 || j == w - 1)f = 1;
+                    if(f == 0){
+                        idx[i,j,1] = now;
+                        vertices[now] = new Vector3(x + block_width,5.0f,z);
+                        vertices[now+vcnt] = new Vector3(x + block_width,-5.0f,z);
+                        if(j + 1 < w && blocks[i,j+1] == '2'){
+                            idx[i,j+1,0] = now;
+                        }
+                        now++;
+                    }
+                    f = 0;
+                    if(j > 0 && blocks[i,j-1] == '2')f = 1;
+                    if(j == 0)f = 1;
+                    if(f == 0){
+                        idx[i,j,2] = now;
+                        vertices[now] = new Vector3(x,5.0f,z + block_height);
+                        vertices[now+vcnt] = new Vector3(x,-5.0f,z + block_height);
+                        if(i + 1 < h && j > 0 && blocks[i+1,j-1] == '2'){
+                            idx[i+1,j-1,1] = now;
+                        }
+                        if(i + 1 < h && blocks[i+1,j] == '2'){
+                            idx[i+1,j,0] = now;
+                        }
+                        now++;
+                    }
+                    idx[i,j,3] = now;
+                    vertices[now] = new Vector3(x + block_width,5.0f,z + block_height);
+                    vertices[now+vcnt] = new Vector3(x + block_width,-5.0f,z + block_height);
+                    if(j + 1 < w && blocks[i,j+1] == '2'){
+                        idx[i,j+1,2] = now;
+                    }
+                    if(i + 1 < h && blocks[i+1,j] == '2'){
+                        idx[i+1,j,1] = now;
+                    }
+                    if(i + 1 < h && j + 1 < w && blocks[i+1,j+1] == '2'){
+                        idx[i+1,j+1,0] = now;
+                    }
+                    now++;
+
+                    if(i > 0 && blocks[i-1,j] != '2'){
+                        triangles[cur] = idx[i,j,0];
+                        cur++;
+                        triangles[cur] = idx[i,j,1] + vcnt;
+                        cur++;
+                        triangles[cur] = idx[i,j,0] + vcnt;
+                        cur++;
+                        triangles[cur] = idx[i,j,0];
+                        cur++;
+                        triangles[cur] = idx[i,j,1];
+                        cur++;
+                        triangles[cur] = idx[i,j,1] + vcnt;
+                        cur++;
+                    }
+                    if(j > 0 && blocks[i,j-1] != '2'){
+                        triangles[cur] = idx[i,j,2];
+                        cur++;
+                        triangles[cur] = idx[i,j,0] + vcnt;
+                        cur++;
+                        triangles[cur] = idx[i,j,2] + vcnt;
+                        cur++;
+                        triangles[cur] = idx[i,j,2];
+                        cur++;
+                        triangles[cur] = idx[i,j,0];
+                        cur++;
+                        triangles[cur] = idx[i,j,0] + vcnt;
+                        cur++;
+                    }
+                    if(i + 1 < h && blocks[i+1,j] != '2'){
+                        triangles[cur] = idx[i,j,3];
+                        cur++;
+                        triangles[cur] = idx[i,j,2] + vcnt;
+                        cur++;
+                        triangles[cur] = idx[i,j,3] + vcnt;
+                        cur++;
+                        triangles[cur] = idx[i,j,3];
+                        cur++;
+                        triangles[cur] = idx[i,j,2];
+                        cur++;
+                        triangles[cur] = idx[i,j,2] + vcnt;
+                        cur++;
+                    }
+                    if(j + 1 < w && blocks[i,j+1] != '2'){
+                        triangles[cur] = idx[i,j,1];
+                        cur++;
+                        triangles[cur] = idx[i,j,3] + vcnt;
+                        cur++;
+                        triangles[cur] = idx[i,j,1] + vcnt;
+                        cur++;
+                        triangles[cur] = idx[i,j,1];
+                        cur++;
+                        triangles[cur] = idx[i,j,3];
+                        cur++;
+                        triangles[cur] = idx[i,j,3] + vcnt;
+                        cur++;
+                    }
+                }
+            }
+        }
+        //メッシュの生成
+        Mesh mesh = new Mesh();
+        mesh.vertices = vertices;
+        mesh.triangles = triangles;
+        mesh.RecalculateNormals();
+        //オブジェクトの生成
+        GameObject UnbreakableBlocksCollider = new GameObject("UnbreakableBlocksCollider");
+        UnbreakableBlocksCollider.AddComponent<MeshCollider>();
+        var meshcollider = UnbreakableBlocksCollider.GetComponent<MeshCollider>();
+        meshcollider.sharedMesh = mesh;
+        Instantiate(UnbreakableBlocksCollider,new Vector3(0.0f,0.0f,0.0f), Quaternion.identity);
+
         for(int i = 0; i < h; i++)
         {
             for(int j = 0; j < w; j++)
@@ -73,7 +247,6 @@ public class stageLoad : MonoBehaviour
                 else if(blocks[i,j] == '2'){
                     Vector3 block_position = new Vector3(x, block_depth ,z);
                     Instantiate(unBreakableBlock, block_position, Quaternion.identity,Blocks.transform);
-                    
                 }
                 else if(blocks[i,j] == '.'){
                     if(!learningMode){
