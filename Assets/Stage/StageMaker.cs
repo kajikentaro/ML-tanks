@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Threading.Tasks;
 using UnityEngine.SceneManagement;
-
+using TMPro;
 
 public class StageMaker : MonoBehaviour
 {
@@ -16,7 +16,7 @@ public class StageMaker : MonoBehaviour
     private int stage_number = 1;
     private int next_stage_number;
 
-    public Text life_text, enemy_text, loading_message;
+    public TextMeshProUGUI life_text, enemy_text, loading_message;
     public GameObject tankPrefab;
     public Text startGameCounter;
     public GameObject Panel;
@@ -131,7 +131,7 @@ public class StageMaker : MonoBehaviour
         }
         RootTank.BanAction=true;
         loading_message.text = "Stage " + stage_number;
-        life_text.text = "life ×" + user_life;
+        life_text.text = "♥ ♥ ♥";
         enemy_text.text = "enemy ×" + enemy_nums[stage_number - 1];
 
         StartCoroutine(load_stage_async());
