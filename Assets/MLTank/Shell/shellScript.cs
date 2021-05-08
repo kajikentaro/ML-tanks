@@ -29,7 +29,27 @@ public class shellScript : MonoBehaviour
         transform.LookAt(rb.velocity+transform.position);
         pre_collision_velocity = rb.velocity;
     }
+    int collision_stay_count = 0;
+    void OnCollisionStay(Collision collision)
+    {
+        Debug.Log("stay");
+        collision_stay_count++;
+        if(collision_stay_count >= 5)
+        {
+            try{
+                if(collision.gameObject.tag=="Shell")tank_gameobject.GetComponent<RootTank>().hitShell=true;
+                else tank_gameobject.GetComponent<RootTank>().notHit=true;
+                tank_gameobject.GetComponent<RootTank>().shellNum-=1;
+            }catch(Exception ignored){}
+            Destroy(this.gameObject);
+        }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        Debug.Log("exit");
+    }
     void OnCollisionEnter(Collision collision){
+        collision_stay_count = 0;
         if (pre_collision_point == collision.contacts[0].point && pre_collision_normal == collision.contacts[0].normal) return;
         else
         {
