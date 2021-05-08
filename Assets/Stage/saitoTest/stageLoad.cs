@@ -227,6 +227,7 @@ public class stageLoad : MonoBehaviour
         mesh.RecalculateNormals();
         //オブジェクトの生成
         GameObject UnbreakableBlocksCollider = new GameObject("UnbreakableBlocksCollider");
+        UnbreakableBlocksCollider.tag = "block";
         UnbreakableBlocksCollider.AddComponent<MeshCollider>();
         var meshcollider = UnbreakableBlocksCollider.GetComponent<MeshCollider>();
         meshcollider.sharedMesh = mesh;
