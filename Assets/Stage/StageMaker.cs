@@ -130,8 +130,13 @@ public class StageMaker : MonoBehaviour
             init_diffs();
         }
         RootTank.BanAction=true;
+        string life_heart = "♥";
+        for(int i = 1; i < user_life; i++)
+        {
+            life_heart += " ♥";
+        }
+        life_text.text = life_heart;
         loading_message.text = "Stage " + stage_number;
-        life_text.text = "♥ ♥ ♥";
         enemy_text.text = "enemy ×" + enemy_nums[stage_number - 1];
 
         StartCoroutine(load_stage_async());
