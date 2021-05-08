@@ -13,7 +13,7 @@ public class TankMe : RootTank
     void Start(){
         rotate_script = this.tankTop.GetComponent<rotate>();
     }
-    void FixedUpdate()
+    void Update()
     {
         if (!BanAction)
         {
@@ -39,6 +39,7 @@ public class TankMe : RootTank
             decide_speed(Speed);
             if (Input.GetMouseButtonDown(0)){
                 shotShell();
+                Debug.Log("click");
             }
         rotate_script.rotateByMouse();
         }
