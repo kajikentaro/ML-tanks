@@ -13,7 +13,7 @@ public class shellScript : MonoBehaviour
     public bool learningMode;
     public bool aliving=true;
     private int col_count=0;
-    private Vector3 pre_collision_velocity = Vector3.up;
+    private Vector3 pre_collision_point;
     void Start()
     {
         //Time.timeScale=1.0f;
@@ -29,11 +29,20 @@ public class shellScript : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision){
         rb=GetComponent<Rigidbody>();
-        if (Vector3.Distance(rb.velocity, pre_collision_velocity) < 0.05f) return;//何回もの衝突防止
-        else pre_collision_velocity = rb.velocity;
+        if (pre_collision_point == collision.contacts[0].point) return;
+        else pre_collision_point = collision.contacts[0].point;
         Vector3 v=rb.velocity;
         transform.LookAt(v+transform.position);
-        if(collision.gameObject.tag=="block")col_count+=1;
+        if (collision.gameObject.tag == "block")
+        {
+            // 当たった物体の法線ベクトルを取得
+            Vector3 reflectVec = Vector3.Reflect(shotDirection, collision.contacts[0].normal);
+            rb.velocity = 10.0f * reflectVec;
+            // 計算した反射ベクトルを保存
+            shotDirection = 10.0f * rb.velocity;
+
+            col_count += 1;
+        }
         if(collision.gameObject.tag=="tank"){
             try{
                 tank_gameobject.GetComponent<RootTank>().shellNum-=1;
