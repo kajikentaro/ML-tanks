@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 [SerializeField]
 public class ShareClick : MonoBehaviour
@@ -16,5 +17,9 @@ public class ShareClick : MonoBehaviour
     {
 
         Application.OpenURL("https://github.com");
+    }
+    public void goMainMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }
