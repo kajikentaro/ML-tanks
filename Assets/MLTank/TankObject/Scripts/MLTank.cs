@@ -63,6 +63,7 @@ public class MLTank: RootTank
                 shotShell();
             }
             tankTop_script.rotateByFloat(actionBuffers.ContinuousActions[0]);
+            tankTop_script.rotateByFloat(-actionBuffers.ContinuousActions[1]);
         }
     }
     public override void OnActionReceived(ActionBuffers actionBuffers)

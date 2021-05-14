@@ -2287,6 +2287,11 @@ PrefabInstance:
       propertyPath: m_RaysPerDirection
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7374438244295209459, guid: 0b527fc004c26894998a48146ecc4971,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b527fc004c26894998a48146ecc4971, type: 3}
 --- !u!4 &40331306670179039 stripped
