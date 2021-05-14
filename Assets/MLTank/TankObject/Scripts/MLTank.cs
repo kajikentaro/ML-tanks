@@ -12,7 +12,7 @@ public class MLTank: RootTank
     public GameObject target;
     void FixedUpdate(){
         base.FixedUpdate();
-        if(received_attack){
+        if(received_attack&&!learningMode){
             script_holder.GetComponent<StageMaker>().dead_enemy();
         }
     }
@@ -129,7 +129,7 @@ public class MLTank: RootTank
         //public GameObject top = transform.Find("top").gameObject;
         //public GameObject bottom = transform.Find("bottom").gameObject;
         // もしもぶつかった相手のTagにShellという名前が書いてあったならば（条件）
-        if (other.gameObject.tag == "Shell")
+        if (other.gameObject.tag == "Shell"&&!learningMode)
         {
             script_holder.GetComponent<effectStart>().startEffect(this.transform.localPosition);
             script_holder.GetComponent<StageMaker>().dead_enemy();

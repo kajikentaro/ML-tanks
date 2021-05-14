@@ -1,5 +1,5 @@
 behaviors:
-  Tank:
+  TankB:
     trainer_type: ppo
     hyperparameters:
       batch_size: 10
@@ -12,12 +12,12 @@ behaviors:
       learning_rate_schedule: linear
     network_settings:
       normalize: false
-      hidden_units: 128
-      num_layers: 4
+      hidden_units: 64
+      num_layers: 3
     reward_signals:
       extrinsic:
         gamma: 0.99
         strength: 1.0
-    max_steps: 2e6
+    max_steps: 1e6
     time_horizon: 64
     summary_freq: 10000

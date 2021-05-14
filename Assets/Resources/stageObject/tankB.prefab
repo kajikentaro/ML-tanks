@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   latestPos: {x: 0, y: 0, z: 0}
+  rotate_speed: 5
 --- !u!114 &7517340579433836638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,7 +312,7 @@ MonoBehaviour:
   maxColCount: 1
   maxShellNum: 1
   shellNum: 0
-  shot_speed: 1
+  shot_speed: 7
   shotInterval: 3
   launch_cnt: 0
   last_launch_time: -100

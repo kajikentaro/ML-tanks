@@ -312,7 +312,7 @@ MonoBehaviour:
   maxColCount: 1
   maxShellNum: 0
   shellNum: 0
-  shot_speed: 1
+  shot_speed: 7
   shotInterval: 3
   launch_cnt: 0
   last_launch_time: -100

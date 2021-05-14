@@ -109,6 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   latestPos: {x: 0, y: 0, z: 0}
+  rotate_speed: 5
 --- !u!114 &948171863038659266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,6 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   footPrintPrefab: {fileID: 5996234188633661359, guid: b63a21b79613d4fa1af2efe12452b617,
     type: 3}
+  interval: 0.4
 --- !u!1 &2203356665541183398
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,7 +340,7 @@ MonoBehaviour:
   maxColCount: 2
   maxShellNum: 5
   shellNum: 0
-  shot_speed: 1
+  shot_speed: 7
   shotInterval: 0.2
   launch_cnt: 0
   last_launch_time: -100
