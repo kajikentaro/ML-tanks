@@ -39,7 +39,7 @@ public class StageMaker : MonoBehaviour
         next_stage_number = stage_number + 1;
         if(next_stage_number > stage_max)
         {
-            //お祝いメッセージTODO
+            SceneManager.LoadScene("Result");
         }
         else
         {

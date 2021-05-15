@@ -1,1 +1,87 @@
-{"count":1,"self":11.577791999999999,"total":11.5847687,"children":{"InitializeActuators":{"count":2,"self":0.0039897,"total":0.0039897,"children":null},"InitializeSensors":{"count":2,"self":0.0019903,"total":0.0019903,"children":null}},"gauges":{},"metadata":{"timer_format_version":"0.1.0","start_time_seconds":"1621098592","unity_version":"2019.4.18f1","command_line_arguments":"D:\\Unity\\2019.4.18f1\\Editor\\Unity.exe -projectpath D:\/Project\/UNITY\/ml-agents\/ML-tanks -useHub -hubIPC -cloudEnvironment production -hubSessionId 4145dbe0-b3b2-11eb-84c0-a3769385ef60 -accessToken 2Qep0Gys6TXvD-poCzPE3MNO1ZhDH0CjUAySAFMdDe400ef","communication_protocol_version":"1.5.0","com.unity.ml-agents_version":"2.0.0-exp.1","scene_name":"MainStage","end_time_seconds":"1621098604"}}
+{
+    "count": 1,
+    "self": 69.322976,
+    "total": 70.7642858,
+    "children": {
+        "InitializeActuators": {
+            "count": 13,
+            "self": 0.0010004,
+            "total": 0.0010004,
+            "children": null
+        },
+        "InitializeSensors": {
+            "count": 13,
+            "self": 0.0040013,
+            "total": 0.0040013,
+            "children": null
+        },
+        "AgentSendState": {
+            "count": 2878,
+            "self": 0.0334915,
+            "total": 0.3266613,
+            "children": {
+                "CollectObservations": {
+                    "count": 1466,
+                    "self": 0.0070006999999999995,
+                    "total": 0.0070006999999999995,
+                    "children": null
+                },
+                "WriteActionMask": {
+                    "count": 1466,
+                    "self": 0.0040015,
+                    "total": 0.0040015,
+                    "children": null
+                },
+                "RequestDecision": {
+                    "count": 1466,
+                    "self": 0.2294388,
+                    "total": 0.28216759999999996,
+                    "children": {
+                        "RayPerceptionSensor.Perceive": {
+                            "count": 466,
+                            "self": 0.0527288,
+                            "total": 0.0527288,
+                            "children": null
+                        }
+                    }
+                }
+            }
+        },
+        "DecideAction": {
+            "count": 2878,
+            "self": 0.9819281,
+            "total": 1.0870753,
+            "children": {
+                "RayPerceptionSensor.Perceive": {
+                    "count": 1314,
+                    "self": 0.1051472,
+                    "total": 0.1051472,
+                    "children": null
+                }
+            }
+        },
+        "AgentAct": {
+            "count": 2878,
+            "self": 0.0205733,
+            "total": 0.0205733,
+            "children": null
+        },
+        "RayPerceptionSensor.Perceive": {
+            "count": 4,
+            "self": 0.00099969999999999985,
+            "total": 0.00099969999999999985,
+            "children": null
+        }
+    },
+    "gauges": {},
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1620913921",
+        "unity_version": "2019.4.18f1",
+        "command_line_arguments": "C:\\Program Files\\2019.4.18f1\\Editor\\Unity.exe -projectpath C:\/Users\/aaa\/Downloads\/ML-tanks -useHub -hubIPC -cloudEnvironment production -hubSessionId 507d03e0-b3a8-11eb-9ce4-27bfe0a19c64 -accessToken p06bqndRooFamDqdFpZ51W3hkf9Mj9ei2mHrVcSk0MA00ef",
+        "communication_protocol_version": "1.5.0",
+        "com.unity.ml-agents_version": "2.0.0-exp.1",
+        "scene_name": "MainStage",
+        "end_time_seconds": "1620913992"
+    }
+}
