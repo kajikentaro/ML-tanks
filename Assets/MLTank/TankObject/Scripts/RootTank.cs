@@ -40,7 +40,7 @@ public class RootTank : Agent
         if(true){
             if(shellNum<maxShellNum&&Time.time-last_launch_time>shotInterval){
                 shellNum+=1;
-                Vector3 shellPos=transform.position;
+                Vector3 shellPos=tankTop.transform.position;
                 shellPos+=1.5f*tankTop.transform.forward;
                 GameObject shell = Instantiate(shellPrefab, shellPos,transform.rotation ,Shells.transform);
                 shell.GetComponent<shellScript>().maxCol=maxColCount;
@@ -62,14 +62,6 @@ public class RootTank : Agent
         if(rBodya.velocity.magnitude!=0)rBodya.velocity*=speedTank/rBodya.velocity.magnitude;
     }
     public void DestroyTank(){
-        //GameObject refObj;
-        //refObj = GameObject.Find("Exposion");
-        //effectStart es = refObj.GetComponent<effectStart>();
-        //es.startEffect();
-        // このスクリプトがついているオブジェクトを破壊する（thisは省略が可能）
-
-        //gameObject.transform.Find("tank").gameObject.SetActive(false);
-        //Destroy(gameObject.transform.Find("bottom").gameObject);
         Destroy(this.gameObject);
     }
 }

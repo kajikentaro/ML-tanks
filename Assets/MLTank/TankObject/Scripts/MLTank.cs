@@ -9,7 +9,11 @@ public class MLTank: RootTank
 {
     Rigidbody rBody;
     rotate tankTop_script;
-    public GameObject target;
+    static public GameObject target;
+    RayPerceptionSensorComponent3D rayPer;
+    public RayPerceptionInput rayInput;
+    RayPerceptionSensorComponent3D rayPer2;
+    public RayPerceptionInput rayInput2;
     void FixedUpdate(){
         base.FixedUpdate();
         if(received_attack&&!learningMode){
@@ -20,6 +24,10 @@ public class MLTank: RootTank
         base.Initialize();
         rBody=GetComponent<Rigidbody>();
         tankTop_script = tankTop.GetComponent<rotate>();
+        rayPer=tankTop.GetComponent<RayPerceptionSensorComponent3D>();
+        rayInput=rayPer.GetRayPerceptionInput();
+        rayPer2=this.GetComponent<RayPerceptionSensorComponent3D>();
+        rayInput2=rayPer2.GetRayPerceptionInput();
 	}
     public override void OnEpisodeBegin(){
         launch_cnt=0;
@@ -38,7 +46,8 @@ public class MLTank: RootTank
         sensor.AddObservation(target.transform.localPosition.x);
         sensor.AddObservation(target.transform.localPosition.z);
     }
-    public void action_control(ActionBuffers actionBuffers){
+    public override void OnActionReceived(ActionBuffers actionBuffers)
+    {
         Vector3 Speed=Vector3.zero;
         if(!BanAction){
             if (actionBuffers.DiscreteActions[0] == 1)
@@ -62,22 +71,21 @@ public class MLTank: RootTank
             {
                 shotShell();
             }
-            tankTop_script.rotateByFloat(actionBuffers.ContinuousActions[0]);
-            tankTop_script.rotateByFloat(-actionBuffers.ContinuousActions[1]);
-        }
-    }
-    public override void OnActionReceived(ActionBuffers actionBuffers)
-    {
-        action_control(actionBuffers);
-    }
-    public void gameset(float reward){
-        SetReward(reward);
-        EndEpisode();
-    }
-    public void gamesetAll(){
-        GameObject [] objs=GameObject.FindGameObjectsWithTag("tank");
-        foreach(GameObject obj in objs){
-            obj.GetComponent<MLTank>().gameset(0.0f);
+            bool f=true;
+            var rayOutputs=RayPerceptionSensor.Perceive(rayInput).RayOutputs;
+            var rayOutputs2=RayPerceptionSensor.Perceive(rayInput2).RayOutputs;
+            f=false;
+            foreach(var element in rayOutputs){
+                if(element.HitTagIndex==0){
+                    f=true;
+                }
+            }
+            foreach(var element in rayOutputs2){
+                if(element.HitTagIndex==0){
+                    f=true;
+                }
+            }
+            tankTop_script.rotateByFloat(target,f,actionBuffers.ContinuousActions[0]);
         }
     }
     public override void Heuristic(in ActionBuffers actionsOut)
@@ -134,7 +142,7 @@ public class MLTank: RootTank
         {
             script_holder.GetComponent<effectStart>().startEffect(this.transform.localPosition);
             script_holder.GetComponent<StageMaker>().dead_enemy();
-            DestroyTank();
+            Destroy(this.gameObject);
         }
     }
 

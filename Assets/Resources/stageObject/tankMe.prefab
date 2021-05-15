@@ -92,7 +92,7 @@ BoxCollider:
   m_GameObject: {fileID: 1061086830425493786}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 2.5714285, y: 1.9999999, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
@@ -247,7 +247,7 @@ BoxCollider:
   m_GameObject: {fileID: 5705199802945029744}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
@@ -275,6 +275,7 @@ GameObject:
   - component: {fileID: 2141143777649412795}
   - component: {fileID: 7881868651985232832}
   - component: {fileID: 3521457948955266709}
+  - component: {fileID: 8902675039360003032}
   m_Layer: 0
   m_Name: tankMe
   m_TagString: target
@@ -336,7 +337,7 @@ MonoBehaviour:
   script_holder: {fileID: 0}
   EnableMove: 1
   learningMode: 0
-  speedTank: 3
+  speedTank: 3.5
   maxColCount: 2
   maxShellNum: 5
   shellNum: 0
@@ -362,7 +363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 1
+    VectorObservationSize: 0
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 0
@@ -379,3 +380,16 @@ MonoBehaviour:
   m_UseChildSensors: 1
   m_UseChildActuators: 1
   m_ObservableAttributeHandling: 0
+--- !u!65 &8902675039360003032
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7703206291292129763}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1, z: 2}
+  m_Center: {x: 0, y: 0.2, z: 0}

@@ -48,7 +48,7 @@ public class MLtankA : MLTank
         }
         AddReward(-0.005f);
 
-        action_control(actionBuffers);
+        //action_control(actionBuffers);
         if(Time.time - start_time >= 20){
             //gameset(-1.0f);
             EndEpisode();

@@ -9,14 +9,12 @@ public class MLtankAsait : MLTank
 {
     float start_time;
     int NotHitCount;
-    RayPerceptionSensorComponent3D rayPer;
-    public RayPerceptionInput rayInput;
+    public GameObject targetL;  
     public override void Initialize()
     {
         base.Initialize();
-        rayPer=tankTop.GetComponent<RayPerceptionSensorComponent3D>();
-        rayInput=rayPer.GetRayPerceptionInput();
-        Debug.Log(Time.deltaTime);
+        target=targetL;
+        target.GetComponent<Rigidbody>().velocity=new Vector3(4.0f,0,4.0f);
     }
     public override void OnEpisodeBegin()
     {
@@ -33,19 +31,13 @@ public class MLtankAsait : MLTank
     }
     public int clear=1000;
     public float distLimit=3.0f;
+    bool f=true;
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
-        action_control(actionBuffers);
-        var rayOutputs=RayPerceptionSensor.Perceive(rayInput).RayOutputs;
-        foreach(var element in rayOutputs){
-            if(element.HitTagIndex==0){
-                AddReward(0.0001f);
-                //SetReward(1.0f);
-                //EndEpisode();
-            }
-        }
+        base.OnActionReceived(actionBuffers);
+        //AddReward(-0.0001f);
         if(received_attack){
-            SetReward(-1.0f);
+            //SetReward(-1.0f);
             received_attack=false;
             //Debug.Log("received_attack");
             EndEpisode();
@@ -58,30 +50,30 @@ public class MLtankAsait : MLTank
         }
         if(hitTarget){
             SetReward(1.0f);
-            //target.GetComponent<target>().received_attack=true;
+            //target.GetComponent<MLtankAsait>().received_attack=true;
             hitTarget=false;
             Debug.Log("hit target");
             EndEpisode();
         }
         if(hitShell){
-            AddReward(0.3f);
+            //AddReward(0.3f);
             hitShell=false;
         }
         if(notHit){
-            AddReward(-0.01f);
+            //AddReward(-0.01f);
             notHit=false;
             Debug.Log("Not hit");
         }
-        if(Time.time - start_time >= 15){
-            SetReward(-1.0f);
-            EndEpisode();
-        }
+        //if(Time.time - start_time >= 50){
+            //SetReward(-1.0f);
+            //EndEpisode();
+        //}
     }
     void OnCollisionEnter(Collision collision){
         var Tag=collision.gameObject.tag;
         if(Tag=="Shell"||Tag=="block"){
-            SetReward(-1.0f);
-            EndEpisode();
+            AddReward(-0.5f);
+            //EndEpisode();
         }
     }
 }

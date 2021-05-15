@@ -15,13 +15,12 @@ public class stageLoad : MonoBehaviour
     GameObject BreakableBlock;
     GameObject unBreakableBlock;
     GameObject tankMe;
-    public GameObject target;
-    public NNModel tankAModel;
-    public NNModel tankBModel;
+    public GameObject tankMe_instance;
+    public NNModel tankModel;
     float block_height = 1.0f;
     float block_width = 1.0f;
     float block_depth = -2.5f;
-    float tank_depth = 0.3f;
+    float tank_depth = 0.2f;
     public int stage_number = 1;
     public int enemy_num = 0;
 
@@ -50,14 +49,11 @@ public class stageLoad : MonoBehaviour
         w=blocks.GetLength(1);
         BreakableBlock=Resources.Load("stageObject/Block1") as GameObject;
         unBreakableBlock=Resources.Load("stageObject/Block2") as GameObject;
-        tankMe=Resources.Load("stageObject/tankMe") as GameObject;
         GameObject Blocks=new GameObject("Blocks");
         GameObject Shells=new GameObject("Shells");
-        if(!learningMode)target=tankMe;
-        var tanksModel=new Dictionary<char,NNModel>(){
-            {'A',tankAModel},
-            {'B',tankBModel}
-        };
+        tankMe=Resources.Load("stageObject/tankMe") as GameObject;
+        tankMe_instance=Instantiate(tankMe, new Vector3(0,-100,0) , Quaternion.identity);
+        MLTank.target=tankMe_instance;
         //頂点の個数と、必要なメッシュの個数を数える
         int vcnt = 0;
         int tcnt = 0;
@@ -232,7 +228,6 @@ public class stageLoad : MonoBehaviour
         var meshcollider = UnbreakableBlocksCollider.GetComponent<MeshCollider>();
         meshcollider.sharedMesh = mesh;
         Instantiate(UnbreakableBlocksCollider,new Vector3(0.0f,0.0f,0.0f), Quaternion.identity);
-
         for(int i = 0; i < h; i++)
         {
             for(int j = 0; j < w; j++)
@@ -249,13 +244,13 @@ public class stageLoad : MonoBehaviour
                     Vector3 block_position = new Vector3(x, block_depth ,z);
                     Instantiate(unBreakableBlock, block_position, Quaternion.identity,Blocks.transform);
                 }
-                else if(blocks[i,j] == '.'){
+                else if(blocks[i,j]=='.'){
                     if(!learningMode){
                         Vector3 tank_position = new Vector3(x, tank_depth,z);
-                        var tank_gameobject=Instantiate(tankMe, tank_position , Quaternion.identity);
-                        tank_gameobject.GetComponent<RootTank>().Shells=Shells;
-                        tank_gameobject.GetComponent<TankMe>().learningMode=learningMode;
-                        tank_gameobject.GetComponent<RootTank>().script_holder = this.gameObject;
+                        tankMe_instance.transform.position=tank_position;
+                        tankMe_instance.GetComponent<RootTank>().Shells=Shells;
+                        tankMe_instance.GetComponent<TankMe>().learningMode=learningMode;
+                        tankMe_instance.GetComponent<RootTank>().script_holder = this.gameObject;
                     }
                 }
                 else{
@@ -266,8 +261,7 @@ public class stageLoad : MonoBehaviour
                         Vector3 tank_position = new Vector3(x, tank_depth, z);
                         var tank_gameobject=Instantiate(EnemyTank, tank_position , Quaternion.identity);
                         tank_gameobject.GetComponent<RootTank>().Shells=Shells;
-                        tank_gameobject.GetComponent<MLTank>().target=target;
-                        tank_gameobject.GetComponent<BehaviorParameters>().Model=tanksModel[blocks[i,j]];
+                        tank_gameobject.GetComponent<BehaviorParameters>().Model=tankModel;
                         tank_gameobject.GetComponent<RootTank>().script_holder = this.gameObject;
                         tank_gameobject.SetActive(true);//これをしないとOnEpisodeBeginがtank_gameobject.GetComponent<RootTank>().Shells=Shells;より先に発生してヌルポになる。
                     }
@@ -276,6 +270,7 @@ public class stageLoad : MonoBehaviour
         }
     }
     void Start(){
+        //tankMeを先にインスタンス化
         LoadStage(stage_number,learningMode);
     }
 }

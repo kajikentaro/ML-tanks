@@ -1014,11 +1014,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6e0fe42a0503e44da8d3afed2e90edb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  learningMode: 1
-  target: {fileID: 7703206291292129763, guid: 4bb00efbebcc19549b998a2705076389, type: 3}
-  tankAModel: {fileID: 5022602860645237092, guid: c35ec69682fc9834c9e6b48992ceeaae,
-    type: 3}
-  tankBModel: {fileID: 5022602860645237092, guid: 19e737a6303eb4a408d2e881df2e0e7f,
+  learningMode: 0
+  tankMe_instance: {fileID: 0}
+  tankModel: {fileID: 5022602860645237092, guid: e225caeedb3c35048890eade76653cf5,
     type: 3}
   stage_number: 1
   enemy_num: 0
