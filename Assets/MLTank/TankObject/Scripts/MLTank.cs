@@ -43,8 +43,8 @@ public class MLTank: RootTank
         sensor.AddObservation(this.transform.localPosition.z);
         sensor.AddObservation(tankTop.transform.rotation.y);
         sensor.AddObservation(maxShellNum-shellNum);
-        sensor.AddObservation(target.transform.localPosition.x);
-        sensor.AddObservation(target.transform.localPosition.z);
+        sensor.AddObservation(target ? target.transform.localPosition.x : 0);
+        sensor.AddObservation(target ? target.transform.localPosition.z : 0);
     }
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
