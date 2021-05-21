@@ -151,18 +151,16 @@ public class StageMaker : MonoBehaviour
     }
     void init_diffs()
     {
-        string difficulty_txt_path = Application.dataPath + "/Stage/StageData/difficulty.txt";
-        using (var fs = new StreamReader(difficulty_txt_path, System.Text.Encoding.GetEncoding("UTF-8")))
+        TextAsset textAsset= Resources.Load("StageData/difficulty") as TextAsset;
+        String[] fss = textAsset.text.Split('\n');
+        stage_max = int.Parse(fss[0]);
+        diff_lists = new int[stage_max];
+        enemy_nums = new int[stage_max];
+        for(int i = 0; i < stage_max; i++)
         {
-            stage_max = int.Parse(fs.ReadLine());
-            diff_lists = new int[stage_max];
-            enemy_nums = new int[stage_max];
-            for (int i = 0; i < stage_max; i++)
-            {
-                string[] param = fs.ReadLine().Split(' ');
-                enemy_nums[i] = int.Parse(param[0]);
-                diff_lists[i] = int.Parse(param[1]);
-            }
+            string[] param = fss[i+1].Split(' ');
+            enemy_nums[i] = int.Parse(param[0]);
+            diff_lists[i] = int.Parse(param[1]);
         }
     }
     /* wait3sec()とload_stage_async()の両方が終わった場合のみカウントダウンを開始する*/
