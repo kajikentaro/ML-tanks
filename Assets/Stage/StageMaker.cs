@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using System.Threading.Tasks;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System;
 
 public class StageMaker : MonoBehaviour
 {
@@ -27,6 +28,12 @@ public class StageMaker : MonoBehaviour
         var stageMaker = GameObject.Find("ScriptHolder").GetComponent<StageMaker>();
         stageMaker.stage_number = next_stage_number;
         SceneManager.sceneLoaded -= pass_value_to_MainStage;
+        if(stage_number == 1)
+        {
+            int unixTimestamp = (int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+            PlayerPrefs.SetInt("StartTime",unixTimestamp);
+            PlayerPrefs.Save();
+        }
     }
     void restartStage()
     {
