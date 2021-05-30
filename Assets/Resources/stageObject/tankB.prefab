@@ -45,7 +45,6 @@ GameObject:
   - component: {fileID: 6612927620383418121}
   - component: {fileID: 2602369910422283710}
   - component: {fileID: 8358296807940985383}
-  - component: {fileID: 7517340579433836638}
   - component: {fileID: 7083111267589002860}
   m_Layer: 0
   m_Name: bottom
@@ -142,36 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   latestPos: {x: 0, y: 0, z: 0}
---- !u!114 &7517340579433836638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4284123370722782794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bb6b867a41448888c1cd4f99643ad71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SensorName: RayPerceptionSensor2
-  m_DetectableTags:
-  - target
-  - tank
-  - block
-  - Shell
-  m_RaysPerDirection: 8
-  m_MaxRayDegrees: 180
-  m_SphereCastRadius: 1
-  m_RayLength: 100
-  m_RayLayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967291
-  m_ObservationStacks: 1
-  rayHitColor: {r: 1, g: 0, b: 0, a: 1}
-  rayMissColor: {r: 1, g: 1, b: 1, a: 1}
-  m_StartVerticalOffset: 1.8
-  m_EndVerticalOffset: 0
+  rotate_speed: 5
 --- !u!54 &7083111267589002860
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -202,6 +172,7 @@ GameObject:
   - component: {fileID: 3862421628812500087}
   - component: {fileID: 8182621009662740423}
   - component: {fileID: 6628997646467493935}
+  - component: {fileID: 2188056424591313409}
   m_Layer: 0
   m_Name: tankB
   m_TagString: tank
@@ -254,7 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BrainParameters:
     VectorObservationSize: 6
-    NumStackedVectorObservations: 5
+    NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 1
       BranchSizes: 030000000300000002000000
@@ -265,7 +236,7 @@ MonoBehaviour:
   m_Model: {fileID: 5022602860645237092, guid: 6449e3746be58754a90fcc952834f1bb, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
-  m_BehaviorName: TankB
+  m_BehaviorName: tank
   TeamId: 0
   m_UseChildSensors: 1
   m_UseChildActuators: 1
@@ -307,11 +278,11 @@ MonoBehaviour:
   script_holder: {fileID: 0}
   EnableMove: 1
   learningMode: 0
-  speedTank: 3
+  speedTank: 3.5
   maxColCount: 1
-  maxShellNum: 1
+  maxShellNum: 2
   shellNum: 0
-  shot_speed: 1
+  shot_speed: 7
   shotInterval: 3
   launch_cnt: 0
   last_launch_time: -100
@@ -320,7 +291,6 @@ MonoBehaviour:
   hitTarget: 0
   hitShell: 0
   notHit: 0
-  target: {fileID: 0}
 --- !u!65 &6628997646467493935
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -334,6 +304,34 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 1, z: 2}
   m_Center: {x: 0, y: 0.2, z: 0}
+--- !u!114 &2188056424591313409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6857493593980909235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb6b867a41448888c1cd4f99643ad71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SensorName: RayPerceptionSensor
+  m_DetectableTags:
+  - target
+  - Shell
+  m_RaysPerDirection: 20
+  m_MaxRayDegrees: 180
+  m_SphereCastRadius: 0.3
+  m_RayLength: 400
+  m_RayLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967291
+  m_ObservationStacks: 1
+  rayHitColor: {r: 1, g: 0, b: 0, a: 1}
+  rayMissColor: {r: 1, g: 1, b: 1, a: 1}
+  m_StartVerticalOffset: 0.5
+  m_EndVerticalOffset: 0.5
 --- !u!1 &8854375548522133792
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,16 +438,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb6b867a41448888c1cd4f99643ad71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SensorName: RayPerceptionSensor
+  m_SensorName: RayPerceptionSensor2
   m_DetectableTags:
   - target
-  - tank
-  - block
   - Shell
   m_RaysPerDirection: 5
   m_MaxRayDegrees: 10
   m_SphereCastRadius: 0
-  m_RayLength: 100
+  m_RayLength: 400
   m_RayLayerMask:
     serializedVersion: 2
     m_Bits: 4294967291

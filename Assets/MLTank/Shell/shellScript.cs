@@ -14,12 +14,10 @@ public class shellScript : MonoBehaviour
     public bool aliving=true;
     private int col_count=0;
     private Vector3 pre_collision_point = Vector3.up;
-    private Vector3 pre_collision_velocity = Vector3.up;
     private Vector3 pre_collision_normal = Vector3.up;
     void Start()
     {
         rb=GetComponent<Rigidbody>();
-        shotDirection *= 10f;
         rb.velocity= shotDirection;
     }
     // Update is called once per frame
@@ -27,7 +25,6 @@ public class shellScript : MonoBehaviour
     {
         rb.velocity = shotDirection;
         transform.LookAt(rb.velocity+transform.position);
-        pre_collision_velocity = rb.velocity;
     }
     int collision_stay_count = 0;
     void OnCollisionStay(Collision collision)
@@ -54,7 +51,6 @@ public class shellScript : MonoBehaviour
         else
         {
             pre_collision_point = collision.contacts[0].point;
-            pre_collision_velocity = rb.velocity;
         }
         //transform.LookAt(rb.velocity+transform.position);
         if (collision.gameObject.tag == "block")

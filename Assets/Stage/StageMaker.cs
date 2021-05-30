@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using System.Threading.Tasks;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System;
 
 public class StageMaker : MonoBehaviour
 {
@@ -27,6 +28,12 @@ public class StageMaker : MonoBehaviour
         var stageMaker = GameObject.Find("ScriptHolder").GetComponent<StageMaker>();
         stageMaker.stage_number = next_stage_number;
         SceneManager.sceneLoaded -= pass_value_to_MainStage;
+        if(stage_number == 1)
+        {
+            int unixTimestamp = (int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+            PlayerPrefs.SetInt("StartTime",unixTimestamp);
+            PlayerPrefs.Save();
+        }
     }
     void restartStage()
     {
@@ -39,7 +46,7 @@ public class StageMaker : MonoBehaviour
         next_stage_number = stage_number + 1;
         if(next_stage_number > stage_max)
         {
-            //お祝いメッセージTODO
+            SceneManager.LoadScene("Result");
         }
         else
         {
@@ -144,18 +151,16 @@ public class StageMaker : MonoBehaviour
     }
     void init_diffs()
     {
-        string difficulty_txt_path = Application.dataPath + "/Stage/StageData/difficulty.txt";
-        using (var fs = new StreamReader(difficulty_txt_path, System.Text.Encoding.GetEncoding("UTF-8")))
+        TextAsset textAsset = Resources.Load("StageData/difficulty") as TextAsset;
+        String[] fss = textAsset.text.Split('\n');
+        stage_max = int.Parse(fss[0]);
+        diff_lists = new int[stage_max];
+        enemy_nums = new int[stage_max];
+        for(int i = 0; i < stage_max; i++)
         {
-            stage_max = int.Parse(fs.ReadLine());
-            diff_lists = new int[stage_max];
-            enemy_nums = new int[stage_max];
-            for (int i = 0; i < stage_max; i++)
-            {
-                string[] param = fs.ReadLine().Split(' ');
-                enemy_nums[i] = int.Parse(param[0]);
-                diff_lists[i] = int.Parse(param[1]);
-            }
+            string[] param = fss[i+1].Split(' ');
+            enemy_nums[i] = int.Parse(param[0]);
+            diff_lists[i] = int.Parse(param[1]);
         }
     }
     /* wait3sec()とload_stage_async()の両方が終わった場合のみカウントダウンを開始する*/

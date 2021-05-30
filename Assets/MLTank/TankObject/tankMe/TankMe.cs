@@ -53,7 +53,7 @@ public class TankMe : RootTank
         {
             script_holder.GetComponent<effectStart>().startEffect(this.transform.localPosition);
             script_holder.GetComponent<StageMaker>().dead_me();
-            DestroyTank();
+            transform.position=new Vector3(0,-100,0);
         }
     }
 }

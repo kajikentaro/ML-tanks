@@ -19,11 +19,20 @@ public class rotate : MonoBehaviour
         }
     }
     float forceAdjustNum = 4.0f;
-    public void rotateByFloat(float input = 1)
+    public void rotateByFloat(GameObject target,bool f,float input = 1)
     {
         float nowAngle = transform.eulerAngles.y;
         nowAngle += input * forceAdjustNum;
-        transform.eulerAngles = Vector3.up * nowAngle;
+        if(f){
+		    Vector3 targetDir = target.transform.position - transform.position; 
+		    float rotate_speed = 3.0f;
+		    float step = rotate_speed*Time.deltaTime;
+		    Vector3 newDir = Vector3.RotateTowards(transform.forward,targetDir,step,10.0F);
+		    transform.rotation = Quaternion.LookRotation(newDir);
+        }
+        else{
+            transform.eulerAngles = Vector3.up * nowAngle;
+        }
     }
     /*
     private void Update()
